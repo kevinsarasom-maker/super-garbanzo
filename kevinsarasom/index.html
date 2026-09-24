@@ -1,0 +1,1464 @@
+<!doctype html>
+<title>Kevin Sarasom</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Kevin Sarasom: photographer, cinematographer and producer based in Toronto. Corporate headshots, Nomadic Pods video and podcast production, brand films, Off Leash Studio pet portraits, event activations and Pet Rescue Portraits.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kevinsarasom.com/">
+<meta property="og:site_name" content="Kevin Sarasom">
+<meta property="og:title" content="Kevin Sarasom · Photographer, Cinematographer & Producer">
+<meta property="og:description" content="Headshots, podcasts, brand films, 15,000+ dogs and a lot of instant prints. Twenty years behind the camera.">
+<meta property="og:image" content="https://kevinsarasom.com/media/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kevin Sarasom · Photographer, Cinematographer & Producer">
+<meta name="twitter:description" content="Headshots, podcasts, brand films, 15,000+ dogs and a lot of instant prints. Twenty years behind the camera.">
+<meta name="twitter:image" content="https://kevinsarasom.com/media/og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400..900&family=Radio+Canada:wdth,wght@75..100,300..700&family=Doto:wght@500..900&family=Sedgwick+Ave&display=swap">
+<style>
+  /* The site is a working light table: orange C-41 negatives, a loupe, china marker, prints.
+     The light table is a light source, so it stays bright in both themes; "Lights" only changes the room. */
+  @property --sweep { syntax: "<color>"; inherits: true; initial-value: #fcbc22; }
+
+  :root {
+    color-scheme: light;
+    --room: #E6E9E9;
+    --room-2: #DADFDF;
+    --ink: #0D0F0F;
+    --ink-2: #333A3C;
+    --muted: #5A6467;
+    --rule: #BCC4C6;
+    --sheet: #FFFFFF;
+    --paper: #FFFFFF;
+    --rebate: #121415;
+    --btn: #0D0F0F;
+    --btn-ink: #F5F7F7;
+    --marker: #D2291B;
+    --tally: rgba(13, 15, 15, .2);
+    --print-shadow: 0 1px 1px rgba(20, 28, 30, .14), 0 16px 32px -14px rgba(20, 28, 30, .4);
+    --glow: 0 0 0 0 transparent;
+    --bezel: #C6CDCF;
+
+    /* fixed materials, same in both themes */
+    --table: #FAFCFC;
+    --table-2: #E9F0F1;
+    --table-ink: #0D0F0F;
+    --table-muted: #4C575A;
+    --mask: #DE874A;
+    --edge-ink: #5A290C;
+    --sleeve-ink: #111213;
+    --screen: #070808;
+    --screen-ink: #E8ECEC;
+    --screen-muted: #8C979A;
+    --screen-rule: #252B2D;
+
+    --display: "Bodoni Moda", Didot, "Bodoni 72", "Bodoni MT", Georgia, serif;
+    --body: "Radio Canada", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --dot: "Doto", ui-monospace, Menlo, Consolas, monospace;
+    --hand: "Sedgwick Ave", "Marker Felt", "Segoe Print", "Comic Sans MS", cursive;
+    --gut: clamp(16px, 4vw, 48px);
+    --holes: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 12' preserveAspectRatio='none'%3E%3Cpath fill-rule='evenodd' d='M0 0H10V12H0Z M3.6 3.5H6.4Q7 3.5 7 4.1V7.9Q7 8.5 6.4 8.5H3.6Q3 8.5 3 7.9V4.1Q3 3.5 3.6 3.5Z'/%3E%3C/svg%3E");
+    --holes-t: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 12' preserveAspectRatio='none'%3E%3Cpath fill-rule='evenodd' d='M0 0H10V12H0Z M3.7 4.4H6.3Q7 4.4 7 5.1V8.9Q7 9.6 6.3 9.6H3.7Q3 9.6 3 8.9V5.1Q3 4.4 3.7 4.4Z'/%3E%3C/svg%3E");
+    --holes-b: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 12' preserveAspectRatio='none'%3E%3Cpath fill-rule='evenodd' d='M0 0H10V12H0Z M3.7 2.4H6.3Q7 2.4 7 3.1V6.9Q7 7.6 6.3 7.6H3.7Q3 7.6 3 6.9V3.1Q3 2.4 3.7 2.4Z'/%3E%3C/svg%3E");
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --room: #0D0F10; --room-2: #141819; --ink: #E7EBEB; --ink-2: #BFC7C9; --muted: #8D989B; --rule: #2A3134;
+      --sheet: #141718; --paper: #E3E7E7; --rebate: #1F2426; --btn: #E7EBEB; --btn-ink: #0D0F10; --marker: #FF5445;
+      --tally: rgba(231, 235, 235, .16);
+      --print-shadow: 0 1px 1px rgba(0, 0, 0, .5), 0 20px 44px -14px rgba(0, 0, 0, .85);
+      --glow: 0 0 90px -10px rgba(206, 232, 240, .26), 0 0 240px -40px rgba(206, 232, 240, .2);
+      --bezel: #2B3235;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --room: #0D0F10; --room-2: #141819; --ink: #E7EBEB; --ink-2: #BFC7C9; --muted: #8D989B; --rule: #2A3134;
+    --sheet: #141718; --paper: #E3E7E7; --rebate: #1F2426; --btn: #E7EBEB; --btn-ink: #0D0F10; --marker: #FF5445;
+    --tally: rgba(231, 235, 235, .16);
+    --print-shadow: 0 1px 1px rgba(0, 0, 0, .5), 0 20px 44px -14px rgba(0, 0, 0, .85);
+    --glow: 0 0 90px -10px rgba(206, 232, 240, .26), 0 0 240px -40px rgba(206, 232, 240, .2);
+    --bezel: #2B3235;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; overflow-x: clip; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--room); color: var(--ink);
+    font: 400 17px/1.6 var(--body); overflow-x: clip;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  img, video { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; }
+  button, input, textarea { font: inherit; color: inherit; }
+  button { cursor: pointer; }
+  :focus-visible { outline: 3px solid var(--marker); outline-offset: 3px; }
+  .wrap { max-width: 1320px; margin-inline: auto; padding-inline: var(--gut); }
+  .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+  h2 {
+    margin: 0; font: 700 clamp(40px, 5.4vw, 80px)/.98 var(--display);
+    letter-spacing: -.025em; text-wrap: balance; max-width: 15ch;
+  }
+  .kicker {
+    margin: 0; display: flex; align-items: center; gap: 12px;
+    font: 600 13px/1.25 var(--body); font-stretch: 75%; letter-spacing: .16em; text-transform: uppercase; color: var(--muted);
+  }
+  .kicker::before { content: ""; flex: none; width: 24px; height: 3px; border-radius: 2px; background: var(--marker); transform: rotate(-9deg); }
+  .copy { display: grid; gap: 24px; align-content: start; }
+  .copy p, .sec-lede { margin: 0; max-width: 56ch; color: var(--ink-2); }
+  .sec { padding-block: clamp(76px, 9vw, 136px); }
+  .sec-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px 56px; margin-bottom: clamp(36px, 4.4vw, 60px); }
+  .sec-head > div { display: grid; gap: 18px; }
+  .sec-lede { max-width: 44ch; font-size: 18px; }
+  .split { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: clamp(36px, 5.4vw, 92px); align-items: center; }
+  @media (max-width: 900px) { .split { grid-template-columns: minmax(0, 1fr); } }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px; justify-content: center;
+    background: var(--btn); color: var(--btn-ink); border: 1.5px solid var(--btn); border-radius: 3px;
+    padding: 14px 22px; font: 600 15.5px/1 var(--body); letter-spacing: .01em; text-decoration: none;
+    transition: background-color .18s, border-color .18s, color .18s, transform .18s;
+  }
+  .btn:hover { background: var(--marker); border-color: var(--marker); color: #fff; transform: translateY(-1px); }
+  .btn.ghost { background: transparent; color: var(--ink); border-color: currentColor; }
+  .btn.ghost:hover { color: #fff; }
+  .btn.small { padding: 10px 15px; font-size: 14px; }
+  .link { font-weight: 600; text-decoration: underline; text-decoration-color: var(--marker); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+  .link:hover { color: var(--marker); }
+  .actions { display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; }
+
+  .specs { margin: 0; display: grid; border-top: 1px solid var(--rule); }
+  .specs div { display: grid; grid-template-columns: minmax(104px, 32%) minmax(0, 1fr); gap: 16px; padding-block: 12px; border-bottom: 1px solid var(--rule); }
+  .specs dt { font: 600 12.5px/1.6 var(--body); font-stretch: 75%; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+  .specs dd { margin: 0; font-size: 16px; line-height: 1.5; }
+
+  .print { margin: 0; background: var(--paper); padding: clamp(8px, 1vw, 14px); box-shadow: var(--print-shadow); }
+  .print img, .print video { width: 100%; }
+
+  /* ---------- 35mm film pieces ---------- */
+  .sprockets {
+    --p: 22px; --pitch: 24px;
+    -webkit-mask: var(--holes) 0 0 / var(--pitch) var(--p) repeat-x, var(--holes) 0 100% / var(--pitch) var(--p) repeat-x, linear-gradient(#000 0 0) 0 50% / 100% calc(100% - 2 * var(--p)) no-repeat;
+    mask: var(--holes) 0 0 / var(--pitch) var(--p) repeat-x, var(--holes) 0 100% / var(--pitch) var(--p) repeat-x, linear-gradient(#000 0 0) 0 50% / 100% calc(100% - 2 * var(--p)) no-repeat;
+  }
+
+  /* ---------- nav ---------- */
+  .bar {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+    background: color-mix(in srgb, var(--room) 86%, transparent);
+    -webkit-backdrop-filter: blur(12px) saturate(1.2); backdrop-filter: blur(12px) saturate(1.2);
+    border-bottom: 1px solid var(--rule);
+  }
+  .bar .wrap { max-width: none; display: flex; align-items: center; gap: 22px; height: 64px; }
+  .mark { font: 700 23px/1 var(--display); letter-spacing: -.015em; text-decoration: none; white-space: nowrap; }
+  .links { display: flex; gap: 22px; margin-left: auto; }
+  .links a {
+    text-decoration: none; font-weight: 500; font-size: 15px; padding-block: 5px; white-space: nowrap;
+    background: linear-gradient(var(--marker), var(--marker)) no-repeat 0 100% / 0 2px; transition: background-size .25s;
+  }
+  .links a:hover { background-size: 100% 2px; }
+  .plate { display: flex; gap: 4px; padding: 4px; border: 1px solid var(--rule); border-radius: 6px; background: var(--room-2); }
+  .sw {
+    display: flex; align-items: center; gap: 7px; border: 0; background: none; padding: 4px 7px 4px 5px; border-radius: 4px;
+    font: 600 11px/1 var(--body); font-stretch: 75%; letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+  }
+  .sw:hover { color: var(--ink); }
+  .rocker { position: relative; width: 13px; height: 22px; border-radius: 3px; background: var(--room); box-shadow: inset 0 0 0 1px var(--rule); }
+  .rocker::after {
+    content: ""; position: absolute; left: 2px; right: 2px; top: 2px; height: 9px; border-radius: 2px;
+    background: var(--ink); transition: transform .18s cubic-bezier(.3, 1.5, .5, 1);
+  }
+  .sw[aria-pressed="false"] .rocker::after { transform: translateY(9px); background: var(--muted); }
+  .menu { display: none; border: 1.5px solid var(--ink); background: none; border-radius: 3px; padding: 7px 12px; font-weight: 600; font-size: 14px; }
+  @media (max-width: 1140px) {
+    .links { display: none; }
+    .links.open {
+      display: flex; flex-direction: column; gap: 4px; position: absolute; left: 0; right: 0; top: 64px;
+      background: var(--room); border-bottom: 1px solid var(--rule); padding: 10px var(--gut) 20px;
+    }
+    .links.open a { font-size: 18px; padding-block: 9px; }
+    .plate { margin-left: auto; }
+    .menu { display: inline-block; }
+    .bar .cta { display: none; }
+  }
+  @media (max-width: 420px) { .sw .sw-lab { display: none; } .mark { font-size: 20px; } }
+
+  /* ---------- hero: the light table ---------- */
+  .hero { padding-top: 18px; }
+  .table {
+    position: relative; isolation: isolate; overflow: hidden;
+    margin-inline: var(--gut); max-width: 1680px;
+    background: radial-gradient(120% 90% at 50% 38%, var(--table) 52%, var(--table-2) 100%);
+    border-radius: 10px; padding-block: clamp(22px, 3.4vw, 50px) clamp(26px, 3vw, 44px);
+    box-shadow: 0 0 0 6px var(--bezel), 0 0 0 7px rgba(0, 0, 0, .12), var(--glow);
+    /* the table carries its own palette */
+    --ink: var(--table-ink); --ink-2: #2F3739; --muted: var(--table-muted); --btn: #0D0F0F; --btn-ink: #F5F7F7; --marker: #D2291B;
+    color: var(--ink);
+  }
+  @media (min-width: 1776px) { .table { margin-inline: auto; } }
+  .table::before {
+    /* fluorescent tubes behind the diffuser */
+    content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .75;
+    background: repeating-linear-gradient(90deg, transparent 0 calc(20% - 90px), rgba(255, 255, 255, .9) calc(20% - 45px), transparent 20%);
+  }
+  .table::after {
+    content: ""; position: absolute; inset: 0; z-index: 30; pointer-events: none; background: #0B0D0E; opacity: 0;
+    animation: tubes 1s linear .1s both;
+  }
+  @keyframes tubes { 0% { opacity: .5; } 7% { opacity: .04; } 11% { opacity: .42; } 17% { opacity: 0; } 23% { opacity: .3; } 27% { opacity: .02; } 42% { opacity: .1; } 100% { opacity: 0; } }
+  .tbl-head {
+    display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 22px 56px;
+    padding-inline: clamp(20px, 3.4vw, 50px);
+  }
+  .name { position: relative; margin: 0; padding: .06em .08em .04em .02em; font: 700 clamp(64px, 11.4vw, 176px)/.8 var(--display); letter-spacing: -.035em; }
+  .name span { display: block; }
+  .name span + span { padding-left: .55em; }
+  .name > .mk { position: absolute; left: -2%; top: -6%; width: 104%; height: 112%; }
+  .name > .mk path { stroke: var(--marker); stroke-width: 3.6; }
+  .intro { flex: 0 1 360px; display: grid; gap: 18px; padding-bottom: .4em; }
+  .roles { margin: 0; font: 600 13.5px/1.35 var(--body); font-stretch: 75%; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+  .lede { margin: 0; font-size: clamp(17px, 1.5vw, 19.5px); line-height: 1.5; }
+
+  .sheet-wrap { position: relative; margin-top: clamp(26px, 3.6vw, 48px); }
+  .sheet {
+    --fw: clamp(100px, 13.6vw, 196px); --fh: calc(var(--fw) / 1.5); --g: calc(var(--fw) * .06); --rb: calc(var(--fh) * .25);
+    display: grid; gap: clamp(12px, 1.8vw, 24px); padding-block: 10px;
+  }
+  .film {
+    --base: var(--mask); --eink: var(--edge-ink);
+    width: calc(6 * var(--fw) + 7 * var(--g));
+    margin-left: calc(50% - (6 * var(--fw) + 7 * var(--g)) / 2 + var(--fw) * var(--xo, 0));
+    transform: rotate(var(--r, 0deg));
+    filter: drop-shadow(0 3px 5px rgba(90, 45, 12, .16));
+  }
+  .perf, .frames { display: flex; gap: var(--g); padding-inline: var(--g); background: var(--base); }
+  .perf { height: var(--rb); }
+  .perf.t { -webkit-mask: var(--holes-t) 0 0 / calc((var(--fw) + var(--g)) / 8) 100% repeat-x; mask: var(--holes-t) 0 0 / calc((var(--fw) + var(--g)) / 8) 100% repeat-x; }
+  .perf.b { -webkit-mask: var(--holes-b) 0 0 / calc((var(--fw) + var(--g)) / 8) 100% repeat-x; mask: var(--holes-b) 0 0 / calc((var(--fw) + var(--g)) / 8) 100% repeat-x; }
+  .perf span {
+    flex: none; width: var(--fw); display: flex; justify-content: space-between; align-items: flex-start;
+    font: 800 calc(var(--rb) * .28)/1 var(--dot); letter-spacing: .08em; color: var(--eink); padding-top: calc(var(--rb) * .05);
+  }
+  .perf.b span { align-items: flex-end; padding: 0 0 calc(var(--rb) * .04); }
+  .perf em { font-style: normal; font-size: .8em; opacity: .85; }
+  .perf .bc { display: block; width: 44%; height: calc(var(--rb) * .22); background: repeating-linear-gradient(90deg, currentColor 0 1px, transparent 1px 3px, currentColor 3px 5px, transparent 5px 6px, currentColor 6px 7px, transparent 7px 10px); }
+  .fr { position: relative; flex: none; margin: 0; width: var(--fw); height: var(--fh); background: var(--base); isolation: isolate; }
+  .fr img { width: 100%; height: 100%; object-fit: cover; filter: invert(1) contrast(.84) brightness(1.07); mix-blend-mode: multiply; }
+  .sheet.pos .film { --base: #0F1010; --eink: #E7E2D6; filter: none; }
+  .sheet.pos .fr img { filter: none; mix-blend-mode: normal; }
+
+  /* china marker */
+  .mk { position: absolute; left: -12%; top: -18%; width: 124%; height: 136%; overflow: visible; pointer-events: none; z-index: 2; filter: url(#wax); }
+  .mk path { fill: none; stroke: var(--sleeve-ink); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+  .mk-star { left: auto; right: -14%; top: -40%; width: 38%; height: 56%; }
+  .mk-crop { left: -5%; top: -8%; width: 110%; height: 116%; }
+  .note {
+    position: absolute; z-index: 3; white-space: nowrap; pointer-events: none;
+    font: 400 calc(var(--fw) * .15)/1 var(--hand); color: var(--sleeve-ink); transform: rotate(var(--nr, -6deg)); filter: url(#wax);
+  }
+  .sheet.pos .mk path { stroke: #F3EFE6; }
+  .sheet.pos .note { color: #F3EFE6; }
+
+  .loupe {
+    --ld: clamp(138px, 17vw, 236px);
+    position: absolute; left: 0; top: 0; z-index: 6; width: var(--ld); height: var(--ld); border-radius: 50%;
+    touch-action: none; cursor: grab; will-change: transform; transform: translate3d(-400px, 0, 0);
+    box-shadow: 0 0 0 calc(var(--ld) * .045) #141718, 0 0 0 calc(var(--ld) * .05) #3B4144, 0 calc(var(--ld) * .1) calc(var(--ld) * .16) -4px rgba(10, 14, 16, .45);
+  }
+  .loupe.drag { cursor: grabbing; }
+  .lens { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; background: var(--table); }
+  .lens .sheet { position: absolute; left: 0; top: 0; transform-origin: 0 0; margin: 0; }
+  .lens::after {
+    content: ""; position: absolute; inset: 0; border-radius: 50%; pointer-events: none;
+    background: radial-gradient(circle at 30% 26%, rgba(255, 255, 255, .34), transparent 30%), radial-gradient(circle, transparent 60%, rgba(0, 0, 0, .3) 100%);
+  }
+  .tip {
+    position: absolute; left: 100%; top: 70%; margin-left: calc(var(--ld) * .12); white-space: nowrap; pointer-events: none;
+    font: 400 clamp(16px, 1.6vw, 22px)/1 var(--hand); color: #D2291B; transform: rotate(-7deg); transition: opacity .5s;
+    background: #FBFAF4; padding: .3em .55em .35em; box-shadow: 0 1px 2px rgba(0, 0, 0, .18), 0 6px 14px -6px rgba(0, 0, 0, .25);
+  }
+  .tip::before { content: ""; position: absolute; right: 100%; top: .5em; width: 1.4em; height: 3px; margin-right: .3em; background: currentColor; border-radius: 2px; transform: rotate(-18deg); }
+  .loupe.tip-left .tip { left: auto; right: 100%; margin: 0 calc(var(--ld) * .12) 0 0; }
+  .loupe.tip-left .tip::before { right: auto; left: 100%; margin: 0 0 0 .3em; transform: rotate(18deg); }
+  .loupe.used .tip { opacity: 0; }
+  @media (max-width: 700px) {
+    .loupe .tip, .loupe.tip-left .tip { left: 50%; right: auto; top: 100%; margin: calc(var(--ld) * .12) 0 0; transform: translateX(-50%) rotate(-4deg); }
+    .loupe .tip::before { display: none; }
+  }
+
+  /* credits leader */
+  .credits { margin-top: 30px; display: grid; gap: 10px; }
+  .credits .kicker { padding-inline: var(--gut); }
+  .leader { background: var(--rebate); color: #E9ECEC; overflow: hidden; padding-block: 26px; --p: 20px; --pitch: 22px; }
+  .leader-track { display: flex; width: max-content; animation: roll 60s linear infinite; }
+  .leader-track span { font: 800 clamp(14px, 1.5vw, 18px)/1 var(--dot); letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; padding-inline: 22px; display: flex; align-items: center; gap: 44px; }
+  .leader-track span::after { content: "\25B8"; color: #DE874A; }
+  @keyframes roll { to { transform: translateX(-50%); } }
+
+  /* ---------- headshots ---------- */
+  .sweep {
+    --sweep: #fcbc22; --sweep-ink: #1A1508;
+    position: relative; overflow: hidden; border-radius: 4px;
+    padding: clamp(44px, 6vw, 84px) clamp(18px, 4vw, 56px) clamp(34px, 4.4vw, 56px);
+    background: linear-gradient(180deg, color-mix(in srgb, var(--sweep) 84%, #000) 0%, var(--sweep) 40%, var(--sweep) 62%, color-mix(in srgb, var(--sweep) 82%, #fff) 80%, var(--sweep) 100%);
+    transition: --sweep .7s ease;
+  }
+  .sweep::before {
+    content: ""; position: absolute; left: -2%; right: -2%; top: 0; height: clamp(14px, 1.7vw, 24px);
+    background: linear-gradient(180deg, color-mix(in srgb, var(--sweep) 55%, #000), color-mix(in srgb, var(--sweep) 88%, #fff) 45%, color-mix(in srgb, var(--sweep) 68%, #000));
+    box-shadow: 0 5px 12px rgba(0, 0, 0, .28);
+  }
+  .sweep .print { transform: rotate(-1.2deg); }
+  .sweep .print img { aspect-ratio: 3 / 2; object-fit: cover; }
+  .sweep-tag { position: absolute; right: 18px; bottom: 12px; margin: 0; font: 400 clamp(18px, 1.8vw, 24px)/1 var(--hand); color: var(--sweep-ink); transform: rotate(-3deg); }
+  .dev { animation: develop 1.2s ease-out; }
+  @keyframes develop { 0% { filter: brightness(2.3) contrast(.25) saturate(0); } 55% { filter: brightness(1.25) contrast(.8) saturate(.55); } 100% { filter: none; } }
+  .rolls { border: 0; margin: 0; padding: 0; min-width: 0; }
+  .rolls legend { padding: 0; margin-bottom: 14px; font: 600 13px/1.25 var(--body); font-stretch: 75%; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+  .roll-set { display: flex; flex-wrap: wrap; gap: 14px 18px; }
+  .roll { position: relative; display: grid; justify-items: center; gap: 7px; cursor: pointer; }
+  .roll input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .roll-end {
+    width: 50px; height: 50px; border-radius: 50%; transition: transform .2s, box-shadow .2s;
+    background: radial-gradient(circle, #151515 0 12%, #B48C5C 13% 23%, transparent 24%), repeating-radial-gradient(circle, var(--c) 0 3px, color-mix(in srgb, var(--c) 78%, #000) 3px 3.7px);
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .18), 0 3px 8px -2px rgba(0, 0, 0, .35);
+  }
+  .roll:hover .roll-end { transform: translateY(-2px); }
+  .roll input:checked + .roll-end { box-shadow: 0 0 0 3px var(--room), 0 0 0 5.5px var(--marker), 0 3px 8px -2px rgba(0, 0, 0, .35); }
+  .roll input:focus-visible + .roll-end { outline: 3px solid var(--marker); outline-offset: 7px; }
+  .roll-name { font: 600 11.5px/1 var(--body); font-stretch: 75%; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .roll input:checked ~ .roll-name { color: var(--ink); }
+  @media (max-width: 520px) {
+    .roll-set { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px 4px; }
+    .roll-end { width: 40px; height: 40px; }
+    .roll-name { font-size: 10px; letter-spacing: .06em; }
+  }
+
+  /* ---------- nomadic pods ---------- */
+  .pods { background: var(--room-2); }
+  .pods-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(36px, 5vw, 80px); align-items: start; }
+  @media (max-width: 960px) { .pods-grid { grid-template-columns: minmax(0, 1fr); } }
+  .pods-left { display: grid; gap: 28px; }
+  .monitor { position: relative; background: #0B0C0D; padding: 10px 10px 32px; border-radius: 10px; box-shadow: 0 24px 44px -20px rgba(0, 0, 0, .55); }
+  .monitor video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #000; border-radius: 2px; cursor: pointer; }
+  .hud { position: absolute; left: 24px; right: 24px; top: 22px; display: flex; justify-content: space-between; pointer-events: none;
+    font: 800 clamp(11px, 1.1vw, 14px)/1 var(--dot); letter-spacing: .1em; color: #F2F4F4; text-shadow: 0 1px 3px #000; }
+  .hud.b { top: auto; bottom: 10px; left: 16px; right: 16px; color: #7E888B; text-shadow: none; }
+  .rec { display: flex; align-items: center; gap: 8px; }
+  .rec::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: #FF2B1F; animation: blink 1.2s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: .15; } }
+
+  .multiplier { display: grid; gap: 16px; }
+  .slate { display: block; width: 100%; max-width: 500px; margin-top: 17%; border: 0; padding: 0; background: none; text-align: left; color: #F4F4F2; }
+  .clapper, .stick {
+    display: block; height: clamp(32px, 3.4vw, 42px); border: 2px solid #111; border-radius: 4px 4px 0 0;
+    background: repeating-linear-gradient(-58deg, #F4F4F2 0 26px, #121314 26px 52px);
+  }
+  .clapper { transform-origin: 6px 100%; transform: rotate(-10deg); transition: transform .14s; }
+  .slate:hover .clapper { transform: rotate(-13deg); }
+  .slate.clap .clapper { animation: clap .5s cubic-bezier(.2, .9, .3, 1); }
+  @keyframes clap { 0% { transform: rotate(-16deg); } 26% { transform: rotate(0deg); } 38% { transform: rotate(-1.5deg); } 100% { transform: rotate(-10deg); } }
+  .stick { margin-top: 2px; border-radius: 0; background-position: 26px 0; }
+  .board { display: grid; grid-template-columns: 1fr 1fr; background: #151718; border: 2px solid #111; border-top: 0; border-radius: 0 0 8px 8px; overflow: hidden; }
+  .sf { display: grid; gap: 3px; padding: 10px 14px 12px; border-bottom: 1.5px solid rgba(244, 244, 242, .5); }
+  .sf:nth-child(odd):not(.full) { border-left: 1.5px solid rgba(244, 244, 242, .5); }
+  .sf.full { grid-column: 1 / -1; border-left: 0; }
+  .sf:nth-last-child(-n + 2) { border-bottom: 0; }
+  .sf i { font: 600 10.5px/1 var(--body); font-style: normal; font-stretch: 75%; letter-spacing: .18em; text-transform: uppercase; opacity: .62; }
+  .sf b { font: 400 clamp(20px, 2vw, 27px)/1.15 var(--hand); }
+  .slate-cta { margin: 0; font-weight: 600; font-size: 15px; display: flex; gap: 10px; align-items: center; }
+  .slate-cta::before { content: ""; width: 0; height: 0; border: 6px solid transparent; border-left: 9px solid var(--marker); border-right: 0; }
+  .mult-status { margin: 0; font-size: 16px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .mult-status b { color: var(--ink); }
+  .assets { display: grid; gap: 5px; }
+  .arow { display: grid; grid-template-columns: 38px repeat(15, minmax(0, 1fr)); gap: 4px; align-items: center; }
+  .arow > b { font: 800 11px/1 var(--dot); color: var(--muted); letter-spacing: .06em; }
+  .cell { aspect-ratio: 1; border: 1px dashed var(--rule); border-radius: 2px; }
+  .done .cell { border: 0; box-shadow: inset 0 0 0 1.5px var(--ink); }
+  .arow.done .cell { animation: pop .42s cubic-bezier(.2, 1.6, .4, 1) both; animation-delay: calc(var(--i) * 24ms); }
+  .arow.done.instant .cell { animation: none; }
+  @keyframes pop { from { transform: scale(.3); opacity: 0; } }
+  .done .cell.f { background: var(--marker); box-shadow: none; }
+  .done .cell.v { background: var(--ink); }
+  .done .cell.a { background: repeating-linear-gradient(90deg, var(--ink) 0 2px, transparent 2px 4px); }
+  .done .cell.g { background: conic-gradient(var(--ink) 25%, transparent 0 50%, var(--ink) 0 75%, transparent 0) 0 0 / 50% 50%; }
+  .done .cell.c { background: repeating-linear-gradient(180deg, var(--ink) 0 1.5px, transparent 1.5px 4px); }
+  .legend { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 14px; color: var(--ink-2); }
+  .legend li { display: flex; align-items: center; gap: 7px; }
+  .legend .cell { width: 14px; }
+  .fine { margin: 0; font-size: 14.5px; color: var(--muted); max-width: 52ch; }
+
+  /* ---------- films: the screening room ---------- */
+  .screen-room {
+    --ink: var(--screen-ink); --ink-2: #C3CACC; --muted: var(--screen-muted); --rule: var(--screen-rule);
+    --btn: #E8ECEC; --btn-ink: #070808; --marker: #FF5445;
+    background: var(--screen); color: var(--ink); border-block: 1px solid var(--screen-rule);
+  }
+  .screen-room > .wrap > .kicker { margin-bottom: clamp(28px, 3.4vw, 44px); }
+  .reel + .reel { margin-top: clamp(88px, 10vw, 150px); }
+  .gate { position: relative; overflow: hidden; background: #000; border-radius: 16px / 20px; box-shadow: 0 0 0 1px #1C2224, 0 40px 90px -40px rgba(0, 0, 0, .95); }
+  .gate video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; cursor: pointer; }
+  .gate::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; box-shadow: inset 0 0 110px rgba(0, 0, 0, .55); }
+  .burn {
+    position: absolute; left: 50%; bottom: 5%; z-index: 1; transform: translateX(-50%); display: flex; gap: 18px; white-space: nowrap;
+    background: rgba(0, 0, 0, .78); padding: 6px 12px 7px; font: 800 clamp(10px, 1.1vw, 15px)/1 var(--dot); letter-spacing: .1em; color: #fff; pointer-events: none;
+  }
+  .shots {
+    list-style: none; margin: 18px 0 0; padding: 22px 8px; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px;
+    background: #1B1F20; --p: 20px; --pitch: 22px;
+  }
+  .shots button { position: relative; display: block; width: 100%; padding: 0; border: 0; background: #000; aspect-ratio: 16 / 9; overflow: hidden; }
+  .shots img { width: 100%; height: 100%; object-fit: cover; opacity: .5; transition: opacity .2s; }
+  .shots button:hover img, .shots button.on img { opacity: 1; }
+  .shots button.on { outline: 2px solid var(--marker); outline-offset: 2px; }
+  .shots button::after { content: ""; position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background: var(--marker); }
+  .shots button.on::after { width: calc(var(--prog, 0) * 100%); }
+  .shots span { position: absolute; left: 7px; bottom: 7px; font: 800 10.5px/1 var(--dot); letter-spacing: .1em; text-transform: uppercase; color: #fff; text-shadow: 0 1px 3px #000; }
+  @media (max-width: 640px) { .shots span { display: none; } .shots { gap: 5px; padding: 18px 5px; --p: 16px; --pitch: 18px; } }
+  .reel-copy { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px clamp(36px, 5vw, 80px); margin-top: clamp(32px, 4vw, 52px); align-items: start; }
+  .reel-copy > div { display: grid; gap: 22px; }
+  @media (max-width: 860px) { .reel-copy { grid-template-columns: minmax(0, 1fr); } }
+
+  .screening { width: min(1200px, calc(100vw - 32px)); max-width: none; padding: 0; border: 0; background: #000; color: #fff; border-radius: 8px; }
+  .screening::backdrop { background: rgba(4, 5, 5, .88); }
+  .scr-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 12px 14px; }
+  .scr-top p { margin: 0; font: 800 13px/1.2 var(--dot); letter-spacing: .1em; text-transform: uppercase; }
+  .screening .btn { --btn: #E8ECEC; --btn-ink: #000; }
+  .screening video { width: 100%; aspect-ratio: 16 / 9; background: #000; }
+  .scr-fail { margin: 0; padding: 14px; font-size: 15px; }
+
+  /* ---------- off leash: 15,000 tally marks ---------- */
+  .offleash { position: relative; overflow: hidden; }
+  .tally { position: absolute; inset: 0; pointer-events: none; }
+  .ol-grid { position: relative; display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: clamp(44px, 7vw, 120px); align-items: center; }
+  @media (max-width: 860px) { .ol-grid { grid-template-columns: minmax(0, 1fr); } .ol-print { max-width: 300px; } }
+  .ol-print { position: relative; margin: 0; background: var(--paper); padding: 12px 12px 48px; transform: rotate(1.6deg); box-shadow: var(--print-shadow); }
+  .ol-print video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: #151515; cursor: pointer; }
+  .ol-print figcaption { position: absolute; left: 16px; bottom: 12px; font: 400 21px/1 var(--hand); color: #1B1D1E; }
+  .tape { position: absolute; top: -13px; width: 92px; height: 28px; background: rgba(233, 224, 198, .78); box-shadow: 0 1px 2px rgba(0, 0, 0, .14); }
+  .tape.l { left: -14px; transform: rotate(-12deg); }
+  .tape.r { right: -12px; transform: rotate(9deg); }
+  .bignum { margin: 0; font: 700 clamp(86px, 12.6vw, 184px)/.8 var(--display); letter-spacing: -.045em; font-variant-numeric: lining-nums; }
+  .bignum small { font: 700 .3em/1 var(--body); vertical-align: 1.5em; color: var(--marker); margin-left: .06em; }
+  .tally-note { margin: 0; font: 400 clamp(19px, 1.8vw, 23px)/1.3 var(--hand); color: var(--ink); transform: rotate(-1.2deg); max-width: 30ch; }
+
+  /* ---------- activations: instant print booth ---------- */
+  .booth-sec { background: var(--room-2); }
+  .booth { position: relative; width: 100%; max-width: 520px; justify-self: center; container-type: inline-size; }
+  .printer {
+    position: relative; height: clamp(126px, 13vw, 150px); border-radius: 16px 16px 10px 10px;
+    background: linear-gradient(180deg, #34393B 0%, #1F2324 60%, #181B1C 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 18px 30px -16px rgba(0, 0, 0, .6);
+  }
+  .lcd {
+    position: absolute; left: 22px; top: 22px; padding: 7px 10px 6px; border-radius: 3px;
+    background: #9DB38A; color: #1E2A17; font: 800 14px/1 var(--dot); letter-spacing: .12em; box-shadow: inset 0 0 0 2px #0F1210;
+  }
+  .badge46 { position: absolute; left: 22px; top: 60px; font: 600 11px/1 var(--body); font-stretch: 75%; letter-spacing: .2em; text-transform: uppercase; color: #8A9497; }
+  .slot { position: absolute; left: 50%; bottom: 18px; width: 50%; height: 9px; transform: translateX(-50%); background: #050606; border-radius: 5px; box-shadow: 0 1px 0 rgba(255, 255, 255, .12); }
+  .shoot {
+    position: absolute; right: 22px; top: 50%; transform: translateY(-50%); display: grid; justify-items: center; gap: 8px;
+    border: 0; background: none; color: #E8ECEC; font: 600 12px/1 var(--body); font-stretch: 75%; letter-spacing: .14em; text-transform: uppercase;
+  }
+  .shoot .cap {
+    width: clamp(58px, 5.6vw, 70px); height: clamp(58px, 5.6vw, 70px); border-radius: 50%;
+    background: radial-gradient(circle at 36% 30%, #FF7A6E, #D42A1C 55%, #9E1A10); box-shadow: 0 0 0 5px #0E1011, 0 6px 0 5px #0B0C0D, 0 10px 18px rgba(0, 0, 0, .5);
+    transition: transform .1s, box-shadow .1s;
+  }
+  .shoot:active .cap, .shoot.pressed .cap { transform: translateY(4px); box-shadow: 0 0 0 5px #0E1011, 0 2px 0 5px #0B0C0D, 0 4px 10px rgba(0, 0, 0, .5); }
+  .shoot:disabled { cursor: progress; }
+  .feed { position: absolute; left: 50%; top: calc(100% - 22px); width: 40cqw; transform: translateX(-50%); aspect-ratio: 2 / 3.3; overflow: hidden; z-index: 3; pointer-events: none; }
+  .pile { position: relative; margin-top: 26px; aspect-ratio: 1 / .78; }
+  .p46 { position: absolute; margin: 0; width: 40cqw; background: var(--paper); padding: 1.4cqw 1.4cqw 0; box-shadow: var(--print-shadow); }
+  .p46 img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; background: #ccc; }
+  .p46 figcaption { font: 400 clamp(13px, 1.3vw, 17px)/1 var(--hand); color: #1B1D1E; padding: .45em 0 .55em; text-align: right; }
+  .feed .p46 { position: relative; left: 0; top: 0; }
+  .feeding { animation: feed 2.6s linear both; }
+  .feeding img { animation: passes 2.6s linear both; }
+  @keyframes feed {
+    0% { transform: translateY(-101%); } 13% { transform: translateY(-64%); } 22% { transform: translateY(-101%); }
+    36% { transform: translateY(-64%); } 45% { transform: translateY(-101%); } 59% { transform: translateY(-64%); }
+    68% { transform: translateY(-101%); } 100% { transform: translateY(0); }
+  }
+  @keyframes passes {
+    0%, 22% { filter: grayscale(1) sepia(1) saturate(4) hue-rotate(8deg) brightness(1.25) contrast(.65); }
+    23%, 45% { filter: grayscale(1) sepia(1) saturate(3) hue-rotate(-42deg) brightness(1.08) contrast(.8); }
+    46%, 68% { filter: saturate(.75) contrast(.9) brightness(1.05); }
+    69%, 100% { filter: none; }
+  }
+  .drop { animation: drop .45s cubic-bezier(.3, 1.4, .5, 1) both; }
+  @keyframes drop { from { transform: translate(0, -46px) rotate(0deg) scale(1.06); opacity: .6; } }
+  .flash { position: fixed; inset: 0; z-index: 100; background: #fff; opacity: 0; pointer-events: none; }
+  .flash.go { animation: flash .55s ease-out; }
+  @keyframes flash { from { opacity: .9; } to { opacity: 0; } }
+
+  /* ---------- rescue: the drying line ---------- */
+  .line { --hw: clamp(96px, 27vw, 290px); position: relative; height: calc(var(--hw) * 1.42 + 60px); margin-bottom: clamp(24px, 4vw, 48px); }
+  .wire { position: absolute; left: 0; top: 0; width: 100%; height: 80px; overflow: visible; }
+  .wire path { fill: none; stroke: var(--ink); stroke-width: 1.5; vector-effect: non-scaling-stroke; opacity: .7; }
+  .hung {
+    position: absolute; top: var(--y); left: var(--at); width: var(--hw); margin: 0 0 0 calc(var(--hw) / -2);
+    background: var(--paper); padding: calc(var(--hw) * .05) calc(var(--hw) * .05) calc(var(--hw) * .08); box-shadow: var(--print-shadow); transform-origin: 50% 0; transform: rotate(var(--r));
+    animation: sway 7s ease-in-out infinite alternate; animation-delay: var(--d);
+  }
+  .hung img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+  .hung::before, .hung::after { content: ""; position: absolute; top: -16px; width: 12px; height: 34px; border-radius: 2px; background: linear-gradient(90deg, #B98D55, #DDB985 50%, #B08450); box-shadow: 0 1px 2px rgba(0, 0, 0, .3); }
+  .hung::before { left: 14%; }
+  .hung::after { right: 14%; }
+  @keyframes sway { from { transform: rotate(calc(var(--r) - 1deg)); } to { transform: rotate(calc(var(--r) + 1deg)); } }
+
+  /* ---------- instagram ---------- */
+  .ig-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 18px 40px; margin-bottom: 28px; }
+  .ig-head > div { display: grid; gap: 14px; }
+  .ig-head h2 { max-width: none; font-size: clamp(34px, 4.6vw, 64px); }
+  .ig-head h2 a { text-decoration: none; }
+  .ig-meta { margin: 6px 0 0; color: var(--muted); font-size: 15px; }
+  .ig-film { overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; padding-inline: var(--gut); }
+  .ig-inner { display: flex; gap: 10px; width: max-content; background: var(--rebate); padding: 26px 10px; --p: 20px; --pitch: 22px; }
+  .ig-inner a { position: relative; flex: none; display: block; width: clamp(150px, 17vw, 214px); aspect-ratio: 4 / 5; overflow: hidden; background: #222; }
+  .ig-inner img { width: 100%; height: 100%; object-fit: cover; transition: transform .45s; }
+  .ig-inner a:hover img { transform: scale(1.05); }
+
+  /* ---------- contact: the call sheet ---------- */
+  .callsheet { max-width: 1100px; margin-inline: auto; background: var(--sheet); border: 2px solid var(--ink); box-shadow: var(--print-shadow); }
+  .cs-head { display: grid; grid-template-columns: 1fr 1.35fr 1fr; border-bottom: 2px solid var(--ink); }
+  .cs-head > * + * { border-left: 1.5px solid var(--ink); }
+  .cs-cell { display: grid; gap: 4px; align-content: start; padding: 14px 18px 16px; min-width: 0; }
+  .cs-cell i, .cs-fields i, .cs-job legend { font: 600 11.5px/1.3 var(--body); font-style: normal; font-stretch: 75%; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+  .cs-cell b { font-weight: 600; font-size: 17px; line-height: 1.35; overflow-wrap: anywhere; }
+  .cs-cell span { font-size: 14.5px; color: var(--ink-2); }
+  .cs-title { display: grid; gap: 8px; align-content: center; justify-items: center; text-align: center; padding: 20px 18px; }
+  .cs-title h2 { max-width: none; text-transform: uppercase; letter-spacing: .01em; font-size: clamp(38px, 5vw, 66px); }
+  .cs-title p { margin: 0; color: var(--ink-2); font-size: 15.5px; }
+  .cs-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-bottom: 1.5px solid var(--ink); }
+  .cs-row > * + * { border-left: 1.5px solid var(--ink); }
+  .cs-mail { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+  .mini { border: 1px solid var(--ink); background: none; border-radius: 3px; padding: 3px 8px; font-size: 12.5px; font-weight: 600; }
+  .mini:hover { background: var(--ink); color: var(--sheet); }
+  .cs-job { border: 0; margin: 0; padding: 16px 18px 18px; border-bottom: 1.5px solid var(--ink); min-width: 0; }
+  .cs-job legend { float: left; width: 100%; padding: 0; margin-bottom: 12px; }
+  .chips { clear: both; display: flex; flex-wrap: wrap; gap: 12px 26px; }
+  .chip { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; font-weight: 500; }
+  .chip input { appearance: none; -webkit-appearance: none; flex: none; width: 21px; height: 21px; margin: 0; border: 1.5px solid var(--ink); border-radius: 2px; background: transparent; display: grid; place-items: center; cursor: pointer; }
+  .chip input::after { content: ""; width: 8px; height: 15px; border: solid var(--marker); border-width: 0 3.5px 3.5px 0; transform: translate(1px, -3px) rotate(42deg) scale(0); transition: transform .15s cubic-bezier(.3, 1.6, .5, 1); }
+  .chip input:checked::after { transform: translate(1px, -3px) rotate(42deg) scale(1); }
+  .cs-fields { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cs-fields label { display: grid; gap: 2px; padding: 12px 18px 12px; border-bottom: 1.5px solid var(--ink); min-width: 0; }
+  .cs-fields label:not(:nth-child(3n)) { border-right: 1.5px solid var(--ink); }
+  .cs-fields label.wide { grid-column: 1 / -1; border-right: 0; }
+  .cs-fields input, .cs-fields textarea { width: 100%; border: 0; background: transparent; padding: 4px 0; font: 400 22px/1.3 var(--hand); color: var(--ink); resize: vertical; }
+  .cs-fields input:focus, .cs-fields textarea:focus { outline: none; }
+  .cs-fields label:focus-within { background: color-mix(in srgb, var(--marker) 7%, transparent); }
+  .cs-fields ::placeholder { font: 400 15px/1.3 var(--body); color: var(--muted); opacity: 1; }
+  .cs-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; padding: 18px; }
+  .cs-note { margin: 0; flex: 1 1 260px; font-size: 14.5px; color: var(--ink-2); }
+  .cs-out { margin: 0 18px 18px; padding: 14px; border: 1px dashed var(--ink); white-space: pre-wrap; font: 400 14px/1.5 ui-monospace, Menlo, Consolas, monospace; user-select: all; }
+  @media (max-width: 860px) {
+    .cs-head { grid-template-columns: minmax(0, 1fr); }
+    .cs-head > * { border-left: 0 !important; border-top: 1.5px solid var(--ink); }
+    .cs-title { order: -1; border-top: 0; }
+    .cs-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cs-row > :nth-child(3) { border-left: 0; }
+    .cs-row > :nth-child(n + 3) { border-top: 1.5px solid var(--ink); }
+    .cs-fields { grid-template-columns: minmax(0, 1fr); }
+    .cs-fields label:not(:nth-child(3n)) { border-right: 0; }
+  }
+
+  /* ---------- footer ---------- */
+  .foot { overflow: hidden; border-top: 1px solid var(--rule); padding-top: 56px; }
+  .foot-grid { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px 48px; }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 10px 26px; }
+  .foot-links a { text-decoration: none; font-weight: 500; }
+  .foot-links a:hover { color: var(--marker); }
+  .foot p { margin: 0; color: var(--muted); font-size: 14.5px; }
+  .eor { font: 800 13px/1 var(--dot); letter-spacing: .14em; color: var(--muted); }
+  .foot .foot-name { margin: 44px 0 -.16em; color: var(--ink); padding-inline: var(--gut); font: 700 clamp(54px, 11.6vw, 176px)/.8 var(--display); letter-spacing: -.04em; white-space: nowrap; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; animation-delay: 0s !important; transition-duration: .01ms !important; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="wax" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="4" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="mark" href="#top">Kevin Sarasom</a>
+    <nav class="links" id="links" aria-label="Sections">
+      <a href="#headshots">Headshots</a>
+      <a href="#pods">Podcasts</a>
+      <a href="#films">Films</a>
+      <a href="#offleash">Off Leash</a>
+      <a href="#activations">Activations</a>
+      <a href="#rescue">Rescue</a>
+    </nav>
+    <div class="plate">
+      <button class="sw" id="lights" type="button" aria-pressed="true" aria-label="Room lights"><span class="rocker" aria-hidden="true"></span><span class="sw-lab">Lights</span></button>
+      <button class="sw" id="sound" type="button" aria-pressed="true" aria-label="Sound effects"><span class="rocker" aria-hidden="true"></span><span class="sw-lab">Sound</span></button>
+    </div>
+    <a class="btn small cta" href="#contact">Start a project</a>
+    <button class="menu" id="menu" type="button" aria-expanded="false" aria-controls="links">Menu</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" aria-labelledby="hero-h">
+    <div class="table">
+      <div class="tbl-head">
+        <h1 class="name" id="hero-h" data-mark="crop"><span>Kevin</span><span>Sarasom</span></h1>
+        <div class="intro">
+          <p class="roles">Photographer · Cinematographer · Producer<br>Toronto &amp; on tour</p>
+          <p class="lede">I make photographs and films for brands, teams, and more than 15,000 dogs so far. Twenty years in, I still pick every frame by hand.</p>
+          <div class="actions">
+            <a class="btn" href="#contact">Start a project</a>
+            <a class="link" href="#headshots">See the work</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="sheet-wrap" id="sheetWrap">
+        <div class="sheet" id="sheet" role="img" aria-label="Contact sheet of Kevin's work laid out as color negatives: headshots, brand films, podcast sets and dogs.">
+          <div class="film" style="--r:-1.1deg; --xo:.35">
+            <div class="perf t"><span>&#9656;0<em>0A</em></span><span>&#9656;1<em>1A</em></span><span>&#9656;2<em>2A</em></span><span>&#9656;3<em>3A</em></span><span>&#9656;4<em>4A</em></span><span>&#9656;5<em>5A</em></span></div>
+            <div class="frames">
+              <figure class="fr"><img src="media/neg/n01.webp" alt="" width="600" height="400"></figure>
+              <figure class="fr"><img src="media/neg/n02.webp" alt="" width="600" height="400"></figure>
+              <figure class="fr" id="kevinFrame" data-mark="circle"><img src="media/neg/n04.webp" alt="" width="600" height="400"><span class="note" style="left:96%; top:-66%; --nr:-7deg">that's me</span></figure>
+              <figure class="fr"><img src="media/neg/n03.webp" alt="" width="600" height="400"></figure>
+              <figure class="fr" data-mark="star"><img src="media/neg/n05.webp" alt="" width="600" height="400"></figure>
+              <figure class="fr"><img src="media/neg/n06.webp" alt="" width="600" height="400"></figure>
+            </div>
+            <div class="perf b"><span>SARASOM 400<i class="bc"></i></span><span></span><span>SARASOM 400<i class="bc"></i></span><span></span><span>SARASOM 400<i class="bc"></i></span><span></span></div>
+          </div>
+          <div class="film" style="--r:.6deg; --xo:1">
+            <div class="perf t"><span>&#9656;6<em>6A</em></span><span>&#9656;7<em>7A</em></span><span>&#9656;8<em>8A</em></span><span>&#9656;9<em>9A</em></span><span>&#9656;10<em>10A</em></span><span>&#9656;11<em>11A</em></span></div>
+            <div class="frames">
+              <figure class="fr"><img src="media/neg/n07.webp" alt="" width="600" height="400"></figure>
+              <figure class="fr" data-mark="crop"><img src="media/neg/n08.webp" alt="" width="600" height="400"><span class="note" style="left:-68%; top:-54%; --nr:-4deg">print 11&times;14</span></figure>
+              <figure class="fr"><img src="media/neg/n09.webp" alt="" width="600" height="400"></figure>
+              <figure class="fr"><img src="media/neg/n10.webp" alt="" width="600" height="400"></figure>
+              <figure class="fr"><img src="media/neg/n11.webp" alt="" width="600" height="400"></figure>
+              <figure class="fr"><img src="media/neg/n12.webp" alt="" width="600" height="400"></figure>
+            </div>
+            <div class="perf b"><span></span><span>SARASOM 400<i class="bc"></i></span><span></span><span>SARASOM 400<i class="bc"></i></span><span></span><span>SARASOM 400<i class="bc"></i></span></div>
+          </div>
+          <div class="film" style="--r:-.35deg; --xo:.8">
+            <div class="perf t"><span>&#9656;12<em>12A</em></span><span>&#9656;13<em>13A</em></span><span>&#9656;14<em>14A</em></span><span>&#9656;15<em>15A</em></span><span>&#9656;16<em>16A</em></span><span>&#9656;17<em>17A</em></span></div>
+            <div class="frames">
+              <figure class="fr"><img src="media/neg/n13.webp" alt="" width="600" height="400"></figure>
+              <figure class="fr"><img src="media/neg/n14.webp" alt="" width="600" height="400"></figure>
+              <figure class="fr" data-mark="circle"><img src="media/neg/n15.webp" alt="" width="600" height="400"><span class="note" style="left:30%; top:-54%; --nr:-5deg">good dog</span></figure>
+              <figure class="fr"><img src="media/neg/n16.webp" alt="" width="600" height="400"></figure>
+              <figure class="fr"><img src="media/neg/n17.webp" alt="" width="600" height="400"></figure>
+              <figure class="fr"><img src="media/neg/n18.webp" alt="" width="600" height="400"></figure>
+            </div>
+            <div class="perf b"><span>SARASOM 400<i class="bc"></i></span><span></span><span>SARASOM 400<i class="bc"></i></span><span></span><span>SARASOM 400<i class="bc"></i></span><span></span></div>
+          </div>
+          <div class="film" style="--r:1deg; --xo:-.2">
+            <div class="perf t"><span>&#9656;18<em>18A</em></span><span>&#9656;19<em>19A</em></span><span>&#9656;20<em>20A</em></span><span>&#9656;21<em>21A</em></span><span>&#9656;22<em>22A</em></span><span>&#9656;23<em>23A</em></span></div>
+            <div class="frames">
+              <figure class="fr"><img src="media/neg/n19.webp" alt="" width="600" height="400"></figure>
+              <figure class="fr"><img src="media/neg/n20.webp" alt="" width="600" height="400"></figure>
+              <figure class="fr"><img src="media/neg/n21.webp" alt="" width="600" height="400"></figure>
+              <figure class="fr"><img src="media/neg/n22.webp" alt="" width="600" height="400"></figure>
+              <figure class="fr"><img src="media/neg/n23.webp" alt="" width="600" height="400"></figure>
+              <figure class="fr"><img src="media/neg/n24.webp" alt="" width="600" height="400"></figure>
+            </div>
+            <div class="perf b"><span></span><span>SARASOM 400<i class="bc"></i></span><span></span><span>SARASOM 400<i class="bc"></i></span><span></span><span>SARASOM 400<i class="bc"></i></span></div>
+          </div>
+        </div>
+        <div class="loupe" id="loupe" aria-hidden="true">
+          <div class="lens" id="lens"></div>
+          <span class="tip" id="tip">slide me over a frame</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="credits">
+      <p class="kicker">Shot for</p>
+      <div class="leader sprockets">
+        <div class="leader-track">
+          <span>Canadian Tire</span><span>The Working Group</span><span>Mercedes-Benz</span><span>Saks Fifth Avenue</span><span>The Body Shop</span>
+          <span aria-hidden="true">Canadian Tire</span><span aria-hidden="true">The Working Group</span><span aria-hidden="true">Mercedes-Benz</span><span aria-hidden="true">Saks Fifth Avenue</span><span aria-hidden="true">The Body Shop</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="headshots" aria-labelledby="hs-h">
+    <div class="wrap split">
+      <div class="sweep" id="sweep">
+        <figure class="print"><img id="hsImg" src="media/hs/hs-4.webp" alt="Woman resting her chin on her hands, shot on a marigold backdrop" width="1200" height="800"></figure>
+        <p class="sweep-tag" id="hsTag">marigold seamless</p>
+      </div>
+      <div class="copy">
+        <p class="kicker">Corporate headshots</p>
+        <h2 id="hs-h">Headshots with an editorial eye</h2>
+        <p>Twenty years shooting for fashion and lifestyle brands, brought to your team's headshots. Proper lighting, direction and retouching, so your whole company looks like one cohesive brand.</p>
+        <fieldset class="rolls">
+          <legend>Try a backdrop</legend>
+          <div class="roll-set" id="rolls">
+            <label class="roll"><input type="radio" name="backdrop" id="bd0" value="0"><span class="roll-end" style="--c:#0b2733"></span><span class="roll-name">Midnight</span></label>
+            <label class="roll"><input type="radio" name="backdrop" id="bd1" value="1"><span class="roll-end" style="--c:#3a4546"></span><span class="roll-name">Charcoal</span></label>
+            <label class="roll"><input type="radio" name="backdrop" id="bd2" value="2"><span class="roll-end" style="--c:#dcedf1"></span><span class="roll-name">Ice</span></label>
+            <label class="roll"><input type="radio" name="backdrop" id="bd3" value="3" checked><span class="roll-end" style="--c:#fcbc22"></span><span class="roll-name">Marigold</span></label>
+            <label class="roll"><input type="radio" name="backdrop" id="bd4" value="4"><span class="roll-end" style="--c:#7d66a8"></span><span class="roll-name">Violet</span></label>
+            <label class="roll"><input type="radio" name="backdrop" id="bd5" value="5"><span class="roll-end" style="--c:#01b1c5"></span><span class="roll-name">Aqua</span></label>
+          </div>
+        </fieldset>
+        <dl class="specs">
+          <div><dt>Sessions</dt><dd>Individual and team, on-site or in studio</dd></div>
+          <div><dt>Turnaround</dt><dd>Fast, with a consistent style across large teams</dd></div>
+          <div><dt>Direction</dt><dd>I make everyone look confident and comfortable in front of the camera</dd></div>
+        </dl>
+        <div class="actions"><a class="btn" href="#contact" data-job="Headshots">Book a session</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec pods" id="pods" aria-labelledby="pods-h">
+    <div class="wrap">
+      <header class="sec-head">
+        <div>
+          <p class="kicker">Nomadic Pods · Video &amp; podcast production</p>
+          <h2 id="pods-h">One film day. A quarter of content.</h2>
+        </div>
+        <p class="sec-lede">A turn-key studio that travels to your boardroom: crew, cameras, lights, set, editing and clips. Built on twenty years of cinematography for branded content across North America.</p>
+      </header>
+      <div class="pods-grid">
+        <div class="pods-left">
+          <div class="monitor" data-tcroot>
+            <video class="loop" src="media/pods.mp4" poster="media/pods.webp" muted loop playsinline preload="none" aria-label="Nomadic Pods footage: a podcast being recorded in an office"></video>
+            <div class="hud"><span class="rec">REC</span><span data-tc>01:00:00:00</span></div>
+            <div class="hud b"><span>A CAM</span><span>NOMADIC PODS</span></div>
+          </div>
+          <dl class="specs">
+            <div><dt>Conversations</dt><dd>Client case studies, prospect interviews, founder and expert episodes</dd></div>
+            <div><dt>Post</dt><dd>Clips, carousels, show notes and transcripts, cut for LinkedIn, YouTube, Spotify and more</dd></div>
+            <div><dt>Retainers</dt><dd>From a single taster episode to ongoing quarterly production</dd></div>
+          </dl>
+          <div class="actions">
+            <a class="btn" href="https://nomadicpods.com" target="_blank" rel="noopener">Visit Nomadic Pods &#8599;</a>
+            <a class="link" href="https://vimeo.com/1169691222" target="_blank" rel="noopener">Watch the reel on Vimeo</a>
+          </div>
+        </div>
+        <div class="multiplier">
+          <button class="slate" id="slate" type="button" aria-describedby="multStatus">
+            <span class="clapper" aria-hidden="true"></span>
+            <span class="stick" aria-hidden="true"></span>
+            <span class="board">
+              <span class="sf full"><i>Production</i><b>Nomadic Pods</b></span>
+              <span class="sf"><i>Roll</i><b>A001</b></span>
+              <span class="sf"><i>Episode</i><b id="slEp">1</b></span>
+              <span class="sf"><i>Director</i><b>K. Sarasom</b></span>
+              <span class="sf"><i>Date</i><b id="slDate">09.24.26</b></span>
+            </span>
+          </button>
+          <p class="slate-cta" id="slateCta">Clap the slate to shoot the next episode</p>
+          <p class="mult-status" id="multStatus" aria-live="polite"><b id="mEp">1</b> of 6 episodes · <b id="mAs">15</b> of 90+ assets</p>
+          <div class="assets" id="assets" aria-hidden="true"></div>
+          <ul class="legend done" aria-label="Asset types">
+            <li><span class="cell f"></span>Full episode</li>
+            <li><span class="cell v"></span>Video clips</li>
+            <li><span class="cell a"></span>Audio</li>
+            <li><span class="cell g"></span>Graphics</li>
+            <li><span class="cell c"></span>Copy</li>
+          </ul>
+          <p class="fine">One film day produces 6 episodes and 90+ ready-to-post assets. That works out to roughly fifteen pieces per episode; the exact mix is scoped to your channels.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec screen-room" id="films" aria-label="Brand films">
+    <div class="wrap">
+      <p class="kicker">Brand films</p>
+
+      <article class="reel" data-full="https://kevinsarasom.com/reel/CanadianTire.mp4" data-title="Canadian Tire · Associate Dealers tribute" aria-labelledby="ct-h">
+        <div class="gate" style="aspect-ratio: 1280 / 542" data-tcroot>
+          <video class="loop" src="media/film/ct.mp4" poster="media/film/ct.webp" muted loop playsinline preload="none" aria-label="Excerpt from the Canadian Tire Associate Dealers tribute film"></video>
+          <div class="burn"><span>CT_A001</span><span data-tc>01:00:00:00</span></div>
+        </div>
+        <ol class="shots sprockets" aria-label="Shots in this excerpt">
+          <li><button type="button" data-t="0"><img src="media/film/ct-1.webp" alt="" width="360" height="152"><span>Dealer</span><b class="vh">Shot 1: a dealer at his desk</b></button></li>
+          <li><button type="button" data-t="2.4"><img src="media/film/ct-2.webp" alt="" width="360" height="152"><span>Flag</span><b class="vh">Shot 2: aerial of a store with the Canadian flag</b></button></li>
+          <li><button type="button" data-t="4.1"><img src="media/film/ct-3.webp" alt="" width="360" height="152"><span>Archive</span><b class="vh">Shot 3: archival photos of dealers</b></button></li>
+          <li><button type="button" data-t="6.6"><img src="media/film/ct-4.webp" alt="" width="360" height="152"><span>Prairie</span><b class="vh">Shot 4: a train crossing the prairie</b></button></li>
+          <li><button type="button" data-t="9"><img src="media/film/ct-5.webp" alt="" width="360" height="152"><span>Interview</span><b class="vh">Shot 5: a dealer interview</b></button></li>
+          <li><button type="button" data-t="11.4"><img src="media/film/ct-6.webp" alt="" width="360" height="152"><span>Floor</span><b class="vh">Shot 6: helping a customer on the store floor</b></button></li>
+        </ol>
+        <div class="reel-copy">
+          <div>
+            <p class="kicker">Canadian Tire · Brand film</p>
+            <h2 id="ct-h">A month across Canada, camera in hand</h2>
+          </div>
+          <div>
+            <p>A tribute to the driving force behind the Canadian Tire brand: the Associate Dealers. Innovators and entrepreneurs, each shaping their own retail vision and building businesses that serve communities coast to coast. I spent a month on the road with a lean crew, setting up and filming the interviews and b-roll that bring their stories to life.</p>
+            <dl class="specs">
+              <div><dt>Production</dt><dd>A month of shooting across Canada</dd></div>
+              <div><dt>Coverage</dt><dd>Interviews and b-roll, the setups that make a story land</dd></div>
+              <div><dt>Crew</dt><dd>Small team, full-scale coverage</dd></div>
+            </dl>
+            <div class="actions">
+              <button class="btn watch" type="button">Watch the full film</button>
+              <a class="link" href="#contact" data-job="Brand film">Discuss a project</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="reel" data-full="https://kevinsarasom.com/reel/TWG.mp4" data-title="The Working Group · Sprint Zero" aria-labelledby="twg-h">
+        <div class="gate" style="aspect-ratio: 16 / 9" data-tcroot>
+          <video class="loop" src="media/film/twg.mp4" poster="media/film/twg.webp" muted loop playsinline preload="none" aria-label="Excerpt from The Working Group's Sprint Zero process film"></video>
+          <div class="burn"><span>TWG_A001</span><span data-tc>01:00:00:00</span></div>
+        </div>
+        <ol class="shots sprockets" aria-label="Shots in this excerpt">
+          <li><button type="button" data-t="0"><img src="media/film/twg-1.webp" alt="" width="360" height="202"><span>Whiteboard</span><b class="vh">Shot 1: sketching flows on a whiteboard</b></button></li>
+          <li><button type="button" data-t="2.4"><img src="media/film/twg-2.webp" alt="" width="360" height="202"><span>Sprint</span><b class="vh">Shot 2: the team around a table from above</b></button></li>
+          <li><button type="button" data-t="4.8"><img src="media/film/twg-3.webp" alt="" width="360" height="202"><span>Team</span><b class="vh">Shot 3: two colleagues talking</b></button></li>
+          <li><button type="button" data-t="6.2"><img src="media/film/twg-4.webp" alt="" width="360" height="202"><span>Review</span><b class="vh">Shot 4: a designer smiling at her screen</b></button></li>
+          <li><button type="button" data-t="7.4"><img src="media/film/twg-5.webp" alt="" width="360" height="202"><span>Markup</span><b class="vh">Shot 5: marked-up design sheets</b></button></li>
+          <li><button type="button" data-t="9.8"><img src="media/film/twg-6.webp" alt="" width="360" height="202"><span>Shipped</span><b class="vh">Shot 6: the finished product</b></button></li>
+        </ol>
+        <div class="reel-copy">
+          <div>
+            <p class="kicker">The Working Group · Process film</p>
+            <h2 id="twg-h">From scribble to shipped product</h2>
+          </div>
+          <div>
+            <p>A process film for The Working Group's Sprint Zero: how an idea scribbled on a whiteboard becomes a finished digital product. Storyboarded first, shot in a single day, cut by a tight two-person team.</p>
+            <dl class="specs">
+              <div><dt>Prep</dt><dd>Storyboarded, every shot planned before day one</dd></div>
+              <div><dt>Shoot</dt><dd>One location, one crew, one continuous day</dd></div>
+              <div><dt>Edit</dt><dd>Post by a small, senior two-person team</dd></div>
+            </dl>
+            <div class="actions">
+              <button class="btn watch" type="button">Watch the full film</button>
+              <a class="link" href="#contact" data-job="Brand film">Discuss a project</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec offleash" id="offleash" aria-labelledby="ol-h">
+    <canvas class="tally" id="tally" aria-hidden="true"></canvas>
+    <div class="wrap ol-grid">
+      <figure class="ol-print" data-keepclear>
+        <span class="tape l" aria-hidden="true"></span><span class="tape r" aria-hidden="true"></span>
+        <video class="loop" src="media/offleash.mp4" poster="media/offleash.webp" muted loop playsinline preload="none" aria-label="Slow motion: Kevin holds up a treat and a dog looks up at the camera"></video>
+        <figcaption>treat up, ears up, click</figcaption>
+      </figure>
+      <div class="copy" data-keepclear>
+        <p class="kicker">Off Leash Studio</p>
+        <p class="bignum" aria-label="More than 15,000 dogs">15,000<small>+</small></p>
+        <h2 id="ol-h">Bespoke pet portraits, on tour worldwide</h2>
+        <p>A commissioned portrait experience for your dog: planning, the session, and a same-day gallery of the whole shoot. Private clients in Los Angeles, New York, Toronto and London, plus brand activations for Mercedes-Benz, Saks Fifth Avenue and The Body Shop.</p>
+        <p class="tally-note">Every tally mark on this wall is one dog. All 15,000 of them.</p>
+        <dl class="specs">
+          <div><dt>Gallery</dt><dd>Same day. You choose, then each pick is hand-edited</dd></div>
+          <div><dt>World tour</dt><dd>Vancouver, NYC, Chicago, SF, LA and Austin, plus Toronto year-round</dd></div>
+          <div><dt>Licensing</dt><dd>Available for brands and agencies</dd></div>
+        </dl>
+        <div class="actions"><a class="btn" href="https://offleashstudio.com" target="_blank" rel="noopener">Visit Off Leash Studio &#8599;</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec booth-sec" id="activations" aria-labelledby="act-h">
+    <div class="wrap split">
+      <div class="copy">
+        <p class="kicker">Experiential marketing</p>
+        <h2 id="act-h">I don't just shoot events. I run them.</h2>
+        <p>Pop-up activations for brand launches, festivals, pet meetups, or anywhere people are already walking by. I bring energy, direction and a small crew: photographing everyone who stops, printing 4&times;6s on the spot, and pushing video to social before the event is over.</p>
+        <dl class="specs">
+          <div><dt>Prints</dt><dd>On-site 4&times;6s. No app, no waiting</dd></div>
+          <div><dt>Video</dt><dd>Shot and posted in real time</dd></div>
+          <div><dt>Direction</dt><dd>Twenty years of getting real reactions on camera</dd></div>
+        </dl>
+        <div class="actions"><a class="btn" href="#contact" data-job="Event activation">Book an activation</a></div>
+      </div>
+      <div class="booth" id="booth">
+        <div class="printer">
+          <span class="lcd" id="lcd">PRINTS 003</span>
+          <span class="badge46">Dye-sub · 4&times;6</span>
+          <span class="slot" aria-hidden="true"></span>
+          <button class="shoot" id="shoot" type="button"><span class="cap" aria-hidden="true"></span>Take a photo</button>
+          <div class="feed" id="feed" aria-hidden="true"></div>
+        </div>
+        <div class="pile" id="pile"></div>
+        <p class="vh" id="boothStatus" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="rescue" aria-labelledby="rescue-h">
+    <div class="wrap">
+      <header class="sec-head">
+        <div>
+          <p class="kicker">Pet Rescue Portraits</p>
+          <h2 id="rescue-h">Every rescue deserves a great first impression</h2>
+        </div>
+        <p class="sec-lede">Free professional portraits for shelter and rescue animals across Canada and the United States. Funded entirely by sponsors, never by the rescue.</p>
+      </header>
+      <div class="line">
+        <svg class="wire" viewBox="0 0 1000 80" preserveAspectRatio="none" aria-hidden="true"><path d="M-20 10 Q500 90 1020 10"/></svg>
+        <figure class="hung" style="--at:18%; --y:26px; --r:-1.5deg; --d:-2s"><img src="media/rescue/r-1.webp" alt="A small rescue dog bundled in a purple knit scarf" width="800" height="1000" loading="lazy"></figure>
+        <figure class="hung" style="--at:50%; --y:41px; --r:1deg; --d:-5s"><img src="media/rescue/r-2.webp" alt="A rescue dog in a baseball jersey raising a paw for a high five" width="800" height="1000" loading="lazy"></figure>
+        <figure class="hung" style="--at:82%; --y:26px; --r:-.6deg; --d:-1s"><img src="media/rescue/r-3.webp" alt="A husky pup sitting on a blue backdrop with one paw up" width="800" height="1000" loading="lazy"></figure>
+      </div>
+      <div class="split">
+        <p class="sec-lede">Built on the same eye behind Off Leash Studio, now pointed at the animals who need it most. A good portrait gets a rescue noticed.</p>
+        <div class="copy">
+          <dl class="specs">
+            <div><dt>Sessions</dt><dd>Free for shelters and rescues</dd></div>
+            <div><dt>Funding</dt><dd>Sponsor-funded, never billed to the rescue</dd></div>
+            <div><dt>Open call</dt><dd>For photographers who want to learn the style and shoot with us</dd></div>
+          </dl>
+          <div class="actions"><a class="btn" href="https://petrescueportraits.com" target="_blank" rel="noopener">Visit Pet Rescue Portraits &#8599;</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="instagram" aria-labelledby="ig-h" style="padding-top:0">
+    <div class="wrap ig-head">
+      <div>
+        <p class="kicker">On Instagram</p>
+        <h2 id="ig-h"><a href="https://www.instagram.com/offleashstudio/" target="_blank" rel="noopener">@offleashstudio</a></h2>
+      </div>
+      <div class="actions">
+        <p class="ig-meta" id="igMeta">Sessions from the studio and the tour.</p>
+        <a class="btn ghost" href="https://www.instagram.com/offleashstudio/" target="_blank" rel="noopener">Follow &#8599;</a>
+      </div>
+    </div>
+    <div class="ig-film">
+      <div class="ig-inner sprockets" id="igStrip">
+        <a href="https://www.instagram.com/offleashstudio/" target="_blank" rel="noopener"><img src="media/ig/ig-1.webp" alt="Off Leash Studio portrait: a woman hugging her dog" width="400" height="500" loading="lazy"></a>
+        <a href="https://www.instagram.com/offleashstudio/" target="_blank" rel="noopener"><img src="media/ig/ig-2.webp" alt="Off Leash Studio portrait: a woman with a curly doodle" width="400" height="500" loading="lazy"></a>
+        <a href="https://www.instagram.com/offleashstudio/" target="_blank" rel="noopener"><img src="media/ig/ig-3.webp" alt="Off Leash Studio portrait: a woman holding a small dog in a jersey" width="400" height="500" loading="lazy"></a>
+        <a href="https://www.instagram.com/offleashstudio/" target="_blank" rel="noopener"><img src="media/ig/ig-4.webp" alt="Off Leash Studio portrait: a woman with a fluffy white dog" width="400" height="500" loading="lazy"></a>
+        <a href="https://www.instagram.com/offleashstudio/" target="_blank" rel="noopener"><img src="media/ig/ig-5.webp" alt="Off Leash Studio portrait: a couple laughing with their dog" width="400" height="500" loading="lazy"></a>
+        <a href="https://www.instagram.com/offleashstudio/" target="_blank" rel="noopener"><img src="media/ig/ig-6.webp" alt="Off Leash Studio portrait: a family with a golden retriever" width="400" height="500" loading="lazy"></a>
+        <a href="https://www.instagram.com/offleashstudio/" target="_blank" rel="noopener"><img src="media/ig/ig-7.webp" alt="Off Leash Studio portrait: a woman with a great pyrenees" width="400" height="500" loading="lazy"></a>
+        <a href="https://www.instagram.com/offleashstudio/" target="_blank" rel="noopener"><img src="media/ig/ig-8.webp" alt="Off Leash Studio portrait: a couple with their doodle" width="400" height="500" loading="lazy"></a>
+        <a href="https://www.instagram.com/offleashstudio/" target="_blank" rel="noopener"><img src="media/ig/ig-9.webp" alt="Off Leash Studio portrait: a couple with a curly dog" width="400" height="500" loading="lazy"></a>
+        <a href="https://www.instagram.com/offleashstudio/" target="_blank" rel="noopener"><img src="media/ig/ig-10.webp" alt="Off Leash Studio portrait: a man in a leather jacket with his dog" width="400" height="500" loading="lazy"></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contact" aria-labelledby="cs-h" style="padding-top:clamp(40px,5vw,72px)">
+    <div class="wrap">
+      <form class="callsheet" id="callsheet" novalidate>
+        <div class="cs-head">
+          <div class="cs-cell"><i>Production company</i><b>Kevin Sarasom</b><span>Photography · Film · Production</span></div>
+          <div class="cs-title"><h2 id="cs-h">Call sheet</h2><p>Fill it in and it lands in my inbox.</p></div>
+          <div class="cs-cell"><i>Date</i><b id="csDate">Today</b><span id="csSun">Toronto</span></div>
+        </div>
+        <div class="cs-row">
+          <div class="cs-cell"><i>Director / DP</i><b>Kevin Sarasom</b></div>
+          <div class="cs-cell"><i>Contact</i><div class="cs-mail"><b id="csEmail">kevin@offleashstudio.com</b><button class="mini" type="button" id="copyEmail">Copy</button></div></div>
+          <div class="cs-cell"><i>Golden hour, Toronto</i><b id="csGolden">Before sunset</b></div>
+          <div class="cs-cell"><i>Base</i><b>Toronto &amp; on tour</b></div>
+        </div>
+        <fieldset class="cs-job">
+          <legend>What are we making?</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="job" id="job-hs" value="Headshots">Headshots</label>
+            <label class="chip"><input type="radio" name="job" id="job-pod" value="Podcast or video series">Podcast or video series</label>
+            <label class="chip"><input type="radio" name="job" id="job-film" value="Brand film">Brand film</label>
+            <label class="chip"><input type="radio" name="job" id="job-ol" value="Off Leash portraits">Off Leash portraits</label>
+            <label class="chip"><input type="radio" name="job" id="job-act" value="Event activation">Event activation</label>
+            <label class="chip"><input type="radio" name="job" id="job-res" value="Pet rescue">Pet rescue</label>
+            <label class="chip"><input type="radio" name="job" id="job-else" value="Something else">Something else</label>
+          </div>
+        </fieldset>
+        <div class="cs-fields">
+          <label for="f-name"><i>Your name</i><input id="f-name" name="name" autocomplete="name" placeholder="Who's calling"></label>
+          <label for="f-co"><i>Company</i><input id="f-co" name="company" autocomplete="organization" placeholder="Brand, team or agency"></label>
+          <label for="f-where"><i>Location</i><input id="f-where" name="where" placeholder="Your office, a studio, a festival"></label>
+          <label for="f-when"><i>Shoot date</i><input id="f-when" name="when" placeholder="Next month, flexible"></label>
+          <label for="f-scale"><i>Scale</i><input id="f-scale" name="scale" placeholder="40 people, 6 episodes, one pop-up"></label>
+          <label for="f-budget"><i>Budget range</i><input id="f-budget" name="budget" placeholder="Optional"></label>
+          <label class="wide" for="f-notes"><i>Notes</i><textarea id="f-notes" name="notes" rows="3" placeholder="What it's for, where it will live, anything I should know"></textarea></label>
+        </div>
+        <div class="cs-foot">
+          <button class="btn" type="submit">Send the call sheet</button>
+          <button class="btn ghost" type="button" id="copySheet">Copy as text</button>
+          <p class="cs-note" id="csNote">Opens your email app addressed to kevin@offleashstudio.com, with everything filled in.</p>
+        </div>
+        <pre class="cs-out" id="csOut" hidden></pre>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <p class="eor">END OF ROLL &#9656;24 &#9656;24A</p>
+    <nav class="foot-links" aria-label="Kevin's other sites">
+      <a href="https://offleashstudio.com" target="_blank" rel="noopener">Off Leash Studio &#8599;</a>
+      <a href="https://nomadicpods.com" target="_blank" rel="noopener">Nomadic Pods &#8599;</a>
+      <a href="https://petrescueportraits.com" target="_blank" rel="noopener">Pet Rescue Portraits &#8599;</a>
+      <a href="https://www.instagram.com/offleashstudio/" target="_blank" rel="noopener">Instagram &#8599;</a>
+    </nav>
+    <p>&copy; <span id="yr">2026</span> Kevin Sarasom · Toronto</p>
+  </div>
+  <p class="foot-name" aria-hidden="true">Kevin Sarasom</p>
+</footer>
+
+<dialog class="screening" id="screening" aria-labelledby="scrTitle">
+  <div class="scr-top"><p id="scrTitle">Full film</p><button class="btn small" type="button" id="scrClose">Close</button></div>
+  <video id="scrVideo" controls playsinline preload="none"></video>
+  <p class="scr-fail" id="scrFail" hidden>This film streams from kevinsarasom.com and couldn't load here. <a class="link" id="scrLink" href="https://kevinsarasom.com" target="_blank" rel="noopener">Open it in a new tab</a></p>
+</dialog>
+<div class="flash" id="flash" aria-hidden="true"></div>
+
+<script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const root = document.documentElement;
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const store = {
+    get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+    set(k, v) { try { localStorage.setItem(k, v); } catch {} }
+  };
+  const rng = seed => { let s = seed % 2147483647 || 1; return () => (s = s * 16807 % 2147483647) / 2147483647; };
+
+  // ---------- room lights (theme) + sound ----------
+  const darkMQ = matchMedia("(prefers-color-scheme: dark)");
+  const isDark = () => root.dataset.theme ? root.dataset.theme === "dark" : darkMQ.matches;
+  const saved = store.get("ks-theme");
+  if (saved === "dark" || saved === "light") root.dataset.theme = saved;
+  const lights = $("#lights");
+  const syncLights = () => lights.setAttribute("aria-pressed", String(!isDark()));
+  lights.addEventListener("click", () => {
+    root.dataset.theme = isDark() ? "light" : "dark";
+    store.set("ks-theme", root.dataset.theme);
+  });
+  darkMQ.addEventListener?.("change", syncLights);
+  const themeWatchers = [syncLights];
+  new MutationObserver(() => themeWatchers.forEach(f => f())).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+  darkMQ.addEventListener?.("change", () => themeWatchers.forEach(f => f()));
+  syncLights();
+
+  let soundOn = store.get("ks-sound") !== "off";
+  const soundBtn = $("#sound");
+  soundBtn.setAttribute("aria-pressed", String(soundOn));
+  soundBtn.addEventListener("click", () => {
+    soundOn = !soundOn; soundBtn.setAttribute("aria-pressed", String(soundOn)); store.set("ks-sound", soundOn ? "on" : "off");
+  });
+  let actx;
+  function audio() {
+    if (!soundOn) return null;
+    const C = window.AudioContext || window.webkitAudioContext; if (!C) return null;
+    actx = actx || new C(); if (actx.state === "suspended") actx.resume();
+    return actx;
+  }
+  function noise(a, when, dur, freq, q, vol) {
+    const n = Math.max(1, Math.floor(a.sampleRate * dur)), buf = a.createBuffer(1, n, a.sampleRate), d = buf.getChannelData(0);
+    for (let i = 0; i < n; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / n) ** 3;
+    const src = a.createBufferSource(), f = a.createBiquadFilter(), g = a.createGain();
+    src.buffer = buf; f.type = "bandpass"; f.frequency.value = freq; f.Q.value = q; g.gain.value = vol;
+    src.connect(f); f.connect(g); g.connect(a.destination); src.start(a.currentTime + when);
+  }
+  function thump(a, freq, vol) {
+    const o = a.createOscillator(), g = a.createGain(), t = a.currentTime;
+    o.frequency.setValueAtTime(freq, t); o.frequency.exponentialRampToValueAtTime(freq * .45, t + .12);
+    g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(.001, t + .16);
+    o.connect(g); g.connect(a.destination); o.start(t); o.stop(t + .2);
+  }
+  const sfx = {
+    shutter() { const a = audio(); if (!a) return; noise(a, 0, .035, 4200, 1.4, .5); noise(a, .08, .05, 2300, 1.1, .45); },
+    clap() { const a = audio(); if (!a) return; noise(a, 0, .07, 1900, .6, 1.1); thump(a, 140, .45); },
+    printer(dur) {
+      const a = audio(); if (!a) return;
+      const o = a.createOscillator(), f = a.createBiquadFilter(), g = a.createGain(), t = a.currentTime;
+      o.type = "sawtooth"; o.frequency.value = 68; f.type = "lowpass"; f.frequency.value = 480;
+      g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.045, t + .06); g.gain.setValueAtTime(.045, t + dur - .12); g.gain.linearRampToValueAtTime(0, t + dur);
+      o.connect(f); f.connect(g); g.connect(a.destination); o.start(t); o.stop(t + dur + .05);
+    }
+  };
+
+  // ---------- mobile menu ----------
+  const menu = $("#menu"), links = $("#links");
+  menu.addEventListener("click", () => menu.setAttribute("aria-expanded", String(links.classList.toggle("open"))));
+  links.addEventListener("click", e => { if (e.target.closest("a")) { links.classList.remove("open"); menu.setAttribute("aria-expanded", "false"); } });
+
+  // ---------- china marker ----------
+  const NS = "http://www.w3.org/2000/svg";
+  function pencil(kind, seed) {
+    const r = rng(seed), j = a => (r() - .5) * a, f = n => n.toFixed(1);
+    let d = "";
+    if (kind === "circle") {
+      const N = 48, turns = 1.13, start = r() * 6.283;
+      for (let i = 0; i <= N; i++) {
+        const t = start + i / N * turns * 6.283, k = 1 + j(.05) + i / N * .06;
+        d += (i ? "L" : "M") + f(50 + Math.cos(t) * 47 * k) + " " + f(50 + Math.sin(t) * 45 * k);
+      }
+    } else if (kind === "star") {
+      for (let i = 0; i <= 5; i++) {
+        const a = (-90 + i * 144) * Math.PI / 180;
+        d += (i ? "L" : "M") + f(50 + Math.cos(a) * 44 + j(5)) + " " + f(52 + Math.sin(a) * 44 + j(5));
+      }
+    } else if (kind === "crop") {
+      const c = 13, p = [[2, 2 + c, 2, 2, 2 + c, 2], [98 - c, 2, 98, 2, 98, 2 + c], [98, 98 - c, 98, 98, 98 - c, 98], [2 + c, 98, 2, 98, 2, 98 - c]];
+      d = p.map(q => `M${f(q[0] + j(2))} ${f(q[1] + j(2))}L${f(q[2] + j(1.5))} ${f(q[3] + j(1.5))}L${f(q[4] + j(2))} ${f(q[5] + j(2))}`).join("");
+    }
+    const svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("viewBox", "0 0 100 100"); svg.setAttribute("preserveAspectRatio", "none");
+    svg.setAttribute("class", "mk mk-" + kind); svg.setAttribute("aria-hidden", "true");
+    const path = document.createElementNS(NS, "path"); path.setAttribute("d", d); svg.appendChild(path);
+    return svg;
+  }
+  $$("[data-mark]").forEach((el, i) => el.appendChild(pencil(el.dataset.mark, 11 + i * 137)));
+
+  // ---------- the loupe ----------
+  const wrap = $("#sheetWrap"), sheet = $("#sheet"), loupe = $("#loupe"), lens = $("#lens");
+  const clone = sheet.cloneNode(true);
+  clone.classList.add("pos"); clone.removeAttribute("id"); clone.removeAttribute("role"); clone.removeAttribute("aria-label");
+  clone.querySelectorAll("[id]").forEach(n => n.removeAttribute("id"));
+  lens.appendChild(clone);
+  let D = 200, Z = 2.7, moved = false, raf = 0, dragging = false, grab = { x: 0, y: 0 };
+  const pos = { x: -999, y: 0 }, target = { x: 0, y: 0 };
+  function measure() {
+    D = loupe.offsetWidth; Z = innerWidth < 700 ? 2.4 : 2.7;
+    clone.style.width = sheet.offsetWidth + "px";
+  }
+  function restSpot() {
+    const a = $("#kevinFrame").getBoundingClientRect(), b = wrap.getBoundingClientRect();
+    return { x: a.left - b.left + a.width / 2, y: a.top - b.top + a.height / 2 };
+  }
+  function draw() {
+    const r = D / 2;
+    loupe.style.transform = `translate3d(${pos.x - r}px, ${pos.y - r}px, 0)`;
+    clone.style.transform = `translate3d(${r - (pos.x - sheet.offsetLeft) * Z}px, ${r - (pos.y - sheet.offsetTop) * Z}px, 0) scale(${Z})`;
+    loupe.classList.toggle("tip-left", pos.x > wrap.clientWidth * .6);
+  }
+  function tick() {
+    const k = reduce || dragging ? 1 : .2;
+    pos.x += (target.x - pos.x) * k; pos.y += (target.y - pos.y) * k; draw();
+    if (Math.abs(target.x - pos.x) + Math.abs(target.y - pos.y) > .4) raf = requestAnimationFrame(tick);
+    else { pos.x = target.x; pos.y = target.y; draw(); raf = 0; }
+  }
+  function go(x, y) {
+    target.x = Math.max(0, Math.min(wrap.clientWidth, x)); target.y = Math.max(0, Math.min(wrap.clientHeight, y));
+    if (!raf) raf = requestAnimationFrame(tick);
+  }
+  const local = e => { const b = wrap.getBoundingClientRect(); return { x: e.clientX - b.left, y: e.clientY - b.top }; };
+  const touched = () => { if (!moved) { moved = true; loupe.classList.add("used"); } };
+  wrap.addEventListener("pointermove", e => {
+    if (dragging) { const p = local(e); go(p.x - grab.x, p.y - grab.y); touched(); return; }
+    if (e.pointerType === "mouse") { const p = local(e); go(p.x, p.y); touched(); }
+  });
+  loupe.addEventListener("pointerdown", e => {
+    if (e.pointerType === "mouse") return;
+    dragging = true; loupe.classList.add("drag"); loupe.setPointerCapture(e.pointerId);
+    const p = local(e); grab = { x: p.x - pos.x, y: p.y - pos.y }; e.preventDefault();
+  });
+  const endDrag = () => { dragging = false; loupe.classList.remove("drag"); };
+  loupe.addEventListener("pointerup", endDrag); loupe.addEventListener("pointercancel", endDrag);
+  sheet.addEventListener("click", e => { const p = local(e); go(p.x, p.y); touched(); });
+  function place() {
+    measure();
+    if (!moved) { const s = restSpot(); pos.x = target.x = s.x; pos.y = target.y = s.y; }
+    else { target.x = Math.min(target.x, wrap.clientWidth); pos.x = Math.min(pos.x, wrap.clientWidth); }
+    draw();
+  }
+  place();
+  if ("ResizeObserver" in window) new ResizeObserver(place).observe(wrap); else addEventListener("resize", place);
+
+  // ---------- headshots: seamless backdrops ----------
+  const BACKDROPS = [
+    ["midnight", "#01151e", "#E8EEF0", "media/hs/hs-1.webp", "Woman in a black turtleneck and gold hoops, shot on a deep teal backdrop"],
+    ["charcoal", "#222d2e", "#E8EEF0", "media/hs/hs-2.webp", "Smiling man in a light blazer and scarf, shot on a charcoal backdrop"],
+    ["ice", "#e0f2f6", "#15292E", "media/hs/hs-3.webp", "Man with arms crossed in a navy shirt, shot on an ice blue backdrop"],
+    ["marigold", "#fcbc22", "#1A1508", "media/hs/hs-4.webp", "Woman resting her chin on her hands, shot on a marigold backdrop"],
+    ["violet", "#7d66a8", "#F4F0FA", "media/hs/hs-5.webp", "Woman in a black top, shot on a violet backdrop"],
+    ["aqua", "#01b1c5", "#062227", "media/hs/hs-6.webp", "Smiling man in a mint shirt, shot on an aqua backdrop"]
+  ];
+  const sweep = $("#sweep"), hsImg = $("#hsImg"), hsTag = $("#hsTag");
+  let hsToken = 0;
+  $("#rolls").addEventListener("change", e => {
+    const b = BACKDROPS[+e.target.value]; if (!b) return;
+    const my = ++hsToken, pre = new Image();
+    sweep.style.setProperty("--sweep", b[1]); sweep.style.setProperty("--sweep-ink", b[2]);
+    hsTag.textContent = b[0] + " seamless";
+    pre.src = b[3];
+    (pre.decode ? pre.decode() : Promise.resolve()).catch(() => {}).then(() => {
+      if (my !== hsToken) return;
+      hsImg.classList.remove("dev"); hsImg.src = b[3]; hsImg.alt = b[4];
+      void hsImg.offsetWidth; if (!reduce) hsImg.classList.add("dev");
+    });
+  });
+  const warm = () => BACKDROPS.forEach(b => { const i = new Image(); i.src = b[3]; });
+  $("#rolls").addEventListener("pointerenter", warm, { once: true });
+  $("#rolls").addEventListener("focusin", warm, { once: true });
+
+  // ---------- video loops, timecode, shot strips ----------
+  const loops = $$("video.loop");
+  const io = "IntersectionObserver" in window ? new IntersectionObserver(entries => entries.forEach(e => {
+    const v = e.target;
+    if (e.isIntersecting) { if (reduce && !v.dataset.user) return; if (v.preload === "none") v.preload = "auto"; v.play().catch(() => {}); }
+    else v.pause();
+  }), { threshold: .3 }) : null;
+  loops.forEach(v => {
+    if (io) io.observe(v); else if (!reduce) v.play().catch(() => {});
+    v.addEventListener("click", () => { v.dataset.user = "1"; if (v.paused) { v.preload = "auto"; v.play().catch(() => {}); } else v.pause(); });
+    v.addEventListener("play", pump);
+  });
+  const tcs = $$("[data-tc]").map(el => ({ el, v: el.closest("[data-tcroot]").querySelector("video") }));
+  const tcFmt = s => {
+    const fr = Math.floor(s * 24), sec = Math.floor(fr / 24) + 3600;
+    return [Math.floor(sec / 3600), Math.floor(sec / 60) % 60, sec % 60, fr % 24].map(n => String(n).padStart(2, "0")).join(":");
+  };
+  const reels = $$(".reel").map(reel => {
+    const v = reel.querySelector("video.loop"), btns = $$(".shots button", reel), marks = btns.map(b => +b.dataset.t);
+    btns.forEach((b, i) => b.addEventListener("click", () => {
+      v.dataset.user = "1"; if (v.preload === "none") v.preload = "auto";
+      try { v.currentTime = marks[i] + .02; } catch {}
+      v.play().catch(() => {}); update();
+    }));
+    function update() {
+      const t = v.currentTime; let k = 0;
+      marks.forEach((m, i) => { if (t >= m) k = i; });
+      const end = marks[k + 1] ?? (v.duration || marks[k] + 2.4);
+      btns.forEach((b, i) => b.classList.toggle("on", i === k));
+      btns[k].style.setProperty("--prog", Math.max(0, Math.min(1, (t - marks[k]) / (end - marks[k]))).toFixed(3));
+    }
+    update();
+    return { v, update };
+  });
+  let pumping = false;
+  function pump() {
+    if (pumping) return; pumping = true;
+    const step = () => {
+      let any = false;
+      tcs.forEach(t => { if (!t.v.paused) { any = true; t.el.textContent = tcFmt(t.v.currentTime); } });
+      reels.forEach(r => { if (!r.v.paused) r.update(); });
+      if (any) requestAnimationFrame(step); else pumping = false;
+    };
+    requestAnimationFrame(step);
+  }
+
+  // full films play in a screening dialog
+  const dlg = $("#screening"), sv = $("#scrVideo"), sFail = $("#scrFail");
+  function closeScreening() { sv.pause(); sv.removeAttribute("src"); sv.load(); if (dlg.open) dlg.close?.(); dlg.removeAttribute("open"); }
+  $$(".watch").forEach(btn => btn.addEventListener("click", () => {
+    const reel = btn.closest(".reel");
+    $("#scrTitle").textContent = reel.dataset.title; $("#scrLink").href = reel.dataset.full;
+    sFail.hidden = true; reel.querySelector("video.loop").pause();
+    sv.src = reel.dataset.full;
+    if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
+    sv.play().catch(() => {});
+  }));
+  sv.addEventListener("error", () => { if (sv.getAttribute("src")) sFail.hidden = false; });
+  $("#scrClose").addEventListener("click", closeScreening);
+  dlg.addEventListener("close", () => { sv.pause(); });
+  dlg.addEventListener("click", e => { if (e.target === dlg) closeScreening(); });
+
+  // ---------- nomadic pods: clap the slate ----------
+  const MIX = ["f", "v", "v", "v", "v", "v", "v", "v", "v", "a", "a", "g", "g", "c", "c"];
+  const assets = $("#assets");
+  const rows = [1, 2, 3, 4, 5, 6].map(n => {
+    const row = document.createElement("div"); row.className = "arow";
+    row.innerHTML = `<b>EP${n}</b>` + MIX.map((t, i) => `<span class="cell ${t}" style="--i:${i}"></span>`).join("");
+    assets.appendChild(row); return row;
+  });
+  const now = new Date();
+  $("#slDate").textContent = [now.getMonth() + 1, now.getDate(), now.getFullYear() % 100].map(n => String(n).padStart(2, "0")).join(".");
+  let ep = 1;
+  function setEpisodes(n, instant) {
+    ep = n;
+    rows.forEach((r, i) => { r.classList.toggle("instant", !!instant); r.classList.toggle("done", i < n); });
+    $("#slEp").textContent = Math.min(6, Math.max(1, n + (n < 6 ? 1 : 0)));
+    $("#mEp").textContent = n; $("#mAs").textContent = n * 15;
+    $("#slateCta").textContent = n >= 6 ? "That's a wrap: 90+ assets from one film day. Clap to start a new day" : "Clap the slate to shoot the next episode";
+  }
+  setEpisodes(1, true);
+  const slate = $("#slate");
+  slate.addEventListener("click", () => {
+    slate.classList.remove("clap"); void slate.offsetWidth; slate.classList.add("clap");
+    sfx.clap();
+    setEpisodes(ep >= 6 ? 0 : ep + 1, false);
+  });
+
+  // ---------- off leash: exactly 15,000 tally marks ----------
+  const olSec = $("#offleash"), tally = $("#tally");
+  function drawTally() {
+    const W = olSec.clientWidth, H = olSec.clientHeight; if (!W || !H) return;
+    const dpr = Math.min(2, devicePixelRatio || 1);
+    tally.width = Math.round(W * dpr); tally.height = Math.round(H * dpr);
+    tally.style.width = W + "px"; tally.style.height = H + "px";
+    const ctx = tally.getContext("2d"); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+    const sb = olSec.getBoundingClientRect();
+    const keep = $$("[data-keepclear]", olSec).map(el => { const r = el.getBoundingClientRect(); return [r.left - sb.left - 18, r.top - sb.top - 18, r.right - sb.left + 18, r.bottom - sb.top + 18]; });
+    const free = (x, y, w, h) => !keep.some(k => x < k[2] && x + w > k[0] && y < k[3] && y + h > k[1]);
+    let cw = Math.sqrt(W * H / 3000 * 1.35), cells = [], ch = cw / 1.35;
+    for (let tries = 0; tries < 200; tries++) {
+      ch = cw / 1.35; cells = [];
+      const cols = Math.floor(W / cw), rowsN = Math.floor(H / ch), ox = (W - cols * cw) / 2, oy = (H - rowsN * ch) / 2;
+      for (let r = 0; r < rowsN; r++) for (let c = 0; c < cols; c++) { const x = ox + c * cw, y = oy + r * ch; if (free(x, y, cw, ch)) cells.push([x, y]); }
+      if (cells.length >= 3000) break;
+      cw *= .96;
+    }
+    cells = cells.slice(0, 3000); // 3,000 groups of five
+    const r = rng(15000), jit = a => (r() - .5) * a;
+    ctx.strokeStyle = getComputedStyle(root).getPropertyValue("--tally").trim() || "rgba(13,15,15,.2)";
+    ctx.lineWidth = Math.max(.8, Math.min(1.6, cw / 16)); ctx.lineCap = "round";
+    ctx.beginPath();
+    for (const [x, y] of cells) {
+      const pw = cw * .6, ph = ch * .64, x0 = x + (cw - pw) / 2, y0 = y + (ch - ph) / 2;
+      for (let i = 0; i < 4; i++) {
+        const xx = x0 + pw * (i + .5) / 4.3;
+        ctx.moveTo(xx + jit(1.2), y0 + jit(1.4)); ctx.lineTo(xx + jit(1.4), y0 + ph + jit(1.4));
+      }
+      ctx.moveTo(x0 - pw * .06, y0 + ph * .8 + jit(2)); ctx.lineTo(x0 + pw * 1.04, y0 + ph * .2 + jit(2));
+    }
+    ctx.stroke();
+  }
+  let tallyT;
+  const tallySoon = () => { clearTimeout(tallyT); tallyT = setTimeout(drawTally, 120); };
+  if ("ResizeObserver" in window) new ResizeObserver(tallySoon).observe(olSec); else addEventListener("resize", tallySoon);
+  themeWatchers.push(tallySoon);
+  document.fonts?.ready.then(tallySoon);
+
+  // ---------- activations: the print booth ----------
+  const POOL = [1, 2, 3, 4, 5, 6, 7, 8].map(n => `media/booth/b-${n}.webp`);
+  const pile = $("#pile"), feed = $("#feed"), shoot = $("#shoot"), lcd = $("#lcd");
+  const clock = d => d.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }).toLowerCase();
+  let printed = 0, nextShot = 0;
+  const pr = rng(46);
+  function makePrint(src, when) {
+    const f = document.createElement("figure"); f.className = "p46";
+    const img = new Image(); img.src = src; img.alt = "A 4×6 print from the booth"; img.width = 480; img.height = 720;
+    const cap = document.createElement("figcaption"); cap.textContent = clock(when);
+    f.append(img, cap); return f;
+  }
+  function land(p, animate) {
+    p.style.left = (4 + pr() * 52).toFixed(1) + "%";
+    p.style.top = (pr() * 18).toFixed(1) + "%";
+    p.style.transform = `rotate(${(pr() * 22 - 11).toFixed(1)}deg)`;
+    if (animate && !reduce) p.classList.add("drop");
+    pile.appendChild(p);
+    while (pile.children.length > 7) pile.firstElementChild.remove();
+    printed++; lcd.textContent = "PRINTS " + String(printed).padStart(3, "0");
+  }
+  [[0, 11], [3, 6], [5, 2]].forEach(([i, mins]) => land(makePrint(POOL[i], new Date(Date.now() - mins * 60000)), false));
+  nextShot = 1;
+  shoot.addEventListener("click", () => {
+    if (shoot.disabled) return;
+    shoot.disabled = true; shoot.classList.add("pressed"); setTimeout(() => shoot.classList.remove("pressed"), 140);
+    sfx.shutter();
+    if (!reduce) { const fl = $("#flash"); fl.classList.remove("go"); void fl.offsetWidth; fl.classList.add("go"); }
+    const p = makePrint(POOL[nextShot++ % POOL.length], new Date());
+    const done = () => {
+      p.classList.remove("feeding"); p.remove(); land(p, true);
+      $("#boothStatus").textContent = `Print ${printed} is out.`; shoot.disabled = false;
+    };
+    if (reduce) { done(); return; }
+    setTimeout(() => {
+      p.classList.add("feeding"); feed.appendChild(p); sfx.printer(2.6);
+      p.addEventListener("animationend", e => { if (e.target === p) setTimeout(done, 250); });
+    }, 280);
+  });
+
+  // ---------- instagram (live on kevinsarasom.com, film strip fallback elsewhere) ----------
+  (async () => {
+    for (const url of ["/api/instagram"]) {
+      try {
+        const res = await fetch(url, { headers: { accept: "application/json" } });
+        if (!res.ok) continue;
+        const d = await res.json();
+        if (!d || !Array.isArray(d.items)) continue;
+        const items = d.items
+          .map(it => ({ href: it.permalink, src: it.type === "video" ? it.poster : it.media, cap: (it.caption || "").slice(0, 140) }))
+          .filter(x => /^https:\/\//.test(x.href || "") && /^https:\/\//.test(x.src || ""))
+          .slice(0, 14);
+        if (items.length < 4) continue;
+        const strip = $("#igStrip"); strip.replaceChildren();
+        items.forEach(x => {
+          const a = document.createElement("a"); a.href = x.href; a.target = "_blank"; a.rel = "noopener";
+          const img = new Image(); img.src = x.src; img.alt = x.cap || "Off Leash Studio on Instagram"; img.loading = "lazy";
+          img.addEventListener("error", () => a.remove());
+          a.appendChild(img); strip.appendChild(a);
+        });
+        const p = d.profile || {}, num = n => n >= 1e6 ? (n / 1e6).toFixed(1).replace(/\.0$/, "") + "M" : n >= 1e3 ? (n / 1e3).toFixed(1).replace(/\.0$/, "") + "K" : String(n);
+        if (p.followers_count) $("#igMeta").textContent = `${num(p.followers_count)} followers · ${num(p.media_count || 0)} posts`;
+        return;
+      } catch {}
+    }
+  })();
+
+  // ---------- contact: the call sheet ----------
+  const EMAIL = "kevin@offleashstudio.com";
+  const form = $("#callsheet");
+  $("#csDate").textContent = new Intl.DateTimeFormat("en-US", { weekday: "long", month: "long", day: "numeric" }).format(now);
+  function sunTimes(date, lat, lng) {
+    const rad = Math.PI / 180, dayMs = 864e5, J1970 = 2440588, J2000 = 2451545, J0 = .0009, e = rad * 23.4397;
+    const lw = rad * -lng, phi = rad * lat, d = date.valueOf() / dayMs - .5 + J1970 - J2000;
+    const n = Math.round(d - J0 - lw / (2 * Math.PI)), ds = J0 + lw / (2 * Math.PI) + n;
+    const M = rad * (357.5291 + .98560028 * ds);
+    const L = M + rad * (1.9148 * Math.sin(M) + .02 * Math.sin(2 * M) + .0003 * Math.sin(3 * M)) + rad * 102.9372 + Math.PI;
+    const dec = Math.asin(Math.sin(e) * Math.sin(L));
+    const at = h => {
+      const w = Math.acos((Math.sin(h * rad) - Math.sin(phi) * Math.sin(dec)) / (Math.cos(phi) * Math.cos(dec)));
+      const j = J2000 + J0 + (w + lw) / (2 * Math.PI) + n + .0053 * Math.sin(M) - .0069 * Math.sin(2 * L);
+      return new Date((j + .5 - J1970) * dayMs);
+    };
+    return { sunset: at(-.833), golden: at(6) };
+  }
+  try {
+    const s = sunTimes(now, 43.6532, -79.3832);
+    const t = d => new Intl.DateTimeFormat("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/Toronto" }).format(d).toLowerCase();
+    if (!isNaN(s.sunset)) { $("#csSun").textContent = `Toronto sunset ${t(s.sunset)}`; $("#csGolden").textContent = `${t(s.golden)} to ${t(s.sunset)}`; }
+  } catch {}
+  $$("[data-job]").forEach(a => a.addEventListener("click", () => {
+    const r = $$('input[name="job"]', form).find(i => i.value === a.dataset.job); if (r) r.checked = true;
+  }));
+  function compose() {
+    const v = id => $(id).value.trim();
+    const job = ($('input[name="job"]:checked', form) || {}).value || "";
+    const who = v("#f-co") || v("#f-name");
+    const lines = [
+      ["Production", job], ["Name", v("#f-name")], ["Company", v("#f-co")], ["Location", v("#f-where")],
+      ["Shoot date", v("#f-when")], ["Scale", v("#f-scale")], ["Budget", v("#f-budget")]
+    ].filter(l => l[1]).map(l => `${l[0]}: ${l[1]}`);
+    const notes = v("#f-notes");
+    const body = ["CALL SHEET", ...lines, ...(notes ? ["", "Notes:", notes] : []), "", "Sent from kevinsarasom.com"].join("\n");
+    const subject = ["Call sheet", job, who].filter(Boolean).join(" · ");
+    return { subject, body, text: `To: ${EMAIL}\nSubject: ${subject}\n\n${body}` };
+  }
+  function copyText(text, fallbackEl, okMsg) {
+    const note = $("#csNote");
+    const select = () => { const r = document.createRange(); r.selectNodeContents(fallbackEl); const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+    const fail = () => { if (fallbackEl.id === "csOut") { fallbackEl.textContent = text; fallbackEl.hidden = false; } select(); note.textContent = "Copying isn't available here, so the text is selected. Copy it with your keyboard or menu."; };
+    if (navigator.clipboard?.writeText) navigator.clipboard.writeText(text).then(() => { note.textContent = okMsg; }, fail); else fail();
+  }
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const c = compose();
+    location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(c.subject)}&body=${encodeURIComponent(c.body)}`;
+    $("#csNote").textContent = `Your email app should open with the call sheet. If it didn't, use Copy as text and send it to ${EMAIL}.`;
+  });
+  $("#copySheet").addEventListener("click", () => { const c = compose(); $("#csOut").textContent = c.text; copyText(c.text, $("#csOut"), `Copied. Paste it into an email to ${EMAIL}.`); });
+  $("#copyEmail").addEventListener("click", () => copyText(EMAIL, $("#csEmail"), `Copied ${EMAIL}.`));
+
+  $("#yr").textContent = now.getFullYear();
+})();
+</script>
