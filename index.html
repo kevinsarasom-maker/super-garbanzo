@@ -1,0 +1,620 @@
+<!doctype html>
+<title>Sarasom Greenhouse</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="The CRM where every contact is a houseplant. Water them or watch them wilt. By kevinsarasom.com.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Martian+Mono:wght@400;600&display=swap">
+<style>
+  :root {
+    --bg: #E8EFE9;
+    --surface: #F6FAF6;
+    --ink: #13302A;
+    --muted: #56706A;
+    --line: #C6D5CB;
+    --leaf: #2E8C4C;
+    --grow: #D23C78;
+    --grow-ink: #FFFFFF;
+    --thirsty: #B07A12;
+    --wilt: #C2571F;
+    --dead: #7E4A35;
+    --pot: #27302C;
+    --soil: #4A3A2E;
+    --tag: #FFFFFF;
+    --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
+    --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono: "Martian Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #0D1613; --surface: #14201C; --ink: #E2EEE6; --muted: #8DA49A; --line: #26372F;
+      --leaf: #5CC27B; --grow: #FF6FA6; --grow-ink: #1A0710; --thirsty: #E3AE3E; --wilt: #F08A4B;
+      --dead: #B98368; --pot: #070B0A; --soil: #3A2D23; --tag: #E6EFE9;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #0D1613; --surface: #14201C; --ink: #E2EEE6; --muted: #8DA49A; --line: #26372F;
+    --leaf: #5CC27B; --grow: #FF6FA6; --grow-ink: #1A0710; --thirsty: #E3AE3E; --wilt: #F08A4B;
+    --dead: #B98368; --pot: #070B0A; --soil: #3A2D23; --tag: #E6EFE9;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 15px/1.5 var(--body);
+    padding-inline: 16px; padding-block: 20px 48px;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; display: grid; gap: 28px; }
+  button, input, select { font: inherit; color: inherit; }
+  button { cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--grow); outline-offset: 2px; }
+  .mono { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
+  .muted { color: var(--muted); }
+
+  /* header */
+  header { display: grid; gap: 14px; }
+  .topline { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: center; }
+  .brand { display: inline-flex; gap: 10px; align-items: center; }
+  .brand b { background: var(--ink); color: var(--bg); padding: 3px 8px; border-radius: 3px; }
+  h1 {
+    font-family: var(--display); font-weight: 800; font-size: clamp(34px, 6vw, 68px);
+    line-height: .95; letter-spacing: -.025em; margin: 0; text-wrap: balance; max-width: 16ch;
+  }
+  h1 em { font-style: normal; color: var(--leaf); }
+  .lede { margin: 0; max-width: 60ch; color: var(--muted); font-size: 16px; }
+
+  /* stats */
+  .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-block: 1px solid var(--line); }
+  .stat { padding: 14px 16px; display: grid; gap: 2px; align-content: start; }
+  .stat + .stat { border-left: 1px solid var(--line); }
+  .stat .v { font-family: var(--display); font-weight: 600; font-size: 30px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .stat .n { font-size: 13px; color: var(--muted); }
+  @media (max-width: 760px) {
+    .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .stat:nth-child(3) { border-left: 0; }
+    .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+  }
+
+  /* toolbar */
+  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .toolbar .spacer { flex: 1; }
+  .btn {
+    border: 1px solid var(--line); background: var(--surface); border-radius: 999px;
+    padding: 8px 14px; font-weight: 500; font-size: 14px; transition: transform .12s, background .12s;
+  }
+  .btn:hover { transform: translateY(-1px); border-color: var(--ink); }
+  .btn.primary { background: var(--grow); color: var(--grow-ink); border-color: var(--grow); font-weight: 600; }
+  .btn.small { padding: 5px 11px; font-size: 13px; }
+  select.btn { appearance: none; padding-right: 14px; }
+
+  /* layout */
+  .main { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 28px; align-items: start; }
+  @media (max-width: 980px) { .main { grid-template-columns: minmax(0, 1fr); } }
+  h2 { font-family: var(--display); font-weight: 600; font-size: 22px; margin: 0; letter-spacing: -.01em; }
+  .sechead { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+
+  /* greenhouse grid */
+  .bench { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+  .plant {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 6px;
+    display: grid; grid-template-rows: auto 1fr auto; overflow: hidden;
+  }
+  .plant .stage-art { position: relative; height: 150px; border-bottom: 1px dashed var(--line);
+    background: repeating-linear-gradient(90deg, transparent 0 23px, color-mix(in srgb, var(--line) 45%, transparent) 23px 24px); }
+  .plant svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .plant .pill { position: absolute; top: 10px; left: 10px; }
+  .plant .days { position: absolute; top: 10px; right: 10px; font-variant-numeric: tabular-nums; }
+  .pill { display: inline-block; font-family: var(--mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase;
+    padding: 3px 7px; border-radius: 3px; border: 1px solid currentColor; background: var(--surface); }
+  .s-thriving { color: var(--leaf); } .s-thirsty { color: var(--thirsty); } .s-wilting { color: var(--wilt); } .s-compost { color: var(--dead); }
+  .plant .info { padding: 12px 14px 4px; display: grid; gap: 6px; align-content: start; }
+  .plant h3 { margin: 0; font-family: var(--display); font-weight: 600; font-size: 19px; line-height: 1.15; }
+  .plant .origin { margin: 0; font-size: 13.5px; color: var(--muted); }
+  .meta { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; font-size: 13px; margin-top: 4px; }
+  .meta dt { color: var(--muted); }
+  .meta dd { margin: 0; font-variant-numeric: tabular-nums; }
+  .meta dt.full, .meta dd.stagepick { grid-column: 1 / -1; }
+  .stagepick { display: flex; align-items: center; gap: 6px; justify-content: space-between; border: 1px solid var(--line); border-radius: 4px; padding: 3px; }
+  .stagepick span { text-align: center; flex: 1; font-weight: 500; }
+  .stagepick button { border: 0; flex: none; background: var(--bg); border-radius: 4px; width: 22px; height: 22px; line-height: 1; padding: 0; }
+  .stagepick button:disabled { opacity: .3; cursor: default; }
+  .plant .actions { padding: 10px 14px 14px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .plant.is-compost h3 { text-decoration: line-through; text-decoration-thickness: 2px; text-decoration-color: var(--dead); }
+  .plant.perk .stage-art svg { animation: perk .7s ease; }
+  @keyframes perk { 0% { transform: translateY(6px) scale(.97); } 60% { transform: translateY(-4px) scale(1.02); } 100% { transform: none; } }
+
+  /* sidebar */
+  aside { display: grid; gap: 28px; }
+  .panel { display: grid; gap: 10px; }
+  .funnel { display: grid; gap: 8px; }
+  .frow { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; align-items: center; background: none; border: 0; padding: 4px 0; text-align: left; }
+  .frow .lbl { font-size: 13.5px; }
+  .frow .ct { font-family: var(--mono); font-size: 12px; font-variant-numeric: tabular-nums; }
+  .frow .bar { grid-column: 1 / -1; height: 10px; background: color-mix(in srgb, var(--line) 60%, transparent); border-radius: 2px; overflow: hidden; }
+  .frow .bar i { display: block; height: 100%; background: var(--leaf); border-radius: 2px; transition: width .4s ease; }
+  .frow.active .lbl { font-weight: 600; }
+  .frow.active .bar i { background: var(--grow); }
+  .excuse {
+    border: 1px solid var(--line); border-radius: 6px; padding: 14px; background: var(--surface);
+    font-family: var(--display); font-size: 18px; line-height: 1.3; min-height: 88px;
+  }
+  .log { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+  .log li { padding: 9px 0; border-top: 1px solid var(--line); font-size: 13.5px; display: grid; gap: 1px; }
+  .log li:first-child { border-top: 0; }
+  .log .when { font-family: var(--mono); font-size: 10px; letter-spacing: .05em; color: var(--muted); text-transform: uppercase; }
+
+  /* add form */
+  form.add { display: grid; gap: 10px; border: 1px solid var(--line); border-radius: 6px; padding: 14px; background: var(--surface); }
+  form.add label { display: grid; gap: 4px; font-size: 13px; color: var(--muted); }
+  form.add input, form.add select { border: 1px solid var(--line); background: var(--bg); border-radius: 4px; padding: 8px 10px; color: var(--ink); font-size: 14px; width: 100%; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+  .toast {
+    position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%);
+    background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: 6px; font-size: 14px; max-width: calc(100vw - 32px);
+    box-shadow: 0 8px 24px rgba(0,0,0,.2);
+  }
+  footer { border-top: 1px solid var(--line); padding-top: 14px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+  .empty { padding: 28px; border: 1px dashed var(--line); border-radius: 6px; color: var(--muted); text-align: center; }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="topline">
+      <span class="brand mono"><b>kevinsarasom.com</b> Greenhouse CRM</span>
+      <span class="mono muted" id="today"></span>
+    </div>
+    <h1>Every contact is a houseplant. <em>Water accordingly.</em></h1>
+    <p class="lede">Most CRMs track deals. This one tracks how long it's been since you texted someone back. Neglect a contact and they wilt. Neglect them long enough and they're composted into a LinkedIn connection.</p>
+  </header>
+
+  <section class="stats" aria-label="Greenhouse summary">
+    <div class="stat"><span class="mono muted">Humidity</span><span class="v" id="st-hum">0%</span><span class="n">average plant health</span></div>
+    <div class="stat"><span class="mono muted">Thirstiest</span><span class="v" id="st-thirst" style="font-size:22px">—</span><span class="n" id="st-thirst-n"></span></div>
+    <div class="stat"><span class="mono muted">Coffees owed</span><span class="v" id="st-coffee">0</span><span class="n">net, across all plants</span></div>
+    <div class="stat"><span class="mono muted">Couch-tier</span><span class="v" id="st-couch">0</span><span class="n">would help you move a couch up stairs</span></div>
+  </section>
+
+  <div class="main">
+    <section>
+      <div class="sechead">
+        <h2 id="bench-title">The bench</h2>
+        <span class="mono muted" id="bench-count"></span>
+      </div>
+      <div class="toolbar" style="margin-bottom:14px">
+        <button class="btn primary" id="panic" type="button">Water everyone (panic mode)</button>
+        <button class="btn" id="ffwd" type="button">Skip a week of adulthood</button>
+        <span class="spacer"></span>
+        <select class="btn" id="sort" aria-label="Sort plants">
+          <option value="thirst">Sort: thirstiest first</option>
+          <option value="stage">Sort: closest friends first</option>
+          <option value="coffee">Sort: most coffees owed</option>
+          <option value="name">Sort: alphabetical</option>
+        </select>
+      </div>
+      <div class="bench" id="bench"></div>
+    </section>
+
+    <aside>
+      <div class="panel">
+        <div class="sechead" style="margin:0"><h2>Friendship funnel</h2><button class="btn small" id="clear-filter" type="button" hidden>Show all</button></div>
+        <div class="funnel" id="funnel"></div>
+        <p class="muted" style="margin:0;font-size:13px" id="conv"></p>
+      </div>
+
+      <div class="panel">
+        <h2>Excuse generator</h2>
+        <div class="excuse" id="excuse" aria-live="polite">I didn't forget. I was letting the friendship breathe.</div>
+        <div><button class="btn small" id="gen-excuse" type="button">Why haven't I texted them?</button></div>
+      </div>
+
+      <div class="panel">
+        <h2>Pot a new contact</h2>
+        <form class="add" id="add">
+          <label for="f-name">Name (or best guess)
+            <input id="f-name" required maxlength="40" placeholder="Steve? Stephen? Big Steve?">
+          </label>
+          <label for="f-origin">How you met
+            <input id="f-origin" maxlength="90" placeholder="Stood near each other at the shrimp tower">
+          </label>
+          <div class="row2">
+            <label for="f-cad">Watering schedule
+              <select id="f-cad">
+                <option value="7">Weekly</option>
+                <option value="14" selected>Every 2 weeks</option>
+                <option value="30">Monthly</option>
+                <option value="45">Whenever they post a dog</option>
+                <option value="365">Birthdays only</option>
+              </select>
+            </label>
+            <label for="f-coffee">Coffees owed
+              <input id="f-coffee" type="number" min="-9" max="99" value="0">
+            </label>
+          </div>
+          <button class="btn primary" type="submit">Pot them</button>
+        </form>
+      </div>
+
+      <div class="panel">
+        <h2>Watering log</h2>
+        <ul class="log" id="log"></ul>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <span class="mono muted">Sample greenhouse. Names and grudges are fictional.</span>
+    <button class="btn small" id="reset" type="button">Replant the sample greenhouse</button>
+  </footer>
+</div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(() => {
+  const STAGES = [
+    "Met at a Thing",
+    "Remembers My Name",
+    "Has Texted First",
+    "Would Help Me Move",
+    "Would Help Me Move a Couch Up Stairs"
+  ];
+
+  const SAMPLE = () => [
+    { id: 1, name: "Dana Whitlock", origin: "Stood by the shrimp tower together at a wedding. Bonded over the shrimp.", stage: 1, days: 3, cadence: 14, coffee: 1 },
+    { id: 2, name: "Tom from Pickleball", origin: "Surname unknown. It's been too long to ask now.", stage: 2, days: 61, cadence: 14, coffee: 0 },
+    { id: 3, name: "Aunt Carol", origin: "Family. Cannot be churned. Will call if you don't.", stage: 4, days: 20, cadence: 30, coffee: -3 },
+    { id: 4, name: "Jess Kaplan", origin: "Owes you $14 from the 2023 Thai dinner. Neither of you has forgotten.", stage: 3, days: 17, cadence: 7, coffee: 2 },
+    { id: 5, name: "Marcus Obi", origin: "Ex-coworker. Shares exactly one inside joke about the printer.", stage: 2, days: 33, cadence: 21, coffee: 1 },
+    { id: 6, name: "Priya Raman", origin: "You both hit reply-all on the same wrong email thread. Trauma bond.", stage: 1, days: 9, cadence: 10, coffee: 0 },
+    { id: 7, name: "The Bike Guy", origin: "Fixed your chain for free. You now feel indebted forever.", stage: 0, days: 5, cadence: 45, coffee: 3 },
+    { id: 8, name: "Rob (LinkedIn)", origin: "Endorsed you for Microsoft Excel. You have never met.", stage: 0, days: 120, cadence: 365, coffee: 0 }
+  ];
+
+  const WATERINGS = [
+    { t: "sent a meme with zero context", c: 0 },
+    { t: "said \"we should grab coffee\" and proposed no date", c: 1 },
+    { t: "accidentally liked a photo from 2019, then committed to it", c: 0 },
+    { t: "replied \"haha\" four hours late", c: 0 },
+    { t: "sent a 7-minute voice memo, mostly about parking", c: 0 },
+    { t: "sent \"happy belated!!\" one day late", c: 0 },
+    { t: "actually grabbed the coffee. Unprecedented", c: -1 },
+    { t: "reacted to their story with the fire emoji", c: 0 },
+    { t: "texted \"saw this and thought of you\" with a link to a lamp", c: 0 },
+    { t: "helped carry one (1) box", c: -1 },
+    { t: "said \"let me know if you ever need anything\" and meant about 60% of it", c: 0 }
+  ];
+
+  const EXCUSES = [
+    "Mercury was in retrograde in my Drafts folder.",
+    "I was waiting for them to post something I could reply to.",
+    "I typed the message, then the moment passed, then the season passed.",
+    "It's been busy season since roughly 2019.",
+    "I assumed they were busy. They assumed I was busy. We were both technically right.",
+    "I was going to call, but calling is a lot.",
+    "I left it on read as a form of respect.",
+    "Their name is saved as \"Chris Gym\" and I couldn't remember which Chris.",
+    "I'm waiting until I have big news. The news has not arrived.",
+    "I did text them. In my head. In the shower. Very eloquently.",
+    "My phone said 3% and I took that personally.",
+    "I didn't want to interrupt their healing era."
+  ];
+
+  const COMPOST_LINES = [
+    "Composted. They're a LinkedIn connection now.",
+    "Composted. You will now wave at each other at the grocery store.",
+    "Composted. Future contact limited to a wedding in 2031.",
+    "Composted. They've been moved to Close Acquaintances (Distant)."
+  ];
+
+  const KEY = "sarasom-greenhouse-v1";
+  let state = load() || fresh();
+  let filterStage = null;
+
+  function fresh() {
+    return { plants: SAMPLE(), log: [
+      { txt: "Greenhouse opened. Tom from Pickleball is not looking great.", at: Date.now() }
+    ], nextId: 9 };
+  }
+  function load() { try { const s = JSON.parse(localStorage.getItem(KEY)); return s && Array.isArray(s.plants) ? s : null; } catch { return null; } }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch {} }
+
+  const pick = a => a[Math.floor(Math.random() * a.length)];
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[c]));
+
+  // Thirst: how many watering cycles overdue. 0-1 thriving, 1-2 thirsty, 2-3.5 wilting, beyond is compost.
+  function thirst(p) { return p.days / p.cadence; }
+  function status(p) {
+    const t = thirst(p);
+    if (t < 1) return { k: "thriving", label: "Thriving" };
+    if (t < 2) return { k: "thirsty", label: "Thirsty" };
+    if (t < 3.5) return { k: "wilting", label: "Wilting" };
+    return { k: "compost", label: "Composted" };
+  }
+  function health(p) { return Math.max(0, Math.min(1, 1 - thirst(p) / 3.5)); }
+
+  function mix(a, b, t) {
+    const pa = a.match(/\w\w/g).map(x => parseInt(x, 16)), pb = b.match(/\w\w/g).map(x => parseInt(x, 16));
+    return "#" + pa.map((v, i) => Math.round(v + (pb[i] - v) * t).toString(16).padStart(2, "0")).join("");
+  }
+  function leafColor(h) {
+    return h > .5 ? mix("C9A227", "3E9B53", (h - .5) * 2) : mix("7A4B2E", "C9A227", h * 2);
+  }
+
+  // Draws a potted plant whose stem droops as health drops.
+  function plantSVG(p) {
+    const h = health(p), seed = p.id * 97;
+    const rnd = i => { const x = Math.sin(seed + i * 12.9898) * 43758.5453; return x - Math.floor(x); };
+    const W = 180, H = 150, cx = W / 2, potTop = 108;
+    const droop = (1 - h) * 1.35; // radians
+    const len = 44 + h * 22 + p.stage * 3;
+    const dir = rnd(1) > .5 ? 1 : -1;
+    const tipX = cx + Math.sin(droop) * len * dir;
+    const tipY = potTop - Math.cos(droop) * len;
+    const ctrlX = cx + dir * (droop * 10);
+    const ctrlY = potTop - len * .75;
+    const col = leafColor(h);
+    const leaves = [];
+    const nLeaves = 3 + p.stage;
+    for (let i = 1; i <= nLeaves; i++) {
+      const t = i / (nLeaves + .6);
+      const x = (1 - t) * (1 - t) * cx + 2 * (1 - t) * t * ctrlX + t * t * tipX;
+      const y = (1 - t) * (1 - t) * potTop + 2 * (1 - t) * t * ctrlY + t * t * tipY;
+      const side = i % 2 ? 1 : -1;
+      // Healthy leaves tilt up; thirsty ones rotate down around the stem.
+      const rot = side * (-25 + (1 - h) * 80);
+      const size = 7 + h * 6 + rnd(i) * 3;
+      leaves.push(`<ellipse cx="${(x + side * size * .8).toFixed(1)}" cy="${y.toFixed(1)}" rx="${size.toFixed(1)}" ry="${(size * .42).toFixed(1)}" fill="${col}" transform="rotate(${rot.toFixed(1)} ${x.toFixed(1)} ${y.toFixed(1)})" opacity="${(.85 + rnd(i + 3) * .15).toFixed(2)}"/>`);
+    }
+    const fallen = status(p).k === "compost" || status(p).k === "wilting"
+      ? [0, 1, 2].slice(0, status(p).k === "compost" ? 3 : 1).map(i =>
+          `<ellipse cx="${cx - 38 + i * 30 + rnd(i + 9) * 8}" cy="${potTop + 30 - rnd(i) * 2}" rx="6" ry="2.4" fill="${col}" opacity=".8"/>`).join("")
+      : "";
+    const bloom = p.stage >= 3 && h > .45
+      ? `<g transform="translate(${tipX.toFixed(1)} ${tipY.toFixed(1)})">${[0, 72, 144, 216, 288].map(a => `<ellipse rx="5" ry="2.6" cx="5" fill="var(--grow)" transform="rotate(${a})"/>`).join("")}<circle r="2.6" fill="#F4D35E"/></g>`
+      : "";
+    const tag = esc(p.name.split(" ")[0].slice(0, 9).toUpperCase());
+    return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(p.name)}, ${status(p).label.toLowerCase()}">
+      <line x1="0" y1="${potTop + 33}" x2="${W}" y2="${potTop + 33}" stroke="var(--line)" stroke-width="1"/>
+      ${fallen}
+      <path d="M${cx} ${potTop} Q${ctrlX.toFixed(1)} ${ctrlY.toFixed(1)} ${tipX.toFixed(1)} ${tipY.toFixed(1)}" stroke="${col}" stroke-width="3" fill="none" stroke-linecap="round"/>
+      ${leaves.join("")}
+      ${bloom}
+      <g transform="translate(${cx + 16} ${potTop - 20}) rotate(8)">
+        <rect x="0" y="0" width="30" height="26" rx="1.5" fill="var(--tag)" stroke="var(--line)"/>
+        <text x="15" y="10" text-anchor="middle" font-family="Martian Mono, monospace" font-size="5.2" fill="var(--ink)">${tag}</text>
+        <text x="15" y="18" text-anchor="middle" font-family="Martian Mono, monospace" font-size="4.4" fill="var(--muted)">${p.days}D DRY</text>
+      </g>
+      <ellipse cx="${cx}" cy="${potTop}" rx="30" ry="5" fill="var(--soil)"/>
+      <path d="M${cx - 32} ${potTop - 2} H${cx + 32} L${cx + 25} ${potTop + 32} H${cx - 25} Z" fill="var(--pot)"/>
+      <rect x="${cx - 34}" y="${potTop - 4}" width="68" height="7" rx="1.5" fill="var(--pot)"/>
+    </svg>`;
+  }
+
+  function sorted() {
+    const list = state.plants.filter(p => filterStage === null || p.stage === filterStage);
+    const by = document.getElementById("sort").value;
+    const f = {
+      thirst: (a, b) => thirst(b) - thirst(a),
+      stage: (a, b) => b.stage - a.stage || thirst(b) - thirst(a),
+      coffee: (a, b) => b.coffee - a.coffee,
+      name: (a, b) => a.name.localeCompare(b.name)
+    }[by];
+    return list.sort(f);
+  }
+
+  function lastWatered(d) {
+    if (d === 0) return "today";
+    if (d === 1) return "yesterday";
+    if (d < 60) return d + " days ago";
+    return Math.round(d / 30) + " months ago";
+  }
+  function coffeeText(c) {
+    if (c > 0) return `you owe ${c}`;
+    if (c < 0) return `they owe ${-c}`;
+    return "even";
+  }
+  function cadenceText(c) {
+    return { 7: "weekly", 10: "every 10 days", 14: "every 2 weeks", 21: "every 3 weeks", 30: "monthly", 45: "when they post a dog", 365: "birthdays only" }[c] || `every ${c} days`;
+  }
+
+  function render(perkId) {
+    const bench = document.getElementById("bench");
+    const list = sorted();
+    bench.innerHTML = list.length ? list.map(p => {
+      const s = status(p);
+      return `<article class="plant ${s.k === "compost" ? "is-compost" : ""} ${p.id === perkId ? "perk" : ""}" data-id="${p.id}">
+        <div class="stage-art">${plantSVG(p)}
+          <span class="pill s-${s.k}">${s.label}</span>
+          <span class="mono muted days">${Math.round(health(p) * 100)}% hp</span>
+        </div>
+        <div class="info">
+          <h3>${esc(p.name)}</h3>
+          <p class="origin">${esc(p.origin || "Origin story unclear. You just know them.")}</p>
+          <dl class="meta">
+            <dt>Last watered</dt><dd>${lastWatered(p.days)}</dd>
+            <dt>Schedule</dt><dd>${cadenceText(p.cadence)}</dd>
+            <dt>Coffees</dt><dd>${coffeeText(p.coffee)}</dd>
+            <dt class="full">Friendship stage</dt><dd class="stagepick">
+              <button type="button" data-act="down" aria-label="Demote ${esc(p.name)}" ${p.stage === 0 ? "disabled" : ""}>‹</button>
+              <span>${STAGES[p.stage]}</span>
+              <button type="button" data-act="up" aria-label="Promote ${esc(p.name)}" ${p.stage === STAGES.length - 1 ? "disabled" : ""}>›</button>
+            </dd>
+          </dl>
+        </div>
+        <div class="actions">
+          ${s.k === "compost"
+            ? `<button class="btn small primary" type="button" data-act="revive">Attempt revival</button>`
+            : `<button class="btn small primary" type="button" data-act="water">Water</button>`}
+          <button class="btn small" type="button" data-act="coffee">Log a coffee</button>
+          <button class="btn small" type="button" data-act="toss">Toss</button>
+        </div>
+      </article>`;
+    }).join("") : `<div class="empty">Nobody at this stage. Tragic, or aspirational.</div>`;
+
+    document.getElementById("bench-title").textContent = filterStage === null ? "The bench" : STAGES[filterStage];
+    document.getElementById("bench-count").textContent = `${list.length} plant${list.length === 1 ? "" : "s"}`;
+    document.getElementById("clear-filter").hidden = filterStage === null;
+
+    // stats
+    const P = state.plants;
+    const hum = P.length ? Math.round(P.reduce((a, p) => a + health(p), 0) / P.length * 100) : 0;
+    document.getElementById("st-hum").textContent = hum + "%";
+    const alive = P.filter(p => status(p).k !== "compost");
+    const worst = alive.sort((a, b) => thirst(b) - thirst(a))[0];
+    document.getElementById("st-thirst").textContent = worst ? worst.name : "Nobody";
+    document.getElementById("st-thirst-n").textContent = worst ? `${worst.days} days dry. Text them.` : "Everyone's fine. Suspicious.";
+    const net = P.reduce((a, p) => a + p.coffee, 0);
+    document.getElementById("st-coffee").textContent = net;
+    document.getElementById("st-couch").textContent = P.filter(p => p.stage === 4).length;
+
+    // funnel, bars share one scale: max stage count
+    const counts = STAGES.map((_, i) => P.filter(p => p.stage === i).length);
+    const max = Math.max(1, ...counts);
+    document.getElementById("funnel").innerHTML = STAGES.map((s, i) => `
+      <button type="button" class="frow ${filterStage === i ? "active" : ""}" data-stage="${i}">
+        <span class="lbl">${s}</span><span class="ct">${counts[i]}</span>
+        <span class="bar"><i style="width:${counts[i] / max * 100}%"></i></span>
+      </button>`).join("");
+    const helpers = counts[3] + counts[4];
+    document.getElementById("conv").textContent = P.length
+      ? `Move-day conversion: ${Math.round(helpers / P.length * 100)}%. ${counts[4] ? "" : "Nobody will carry the couch. Hire movers."}`
+      : "";
+
+    document.getElementById("log").innerHTML = state.log.slice(0, 8).map(l =>
+      `<li><span class="when">${ago(l.at)}</span><span>${esc(l.txt)}</span></li>`).join("");
+    save();
+  }
+
+  function ago(t) {
+    const s = Math.round((Date.now() - t) / 1000);
+    if (s < 60) return "just now";
+    if (s < 3600) return Math.round(s / 60) + " min ago";
+    if (s < 86400) return Math.round(s / 3600) + " hr ago";
+    return Math.round(s / 86400) + " days ago";
+  }
+  function log(txt) { state.log.unshift({ txt, at: Date.now() }); state.log = state.log.slice(0, 40); }
+
+  let toastT;
+  function toast(msg) {
+    const t = document.getElementById("toast");
+    t.textContent = msg; t.hidden = false;
+    clearTimeout(toastT); toastT = setTimeout(() => { t.hidden = true; }, 3200);
+  }
+
+  document.getElementById("bench").addEventListener("click", e => {
+    const b = e.target.closest("button[data-act]"); if (!b) return;
+    const card = b.closest(".plant"); const p = state.plants.find(x => x.id === +card.dataset.id); if (!p) return;
+    const first = p.name.split(" ")[0];
+    switch (b.dataset.act) {
+      case "water": {
+        const w = pick(WATERINGS);
+        p.days = 0; p.coffee += w.c;
+        log(`You ${w.t} (${p.name}).`);
+        toast(`${first} perked up. You ${w.t}.`);
+        return render(p.id);
+      }
+      case "revive": {
+        if (Math.random() < .5) {
+          p.days = Math.floor(p.cadence * 1.5);
+          log(`Revived ${p.name} with "omg it's been forever!!" It worked. Barely.`);
+          toast(`${first} is back from the compost. On probation.`);
+        } else {
+          log(`Tried to revive ${p.name}. They replied "haha yeah". It's over.`);
+          toast(`${first} replied "haha yeah". Still compost.`);
+        }
+        return render(p.id);
+      }
+      case "coffee":
+        p.coffee -= 1; p.days = 0;
+        log(`Had coffee with ${p.name}. ${p.coffee > 0 ? `Still owe ${p.coffee}.` : p.coffee < 0 ? "They're in your debt now." : "Debts settled. Friendship at equilibrium."}`);
+        toast("Coffee logged. Caffeine is load-bearing in this friendship.");
+        return render(p.id);
+      case "up":
+        p.stage = Math.min(STAGES.length - 1, p.stage + 1);
+        log(`${p.name} promoted to "${STAGES[p.stage]}".`);
+        if (p.stage === 4) toast(`${first} would carry a couch up stairs. Protect this plant.`);
+        return render();
+      case "down":
+        p.stage = Math.max(0, p.stage - 1);
+        log(`${p.name} demoted to "${STAGES[p.stage]}". What did they do?`);
+        return render();
+      case "toss":
+        if (card.dataset.confirm) {
+          state.plants = state.plants.filter(x => x !== p);
+          log(`Tossed ${p.name}. Unfollowed on all platforms except the one you forget you have.`);
+          toast(`${first} tossed. They will appear in "People you may know" forever.`);
+          return render();
+        }
+        card.dataset.confirm = "1";
+        b.textContent = "Really? Tap again";
+        setTimeout(() => { if (b.isConnected) { delete card.dataset.confirm; b.textContent = "Toss"; } }, 3000);
+        return;
+    }
+  });
+
+  document.getElementById("panic").addEventListener("click", () => {
+    state.plants.forEach(p => { if (status(p).k !== "compost") p.days = 0; });
+    log(`Texted "hey stranger!!" to everyone at once. ${state.plants.length > 3 ? "Two people asked if you're okay." : "It went fine, actually."}`);
+    toast("Mass watering complete. Several people are now concerned about you.");
+    render();
+  });
+
+  document.getElementById("ffwd").addEventListener("click", () => {
+    const before = state.plants.filter(p => status(p).k === "compost").length;
+    state.plants.forEach(p => { p.days += 7; });
+    const newly = state.plants.filter(p => status(p).k === "compost").length - before;
+    log(`A week passed. You meant to text people. You did laundry instead.${newly ? ` ${newly} composted.` : ""}`);
+    toast(newly ? pick(COMPOST_LINES) : "One week later. Everyone's a little drier.");
+    render();
+  });
+
+  document.getElementById("sort").addEventListener("change", () => render());
+  document.getElementById("funnel").addEventListener("click", e => {
+    const r = e.target.closest(".frow"); if (!r) return;
+    const s = +r.dataset.stage; filterStage = filterStage === s ? null : s; render();
+  });
+  document.getElementById("clear-filter").addEventListener("click", () => { filterStage = null; render(); });
+
+  document.getElementById("gen-excuse").addEventListener("click", () => {
+    const el = document.getElementById("excuse");
+    let x; do { x = pick(EXCUSES); } while (x === el.textContent && EXCUSES.length > 1);
+    el.textContent = x;
+  });
+
+  document.getElementById("add").addEventListener("submit", e => {
+    e.preventDefault();
+    const name = document.getElementById("f-name").value.trim(); if (!name) return;
+    const p = {
+      id: state.nextId++, name,
+      origin: document.getElementById("f-origin").value.trim(),
+      stage: 0, days: 0,
+      cadence: +document.getElementById("f-cad").value,
+      coffee: Math.max(-9, Math.min(99, +document.getElementById("f-coffee").value || 0))
+    };
+    state.plants.push(p);
+    log(`Potted ${p.name}. Fresh soil, high hopes.`);
+    toast(`${name.split(" ")[0]} potted. Don't be weird about it.`);
+    e.target.reset();
+    filterStage = null;
+    render(p.id);
+  });
+
+  const reset = document.getElementById("reset");
+  reset.addEventListener("click", () => {
+    if (!reset.dataset.confirm) {
+      reset.dataset.confirm = "1"; reset.textContent = "This wipes your plants. Tap again";
+      setTimeout(() => { delete reset.dataset.confirm; reset.textContent = "Replant the sample greenhouse"; }, 3000);
+      return;
+    }
+    delete reset.dataset.confirm; reset.textContent = "Replant the sample greenhouse";
+    state = fresh(); filterStage = null; render(); toast("Greenhouse replanted. Tom is still not doing great.");
+  });
+
+  document.getElementById("today").textContent = new Date().toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" }) + " · Watering day";
+  render();
+})();
+</script>
