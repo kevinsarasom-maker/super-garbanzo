@@ -1,0 +1,14 @@
+# Serves the Light Table redesign at kevinsarasom.com/test without touching the live homepage.
+# Build first (./build.sh), then: npx wrangler deploy
+name = "kevinsarasom-test"
+compatibility_date = "2026-09-24"
+workers_dev = false
+routes = [
+  { pattern = "kevinsarasom.com/test", zone_name = "kevinsarasom.com" },
+  { pattern = "kevinsarasom.com/test/*", zone_name = "kevinsarasom.com" },
+]
+
+[assets]
+directory = "./dist"
+html_handling = "auto-trailing-slash"
+not_found_handling = "none"

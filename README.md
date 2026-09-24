@@ -31,3 +31,15 @@ The page is a working light table. The hero is a contact sheet of real C-41 colo
 - **Contact**: a production call sheet (with today's Toronto golden hour) that opens a pre-filled email to kevin@offleashstudio.com, or copies it as text.
 
 The "Lights" switch in the nav toggles the room between lights on and a dark room (the light table stays lit), and "Sound" mutes the synthesized shutter, slate and printer sounds. The social share image is `media/og.jpg`, referenced as `https://kevinsarasom.com/media/og.jpg`.
+
+## Previewing the redesign at kevinsarasom.com/test
+
+`deploy/kevinsarasom-test/` publishes the redesign as a small Cloudflare Worker that serves static files only on `kevinsarasom.com/test` and `kevinsarasom.com/test/*`, so the live homepage is untouched. The preview copy is marked `noindex` and its share tags point at `/test/`.
+
+```sh
+cd deploy/kevinsarasom-test
+./build.sh             # copies kevinsarasom/ into dist/test/ and adjusts it for /test
+npx wrangler deploy    # needs CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID, or run `npx wrangler login` first
+```
+
+To take the preview down later: `npx wrangler delete` from the same folder.
