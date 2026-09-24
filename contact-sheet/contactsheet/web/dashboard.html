@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact Sheet</title>
+<meta name="description" content="Leads for kevinsarasom.com: circle the keepers, cross out the rest.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+  :root {
+    --paper: #ECE8DF;
+    --paper-2: #E1DCD0;
+    --ink: #161513;
+    --muted: #686357;
+    --line: #CBC4B5;
+    --panel: #FBF9F4;
+    --film: #171614;
+    --film-2: #23211E;
+    --film-ink: #F2EEE5;
+    --film-muted: #A7A194;
+    --edge: #E59B3A;
+    --pencil: #D9342B;
+    --pencil-ink: #FFFFFF;
+    --ok: #2F7D4F;
+    --s-headshots: #E59B3A;
+    --s-nomadic_pods: #3DB6A5;
+    --s-experiential: #E3589D;
+    --s-off_leash: #8DC455;
+    --s-pet_rescue: #6F9DF2;
+    --display: "Bebas Neue", "Oswald", "Arial Narrow", Impact, sans-serif;
+    --body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0F0E0D; --paper-2: #1A1917; --ink: #EEEAE1; --muted: #9C968A; --line: #2E2B27;
+      --panel: #151412; --film: #1D1C1A; --film-2: #292724; --pencil: #FF5147; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0F0E0D; --paper-2: #1A1917; --ink: #EEEAE1; --muted: #9C968A; --line: #2E2B27;
+    --panel: #151412; --film: #1D1C1A; --film-2: #292724; --pencil: #FF5147; color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 15px/1.5 var(--body); }
+  button, input, select, textarea { font: inherit; color: inherit; }
+  a { color: inherit; }
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 0 16px; }
+
+  /* masthead */
+  .top { display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: end; justify-content: space-between; padding: 28px 0 18px; border-bottom: 2px solid var(--ink); }
+  .brand h1 { margin: 0; font: 400 clamp(44px, 8vw, 84px)/.85 var(--display); letter-spacing: .02em; }
+  .brand h1 span { color: var(--pencil); }
+  .brand p { margin: 8px 0 0; color: var(--muted); font-size: 14px; }
+  .tally { display: flex; gap: 22px; margin: 0; }
+  .tally div { text-align: right; }
+  .tally dt { font: 500 11px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .tally dd { margin: 4px 0 0; font: 400 38px/1 var(--display); }
+  .banner { margin: 14px 0 0; padding: 10px 14px; border: 1px dashed var(--line); border-radius: 6px; color: var(--muted); font-size: 14px; }
+  .banner code { font: 500 13px var(--mono); color: var(--ink); }
+
+  /* controls */
+  .controls { position: sticky; top: 0; z-index: 5; background: var(--paper); padding: 14px 0 12px; border-bottom: 1px solid var(--line); }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { border: 1.5px solid var(--line); background: transparent; border-radius: 999px; padding: 6px 12px; cursor: pointer; font-weight: 500; font-size: 14px; display: inline-flex; gap: 7px; align-items: center; }
+  .chip .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--c, var(--ink)); }
+  .chip .n { font: 500 12px var(--mono); color: var(--muted); }
+  .chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .chip[aria-pressed="true"] .n { color: inherit; opacity: .7; }
+  .row2 { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 10px; }
+  .row2 .chips .chip { padding: 4px 10px; font-size: 13px; }
+  .row2 .grow { flex: 1 1 200px; }
+  .field { border: 1.5px solid var(--line); background: var(--panel); border-radius: 8px; padding: 7px 10px; min-height: 36px; }
+  .field:focus-visible, .chip:focus-visible, .frame:focus-visible, .btn:focus-visible { outline: 3px solid var(--edge); outline-offset: 2px; }
+
+  /* the sheet */
+  .sheet { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; padding: 20px 0 60px; }
+  .frame { position: relative; display: flex; flex-direction: column; text-align: left; border: 0; padding: 0; cursor: pointer;
+    background: var(--film); color: var(--film-ink); border-radius: 4px; min-height: 250px; transition: transform .15s ease, box-shadow .15s ease; }
+  .frame:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -14px rgba(0,0,0,.55); }
+  .frame::before, .frame::after { content: ""; display: block; height: 12px; flex: none;
+    background: radial-gradient(ellipse 4px 2.8px at center, var(--paper) 90%, transparent 100%) 6px 50% / 16px 12px repeat-x; }
+  .edge { display: flex; justify-content: space-between; padding: 0 12px; font: 500 10px/1.4 var(--mono); letter-spacing: .12em; color: var(--edge); text-transform: uppercase; }
+  .shot { flex: 1; display: flex; flex-direction: column; gap: 6px; margin: 4px 10px; padding: 14px; background: var(--film-2); border-radius: 2px; }
+  .topline { display: flex; justify-content: space-between; align-items: start; gap: 10px; }
+  .svc { display: inline-flex; align-items: center; gap: 6px; font: 600 11px/1.3 var(--body); letter-spacing: .06em; text-transform: uppercase; color: var(--svc); }
+  .svc::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--svc); flex: none; }
+  .score { font: 400 40px/.8 var(--display); color: var(--film-ink); }
+  .name { font: 700 19px/1.2 var(--body); letter-spacing: -.01em; overflow-wrap: anywhere; }
+  .meta { font-size: 13px; color: var(--film-muted); }
+  .why { font-size: 13.5px; line-height: 1.45; color: var(--film-ink); opacity: .92; margin-top: 2px; }
+  .reach { margin-top: auto; padding-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .pill { font: 500 11px/1 var(--mono); letter-spacing: .04em; padding: 4px 6px; border-radius: 4px; border: 1px solid #3A3733; color: var(--film-muted); }
+  .pill.on { color: var(--film-ink); border-color: #5A554D; }
+  .pill.alert { color: #FFB4A8; border-color: #7A3B33; }
+  .mark { position: absolute; inset: -6px; width: calc(100% + 12px); height: calc(100% + 12px); pointer-events: none; overflow: visible; }
+  .mark path { fill: none; stroke: var(--pencil); stroke-width: 4.5; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; opacity: .92; }
+  .stamp { position: absolute; bottom: 38px; right: 16px; transform: rotate(-8deg); border: 2.5px solid var(--pencil); color: var(--pencil); background: color-mix(in srgb, var(--film-2) 80%, transparent);
+    font: 400 20px/1 var(--display); letter-spacing: .08em; padding: 4px 8px 2px; border-radius: 3px; pointer-events: none; }
+  .frame[data-status="pass"] .shot, .frame[data-status="pass"] .edge { opacity: .38; }
+  .empty { text-align: center; color: var(--muted); padding: 60px 16px 90px; }
+  .empty b { display: block; font: 400 34px/1 var(--display); color: var(--ink); margin-bottom: 8px; letter-spacing: .03em; }
+  .foot { color: var(--muted); font-size: 13px; padding: 0 0 40px; }
+  .foot kbd, .hint kbd { font: 500 11px var(--mono); border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; padding: 1px 5px; background: var(--panel); color: var(--ink); }
+
+  /* the loupe */
+  .scrim { position: fixed; inset: 0; background: rgba(10,9,8,.45); opacity: 0; pointer-events: none; transition: opacity .2s ease; z-index: 20; }
+  .scrim.open { opacity: 1; pointer-events: auto; }
+  .loupe { position: fixed; top: 0; right: 0; bottom: 0; width: min(600px, 100vw); background: var(--panel); color: var(--ink); z-index: 21;
+    transform: translateX(102%); transition: transform .25s ease; display: flex; flex-direction: column; box-shadow: -20px 0 40px -30px rgba(0,0,0,.6); }
+  .loupe.open { transform: none; }
+  .l-head { display: flex; gap: 12px; align-items: start; justify-content: space-between; padding: 20px 20px 12px; border-bottom: 1px solid var(--line); }
+  .l-kicker { margin: 0; font: 500 11px/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .l-head h2 { margin: 2px 0 2px; font: 400 36px/1 var(--display); letter-spacing: .02em; overflow-wrap: anywhere; }
+  .l-meta { margin: 0; color: var(--muted); font-size: 14px; }
+  .icon { border: 0; background: transparent; font-size: 28px; line-height: 1; cursor: pointer; padding: 2px 8px; border-radius: 6px; color: var(--muted); }
+  .icon:hover { background: var(--paper-2); color: var(--ink); }
+  .l-status { display: flex; flex-wrap: wrap; gap: 6px; padding: 12px 20px; border-bottom: 1px solid var(--line); }
+  .l-status .chip { font-size: 13px; padding: 5px 11px; }
+  .l-status .chip[aria-pressed="true"] { background: var(--pencil); border-color: var(--pencil); color: var(--pencil-ink); }
+  .l-status .chip[data-set-status="new"][aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .l-body { overflow-y: auto; padding: 4px 20px 40px; overscroll-behavior: contain; }
+  .l-body section { padding: 16px 0 4px; }
+  .l-body h3 { margin: 0 0 10px; font: 500 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .fit { margin-bottom: 14px; }
+  .fit-head { display: flex; justify-content: space-between; align-items: baseline; font-weight: 600; font-size: 14px; }
+  .fit-head b { font: 400 22px/1 var(--display); letter-spacing: .03em; }
+  .bar { height: 6px; background: var(--paper-2); border-radius: 3px; margin: 5px 0 6px; overflow: hidden; }
+  .bar i { display: block; height: 100%; background: var(--svc); border-radius: 3px; }
+  .fit ul, .plain { margin: 0; padding-left: 18px; font-size: 14px; color: var(--ink); }
+  .fit li, .plain li { margin: 2px 0; }
+  .plain { padding-left: 0; list-style: none; }
+  .plain li { padding: 7px 0; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+  .plain li:last-child { border-bottom: 0; }
+  .plain small { color: var(--muted); display: block; font-size: 12.5px; }
+  .warn { background: color-mix(in srgb, var(--pencil) 10%, var(--panel)); border: 1px solid color-mix(in srgb, var(--pencil) 45%, var(--panel)); border-radius: 8px; padding: 10px 12px; font-size: 14px; }
+  .tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .tabs .chip { font-size: 13px; padding: 4px 10px; }
+  label.stack { display: block; font-size: 12px; font-weight: 600; color: var(--muted); margin-bottom: 8px; }
+  label.stack .field { display: block; width: 100%; margin-top: 4px; color: var(--ink); font-size: 14px; font-weight: 400; }
+  textarea.field { resize: vertical; line-height: 1.5; }
+  .d-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; border: 1.5px solid var(--ink); background: var(--ink); color: var(--paper); border-radius: 8px; padding: 8px 14px; font-weight: 600; font-size: 14px; cursor: pointer; text-decoration: none; }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn[aria-disabled="true"] { opacity: .45; pointer-events: none; }
+  .hint { font-size: 13px; color: var(--muted); margin: 8px 0 0; min-height: 1.4em; }
+  .ai-badge { font: 500 10px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; padding: 3px 5px; border-radius: 3px; background: var(--paper-2); color: var(--muted); margin-left: 6px; }
+
+  @media (max-width: 640px) {
+    .top { padding-top: 20px; }
+    .tally { gap: 16px; }
+    .tally dd { font-size: 30px; }
+    .sheet { grid-template-columns: 1fr; }
+    .controls { position: static; }
+    .controls .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 -16px; padding: 0 16px; }
+    .controls .chips::-webkit-scrollbar { display: none; }
+    .controls .chip { flex: none; }
+    .row2 .chips { flex: 1 1 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <h1>Contact <span>Sheet</span></h1>
+      <p id="subtitle">Leads for kevinsarasom.com</p>
+    </div>
+    <dl class="tally" id="tally"></dl>
+  </header>
+  <p class="banner" id="banner" hidden></p>
+
+  <section class="controls" aria-label="Filters">
+    <div class="chips" id="serviceChips" role="group" aria-label="Service"></div>
+    <div class="row2">
+      <div class="chips" id="statusChips" role="group" aria-label="Status"></div>
+      <input class="field grow" id="search" type="search" placeholder="Search names, cities, reasons" aria-label="Search">
+      <select class="field" id="city" aria-label="City"></select>
+      <select class="field" id="sort" aria-label="Sort">
+        <option value="score">Best fit first</option>
+        <option value="new">Newest first</option>
+        <option value="name">A to Z</option>
+      </select>
+    </div>
+  </section>
+
+  <main class="sheet" id="sheet" aria-live="polite"></main>
+  <div class="empty" id="empty" hidden></div>
+  <p class="foot">Open a frame to read its draft. With a frame open: <kbd>C</kbd> circle, <kbd>S</kbd> sent, <kbd>X</kbd> pass, <kbd>J</kbd>/<kbd>K</kbd> next and previous, <kbd>Esc</kbd> close. <kbd>/</kbd> searches.</p>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="loupe" id="loupe" role="dialog" aria-modal="true" aria-labelledby="lName" aria-hidden="true">
+  <header class="l-head">
+    <div>
+      <p class="l-kicker" id="lKicker"></p>
+      <h2 id="lName"></h2>
+      <p class="l-meta" id="lMeta"></p>
+    </div>
+    <button class="icon" id="lClose" aria-label="Close">×</button>
+  </header>
+  <div class="l-status" id="lStatus" role="group" aria-label="Status"></div>
+  <div class="l-body">
+    <section id="lWarn" hidden></section>
+    <section><h3>Why it fits</h3><div id="lScores"></div></section>
+    <section id="lDraftWrap">
+      <h3>Draft email</h3>
+      <div class="tabs" id="lTabs" role="group" aria-label="Draft for service"></div>
+      <label class="stack">To<input class="field" id="dTo" autocomplete="off"></label>
+      <label class="stack">Subject<input class="field" id="dSubject" autocomplete="off"></label>
+      <label class="stack">Message<textarea class="field" id="dBody" rows="15"></textarea></label>
+      <div class="d-actions">
+        <button class="btn" id="dCopy" type="button">Copy email</button>
+        <a class="btn ghost" id="dMail" href="#">Open in mail app</a>
+        <button class="btn ghost" id="dSave" type="button">Save edits</button>
+      </div>
+      <p class="hint" id="dHint">Read it over before sending. Nothing is sent automatically.</p>
+    </section>
+    <section><h3>How to reach them</h3><ul class="plain" id="lContact"></ul></section>
+    <section><h3>Signals</h3><ul class="plain" id="lSignals"></ul></section>
+    <section><h3>Notes</h3><textarea class="field" id="lNotes" rows="3" style="width:100%" placeholder="Anything to remember about this one"></textarea></section>
+  </div>
+</aside>
+
+<script id="data" type="application/json">__CONTACT_SHEET_DATA__</script>
+<script>
+(() => {
+  const STATUS_LABELS = { new: "New", circled: "Circled", sent: "Sent", replied: "Replied", booked: "Booked", pass: "Pass" };
+  const STATUS_FILTERS = [["active", "Active"], ["new", "New"], ["circled", "Circled"], ["sent", "Sent"], ["replied", "Replied"], ["booked", "Booked"], ["pass", "Passed"], ["all", "All"]];
+  const STORE_KEY = "contact-sheet:overrides:v1";
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const safeUrl = (u) => /^https?:\/\//i.test(u || "") ? u : "";
+  const shortUrl = (u) => (u || "").replace(/^https?:\/\/(www\.)?/i, "").replace(/\/$/, "");
+  const fmtDate = (iso) => { const d = new Date(iso); return isNaN(d) ? "" : d.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }); };
+
+  let data = null;
+  let leads = [];
+  let isStatic = false;
+  const view = { service: "all", status: "active", q: "", city: "", sort: "score" };
+  let openId = null;
+  let openIndex = -1;
+  let draftService = null;
+
+  function readOverrides() { try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch { return {}; } }
+  function writeOverride(id, patch) {
+    try {
+      const all = readOverrides();
+      const prev = all[id] || {};
+      all[id] = { ...prev, ...patch, drafts: { ...(prev.drafts || {}), ...(patch.drafts || {}) } };
+      localStorage.setItem(STORE_KEY, JSON.stringify(all));
+    } catch {}
+  }
+
+  async function load() {
+    const embedded = JSON.parse($("data").textContent || "null");
+    if (embedded) {
+      data = embedded; isStatic = true;
+      const overrides = readOverrides();
+      data.leads.forEach((l) => { const o = overrides[l.id]; if (o) { Object.assign(l, { status: o.status ?? l.status, notes: o.notes ?? l.notes }); if (o.drafts) l.drafts = { ...l.drafts, ...o.drafts }; } });
+      const b = $("banner");
+      b.hidden = false;
+      b.innerHTML = `Snapshot from ${esc(fmtDate(data.generated_at))}. Marks and edits you make here stay in this browser only. Run <code>python -m contactsheet serve</code> to save them to your lead database.`;
+    } else {
+      const res = await fetch("/api/leads");
+      data = await res.json();
+    }
+    leads = data.leads;
+    $("subtitle").textContent = `Leads for kevinsarasom.com · updated ${fmtDate(data.generated_at)}`;
+    buildControls();
+    render();
+  }
+
+  async function save(lead, patch) {
+    Object.assign(lead, patch.status ? { status: patch.status } : {}, patch.notes !== undefined ? { notes: patch.notes } : {});
+    if (patch.draft) lead.drafts[patch.draft.service] = { ...lead.drafts[patch.draft.service], ...patch.draft, edited: true };
+    if (isStatic) {
+      writeOverride(lead.id, { status: lead.status, notes: lead.notes, ...(patch.draft ? { drafts: { [patch.draft.service]: lead.drafts[patch.draft.service] } } : {}) });
+      return true;
+    }
+    try {
+      const res = await fetch(`/api/leads/${lead.id}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(patch) });
+      return res.ok;
+    } catch { return false; }
+  }
+
+  function focusService(lead) {
+    return view.service !== "all" && lead.scores[view.service] ? view.service : lead.best_service;
+  }
+
+  function matches(lead) {
+    if (view.service !== "all" && !(lead.scores[view.service] && lead.scores[view.service].score >= 20)) return false;
+    if (view.status === "active" && !["new", "circled", "sent", "replied"].includes(lead.status)) return false;
+    if (!["active", "all"].includes(view.status) && lead.status !== view.status) return false;
+    if (view.city && lead.city !== view.city) return false;
+    if (view.q) {
+      const hay = [lead.name, lead.city, lead.category, lead.description, ...Object.values(lead.scores).flatMap((s) => s.reasons)].join(" ").toLowerCase();
+      if (!hay.includes(view.q)) return false;
+    }
+    return true;
+  }
+
+  function sorted(list) {
+    const score = (l) => (l.scores[focusService(l)] || {}).score || 0;
+    const byStatus = (l) => (l.status === "pass" ? 1 : 0);
+    const cmp = {
+      score: (a, b) => byStatus(a) - byStatus(b) || score(b) - score(a),
+      new: (a, b) => (b.first_seen || "").localeCompare(a.first_seen || ""),
+      name: (a, b) => a.name.localeCompare(b.name),
+    }[view.sort];
+    return list.slice().sort(cmp);
+  }
+
+  function buildControls() {
+    const services = Object.entries(data.services);
+    const count = (key) => leads.filter((l) => l.scores[key] && l.scores[key].score >= 20 && l.status !== "pass").length;
+    $("serviceChips").innerHTML = [`<button class="chip" data-service="all" aria-pressed="true">Everything <span class="n">${leads.filter((l) => l.status !== "pass").length}</span></button>`]
+      .concat(services.map(([k, label]) => `<button class="chip" data-service="${esc(k)}" aria-pressed="false" style="--c: var(--s-${esc(k)})"><span class="dot"></span>${esc(label)} <span class="n">${count(k)}</span></button>`)).join("");
+    $("statusChips").innerHTML = STATUS_FILTERS.map(([k, label]) => `<button class="chip" data-status="${k}" aria-pressed="${k === view.status}">${label}</button>`).join("");
+    const cities = [...new Set(leads.map((l) => l.city).filter(Boolean))].sort();
+    $("city").innerHTML = `<option value="">All cities</option>` + cities.map((c) => `<option>${esc(c)}</option>`).join("");
+  }
+
+  function tally() {
+    const by = (s) => leads.filter((l) => l.status === s).length;
+    const week = leads.filter((l) => l.status === "new" && Date.now() - new Date(l.first_seen) < 7 * 864e5).length;
+    $("tally").innerHTML = [["New this week", week], ["Circled", by("circled")], ["Sent", by("sent")], ["Booked", by("booked")]]
+      .map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("");
+  }
+
+  const MARKS = {
+    circled: `<svg class="mark" viewBox="0 0 200 140" preserveAspectRatio="none"><path d="M26 74 C14 30 176 10 188 58 C200 106 60 136 20 96 C4 78 22 44 70 30"/></svg>`,
+    booked: `<svg class="mark" viewBox="0 0 200 140" preserveAspectRatio="none"><path d="M26 74 C14 30 176 10 188 58 C200 106 60 136 20 96 C4 78 22 44 70 30"/><path d="M34 76 C26 40 170 22 180 60 C190 100 64 126 30 94"/></svg>`,
+    pass: `<svg class="mark" viewBox="0 0 200 140" preserveAspectRatio="none"><path d="M16 14 C70 52 132 92 186 128"/><path d="M184 12 C128 54 70 94 14 130"/></svg>`,
+  };
+  const STAMPS = { sent: "Sent", replied: "Replied", booked: "Booked" };
+
+  function frame(lead, index) {
+    const svc = focusService(lead);
+    const fit = lead.scores[svc] || { score: 0, reasons: [] };
+    const num = String(index + 1).padStart(2, "0");
+    const pills = [
+      lead.emails.length ? `<span class="pill on">Email</span>` : "",
+      lead.phones.length ? `<span class="pill on">Phone</span>` : "",
+      lead.socials.instagram ? `<span class="pill on">IG</span>` : "",
+      lead.team_size ? `<span class="pill">Team ~${esc(lead.team_size)}</span>` : "",
+      lead.drafts[svc] && lead.drafts[svc].ai ? `<span class="pill">Claude draft</span>` : "",
+      lead.no_solicit ? `<span class="pill alert">No cold email</span>` : "",
+    ].join("");
+    return `<button class="frame" type="button" data-id="${lead.id}" data-status="${esc(lead.status)}" style="--svc: var(--s-${esc(svc)})">
+      <span class="edge"><span>▸ ${num}</span><span>Sarasom 400</span><span>${num}A</span></span>
+      <span class="shot">
+        <span class="topline"><span class="svc">${esc(data.services[svc] || "")}</span><span class="score" aria-label="Score">${fit.score}</span></span>
+        <span class="name">${esc(lead.name)}</span>
+        <span class="meta">${esc([lead.category, lead.city].filter(Boolean).join(" · "))}</span>
+        <span class="why">${esc(fit.reasons[0] || lead.description || "")}</span>
+        <span class="reach">${pills}</span>
+      </span>
+      <span class="edge"><span>KS</span><span>${esc(STATUS_LABELS[lead.status])}</span><span>▸ ${num}</span></span>
+      ${MARKS[lead.status] || ""}${STAMPS[lead.status] ? `<span class="stamp">${STAMPS[lead.status]}</span>` : ""}
+    </button>`;
+  }
+
+  let visible = [];
+  function render() {
+    tally();
+    visible = sorted(leads.filter(matches));
+    $("sheet").innerHTML = visible.map(frame).join("");
+    const empty = $("empty");
+    empty.hidden = visible.length > 0;
+    if (!visible.length) {
+      empty.innerHTML = leads.length
+        ? `<b>Nothing on this sheet</b>Try another service, status or city.`
+        : `<b>No leads yet</b>Run <code>python -m contactsheet run</code> to go find some.`;
+    }
+  }
+
+  function openLoupe(id) {
+    const lead = leads.find((l) => l.id === id);
+    if (!lead) return;
+    openId = id;
+    openIndex = visible.findIndex((l) => l.id === id);
+    draftService = focusService(lead);
+    fillLoupe(lead);
+    $("loupe").classList.add("open");
+    $("loupe").setAttribute("aria-hidden", "false");
+    $("scrim").classList.add("open");
+    $("lClose").focus();
+  }
+
+  function closeLoupe() {
+    $("loupe").classList.remove("open");
+    $("loupe").setAttribute("aria-hidden", "true");
+    $("scrim").classList.remove("open");
+    const card = document.querySelector(`.frame[data-id="${openId}"]`);
+    openId = null;
+    if (card) card.focus();
+  }
+
+  function fillLoupe(lead) {
+    $("lKicker").textContent = [lead.category, lead.kind === "podcast" ? "" : lead.country].filter(Boolean).join(" · ");
+    $("lName").textContent = lead.name;
+    $("lMeta").textContent = [lead.address || lead.city, lead.first_seen ? `found ${fmtDate(lead.first_seen)}` : ""].filter(Boolean).join(" · ");
+    $("lStatus").innerHTML = Object.entries(STATUS_LABELS).map(([k, label]) => `<button class="chip" data-set-status="${k}" aria-pressed="${lead.status === k}">${label}</button>`).join("");
+
+    const warn = $("lWarn");
+    const warnings = [];
+    if (lead.no_solicit) warnings.push("Their website says they don't accept unsolicited email. Use their contact form or call instead of cold-emailing.");
+    if (lead.website_guessed) warnings.push("The website was matched from the company name in the news. Make sure it's the right company before you reach out.");
+    if (lead.crawl_note) warnings.push(`Website check: ${lead.crawl_note}.`);
+    warn.hidden = !warnings.length;
+    warn.innerHTML = warnings.map((w) => `<p class="warn">${esc(w)}</p>`).join("");
+
+    const fits = Object.entries(lead.scores).sort((a, b) => b[1].score - a[1].score);
+    $("lScores").innerHTML = fits.map(([k, f]) => `<div class="fit" style="--svc: var(--s-${esc(k)})">
+        <div class="fit-head"><span>${esc(data.services[k])}</span><b>${f.score}</b></div>
+        <div class="bar"><i style="width:${Math.min(100, f.score)}%"></i></div>
+        <ul>${f.reasons.map((r) => `<li>${esc(r)}</li>`).join("")}</ul></div>`).join("") || `<p class="hint">No strong fit yet.</p>`;
+
+    const drafts = Object.keys(lead.drafts);
+    $("lDraftWrap").hidden = !drafts.length;
+    if (drafts.length) {
+      if (!lead.drafts[draftService]) draftService = drafts[0];
+      $("lTabs").innerHTML = drafts.length > 1 ? drafts.map((k) => `<button class="chip" data-draft="${esc(k)}" aria-pressed="${k === draftService}" style="--c: var(--s-${esc(k)})"><span class="dot"></span>${esc(data.services[k])}</button>`).join("") : "";
+      fillDraft(lead);
+    }
+
+    const contact = [];
+    lead.emails.forEach((e) => contact.push(`<li><a href="mailto:${esc(e.email)}">${esc(e.email)}</a>${safeUrl(e.source) ? `<small>found on <a href="${esc(e.source)}" target="_blank" rel="noopener noreferrer">${esc(shortUrl(e.source))}</a></small>` : ""}</li>`));
+    lead.phones.forEach((p) => contact.push(`<li><a href="tel:${esc(p.replace(/[^\d+]/g, ""))}">${esc(p)}</a></li>`));
+    if (safeUrl(lead.website)) contact.push(`<li><a href="${esc(lead.website)}" target="_blank" rel="noopener noreferrer">${esc(shortUrl(lead.website))}</a><small>website${lead.website_guessed ? ", matched from the news, so double-check" : ""}</small></li>`);
+    Object.entries(lead.socials).forEach(([k, u]) => { if (safeUrl(u)) contact.push(`<li><a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(shortUrl(u))}</a><small>${esc(k)}</small></li>`); });
+    $("lContact").innerHTML = contact.join("") || `<li>No contact details found yet.</li>`;
+
+    const pod = (lead.facts || {}).podcast;
+    const sigs = (lead.signals || []).map((s) => {
+      const link = safeUrl(s.url) ? `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title || s.url)}</a>` : esc(s.title);
+      const bits = [s.data && s.data.publisher, s.published ? fmtDate(s.published) : ""].filter(Boolean).join(" · ");
+      return `<li>${link}${bits ? `<small>${esc(bits)}</small>` : ""}</li>`;
+    });
+    if (pod) sigs.push(`<li>${esc(pod.episodes)} episodes${pod.cadence_days ? `, about every ${esc(pod.cadence_days)} days` : ""}, ${pod.video ? "has video" : "audio only"}<small>last episode ${esc(fmtDate(pod.last_episode))}${pod.host ? ` · host ${esc(pod.host)}` : ""}</small></li>`);
+    if (lead.description) sigs.push(`<li>${esc(lead.description)}<small>from their website</small></li>`);
+    $("lSignals").innerHTML = sigs.join("") || `<li>Nothing yet.</li>`;
+    $("lNotes").value = lead.notes || "";
+  }
+
+  function fillDraft(lead) {
+    const d = lead.drafts[draftService];
+    $("dTo").value = d.to || "";
+    $("dSubject").value = d.subject || "";
+    $("dBody").value = d.body || "";
+    $("dHint").innerHTML = (d.ai ? "Opening lines written by Claude from what the bot found. " : "") + (d.edited ? "Includes your edits. " : "") + "Read it over before sending. Nothing is sent automatically.";
+    updateMailto();
+  }
+
+  function updateMailto() {
+    const to = $("dTo").value.trim();
+    const href = `mailto:${encodeURIComponent(to).replace(/%40/g, "@")}?subject=${encodeURIComponent($("dSubject").value)}&body=${encodeURIComponent($("dBody").value)}`;
+    $("dMail").href = href;
+    $("dMail").setAttribute("aria-disabled", to ? "false" : "true");
+  }
+
+  async function copyDraft() {
+    const text = `Subject: ${$("dSubject").value}\n\n${$("dBody").value}`;
+    try { await navigator.clipboard.writeText(text); $("dHint").textContent = "Copied. Paste it into your email."; }
+    catch { $("dBody").select(); document.execCommand("copy"); $("dHint").textContent = "Copied the message."; }
+  }
+
+  async function setStatus(status) {
+    const lead = leads.find((l) => l.id === openId);
+    if (!lead) return;
+    const next = lead.status === status ? "new" : status;
+    const ok = await save(lead, { status: next });
+    fillLoupe(lead);
+    render();
+    if (!ok) $("dHint").textContent = "Couldn't save that. Is the server still running?";
+  }
+
+  function step(delta) {
+    let i = visible.findIndex((l) => l.id === openId);
+    // A lead you just passed drops out of the list, and the ones after it shift up a place.
+    if (i === -1) i = openIndex - (delta > 0 ? 1 : 0);
+    const next = visible[i + delta];
+    if (next) { openId = next.id; openIndex = i + delta; draftService = focusService(next); fillLoupe(next); }
+  }
+
+  // wiring
+  document.addEventListener("click", (e) => {
+    const svc = e.target.closest("[data-service]");
+    if (svc) { view.service = svc.dataset.service; document.querySelectorAll("[data-service]").forEach((b) => b.setAttribute("aria-pressed", b === svc)); render(); return; }
+    const st = e.target.closest("[data-status]:not(.frame)");
+    if (st) { view.status = st.dataset.status; document.querySelectorAll("#statusChips [data-status]").forEach((b) => b.setAttribute("aria-pressed", b === st)); render(); return; }
+    const card = e.target.closest(".frame");
+    if (card) { openLoupe(Number(card.dataset.id)); return; }
+    const set = e.target.closest("[data-set-status]");
+    if (set) { setStatus(set.dataset.setStatus); return; }
+    const tab = e.target.closest("[data-draft]");
+    if (tab) { draftService = tab.dataset.draft; document.querySelectorAll("[data-draft]").forEach((b) => b.setAttribute("aria-pressed", b === tab)); fillDraft(leads.find((l) => l.id === openId)); }
+  });
+  $("search").addEventListener("input", (e) => { view.q = e.target.value.trim().toLowerCase(); render(); });
+  $("city").addEventListener("change", (e) => { view.city = e.target.value; render(); });
+  $("sort").addEventListener("change", (e) => { view.sort = e.target.value; render(); });
+  $("lClose").addEventListener("click", closeLoupe);
+  $("scrim").addEventListener("click", closeLoupe);
+  ["dTo", "dSubject", "dBody"].forEach((id) => $(id).addEventListener("input", updateMailto));
+  $("dCopy").addEventListener("click", copyDraft);
+  $("dSave").addEventListener("click", async () => {
+    const lead = leads.find((l) => l.id === openId);
+    const ok = await save(lead, { draft: { service: draftService, to: $("dTo").value.trim(), subject: $("dSubject").value, body: $("dBody").value } });
+    $("dHint").textContent = ok ? "Saved. Future runs won't overwrite this draft." : "Couldn't save. Is the server still running?";
+  });
+  $("lNotes").addEventListener("change", async (e) => { const lead = leads.find((l) => l.id === openId); if (lead) await save(lead, { notes: e.target.value }); });
+  document.addEventListener("keydown", (e) => {
+    const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName);
+    if (e.key === "Escape" && openId !== null) { closeLoupe(); return; }
+    if (typing || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key === "/") { e.preventDefault(); $("search").focus(); return; }
+    if (openId === null) return;
+    const keys = { c: "circled", s: "sent", x: "pass", r: "replied", b: "booked" };
+    if (keys[e.key.toLowerCase()]) { e.preventDefault(); setStatus(keys[e.key.toLowerCase()]); }
+    if (e.key === "j" || e.key === "ArrowDown") { e.preventDefault(); step(1); }
+    if (e.key === "k" || e.key === "ArrowUp") { e.preventDefault(); step(-1); }
+  });
+
+  load().catch((err) => {
+    $("empty").hidden = false;
+    $("empty").innerHTML = `<b>Couldn't load leads</b>${esc(err.message)}`;
+  });
+})();
+</script>
+</body>
+</html>

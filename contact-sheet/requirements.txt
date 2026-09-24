@@ -1,0 +1,4 @@
+requests>=2.31
+beautifulsoup4>=4.12
+# Only needed for `run --ai` (Claude-written openers):
+anthropic>=1.8

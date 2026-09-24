@@ -1,0 +1,124 @@
+# Contact Sheet settings. Change anything here, then run `python -m contactsheet run`.
+
+[sender]
+# Used in every email sign-off. Canada's anti-spam law (CASL) requires your
+# name, a way to reach you, and a physical mailing address in each commercial
+# email, plus a way to opt out. The templates add the opt-out line for you.
+name = "Kevin Sarasom"
+business = "Kevin Sarasom"
+email = ""               # the address you send from
+phone = ""
+website = "kevinsarasom.com"
+mailing_address = ""     # required by CASL, for example "123 Queen St W, Toronto, ON M5H 2M9"
+
+[home]
+city = "Toronto"
+# Any of these in an address or headline counts as local.
+terms = ["Toronto", "GTA", "Mississauga", "Markham", "Vaughan", "Oakville", "Etobicoke", "Scarborough", "North York"]
+
+[bot]
+user_agent = "ContactSheetBot/1.0 (+https://kevinsarasom.com)"
+delay_seconds = 1.5      # minimum gap between two requests to the same website
+timeout_seconds = 15
+max_pages_per_site = 4   # the homepage plus up to 3 contact, about or team pages
+workers = 6              # websites crawled in parallel, never two at once on the same site
+refresh_days = 30        # crawl a lead's website again after this many days
+draft_min_score = 20     # write a draft for every service that scores at least this
+
+# Off Leash Studio tour stops. The map source looks for pet businesses and
+# shelters within radius_km of each point.
+[[cities]]
+name = "Toronto"
+lat = 43.6532
+lon = -79.3832
+radius_km = 12
+
+[[cities]]
+name = "Vancouver"
+lat = 49.2744
+lon = -123.1216
+radius_km = 8
+
+[[cities]]
+name = "New York"
+lat = 40.7359
+lon = -73.9911
+radius_km = 8
+
+[[cities]]
+name = "Chicago"
+lat = 41.8960
+lon = -87.6450
+radius_km = 9
+
+[[cities]]
+name = "San Francisco"
+lat = 37.7680
+lon = -122.4330
+radius_km = 7
+
+[[cities]]
+name = "Los Angeles"
+lat = 34.0736
+lon = -118.3510
+radius_km = 14
+
+[[cities]]
+name = "Austin"
+lat = 30.2750
+lon = -97.7400
+radius_km = 12
+
+[sources.news]
+# Google News searches. Each hit becomes a company lead with a "why now" signal.
+# Signals: funding, expansion, launch, pet_brand. local = true keeps only
+# headlines that name your home area or a tour city.
+enabled = true
+days = 14
+guess_websites = true    # try name.com / .ca / .io and keep a match only if the page confirms it
+queries = [
+  { q = '"Toronto-based" raises', signal = "funding" },
+  { q = 'Toronto startup raises Series', signal = "funding" },
+  { q = 'Canadian startup raises seed round', signal = "funding" },
+  { q = 'opens new Toronto office', signal = "expansion", local = true },
+  { q = '"Toronto office" expands hiring', signal = "expansion", local = true },
+  { q = 'Toronto pop-up launch brand', signal = "launch", local = true },
+  { q = 'brand activation Toronto', signal = "launch", local = true },
+  { q = 'pet brand launches Canada', signal = "pet_brand" },
+  { q = 'dog brand raises', signal = "pet_brand" },
+]
+skip_names = ["Canada", "Ontario", "Ottawa", "Toronto", "Government", "Report", "Study", "Survey", "Here", "This", "Why", "How"]
+# Headlines containing any of these are skipped (markets you don't work in).
+exclude_words = ["crore", "lakh", "Rs", "₹", "£", "€", "India", "Mumbai", "Bengaluru", "UK", "London", "Europe", "Australia", "Melbourne", "Sydney", "Nigeria", "Nigerian", "Dubai", "Singapore"]
+
+[sources.podcasts]
+# Business podcasts from Apple Podcasts: stalled or audio-only shows are prime Nomadic Pods leads.
+enabled = true
+countries = ["ca"]
+terms = ["leadership", "fintech", "real estate", "venture capital", "marketing", "law firm", "startups", "wealth management", "human resources", "architecture", "consulting", "SaaS"]
+results_per_term = 25
+stale_after_days = 45
+skip_after_days = 540
+languages = ["en"]       # skip shows in other languages
+genres = ["Business", "Technology", "Careers", "Entrepreneurship", "Investing", "Management", "Marketing", "Non-Profit"]
+skip_publishers = ["CBC", "Bloomberg", "Globe and Mail", "Toronto Star", "iHeart", "NPR", "Wondery", "Spotify Studios", "Audible", "BBC", "New York Times", "Wall Street Journal", "Harvard Business", "TED", "Global News", "CTV", "Corus", "SiriusXM", "Rogers", "Financial Post"]
+
+[sources.map]
+# Pet businesses and shelters from OpenStreetMap around each tour city.
+# Categories: pet_shop, groomer, dog_daycare, shelter, vet
+enabled = true
+categories = ["pet_shop", "groomer", "dog_daycare", "shelter"]
+max_per_city = 40
+include_chains = false
+
+[ai]
+# Optional. With ANTHROPIC_API_KEY set, `run --ai` has Claude rewrite the subject
+# and opening lines of the best drafts from the facts found about each lead.
+model = "claude-opus-5"
+effort = "medium"
+max_per_run = 25
+min_score = 50
+
+[digest]
+top = 15
+min_score = 50

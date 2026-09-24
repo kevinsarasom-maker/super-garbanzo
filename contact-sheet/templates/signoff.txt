@@ -1,0 +1,7 @@
+Thanks,
+{name}
+{business_line}
+{contact_line}
+{mailing_address}
+
+If this isn't for you, just reply "no thanks" and I won't email again.

@@ -1,0 +1,4 @@
+# Lead data stays on your machine; this repo is public.
+data/
+__pycache__/
+*.pyc

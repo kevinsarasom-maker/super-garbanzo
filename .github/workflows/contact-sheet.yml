@@ -1,0 +1,68 @@
+name: Contact Sheet leads
+
+# Finds new leads twice a week and emails the digest. Needs the SMTP secrets
+# described in contact-sheet/README.md; ANTHROPIC_API_KEY is optional.
+on:
+  schedule:
+    - cron: "0 12 * * 1,4"  # Mondays and Thursdays, 8am Toronto time (EDT)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: contact-sheet
+  cancel-in-progress: false
+
+jobs:
+  leads:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: contact-sheet
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: contact-sheet/requirements.txt
+
+      - run: pip install -r requirements.txt
+
+      # The lead database lives in the Actions cache, never in the repo.
+      - name: Restore lead database
+        uses: actions/cache/restore@v4
+        with:
+          path: contact-sheet/data/leads.db
+          key: contact-sheet-db-${{ github.run_id }}
+          restore-keys: contact-sheet-db-
+
+      # --quiet keeps lead names and emails out of the logs, which are public on a public repo.
+      - name: Find and score leads
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python -m contactsheet run --quiet $([ -n "$ANTHROPIC_API_KEY" ] && echo --ai)
+
+      - name: Email the digest
+        env:
+          CONTACT_SHEET_SMTP_HOST: ${{ secrets.CONTACT_SHEET_SMTP_HOST }}
+          CONTACT_SHEET_SMTP_PORT: ${{ secrets.CONTACT_SHEET_SMTP_PORT }}
+          CONTACT_SHEET_SMTP_USER: ${{ secrets.CONTACT_SHEET_SMTP_USER }}
+          CONTACT_SHEET_SMTP_PASSWORD: ${{ secrets.CONTACT_SHEET_SMTP_PASSWORD }}
+          CONTACT_SHEET_DIGEST_TO: ${{ secrets.CONTACT_SHEET_DIGEST_TO }}
+        run: |
+          if [ -z "$CONTACT_SHEET_SMTP_HOST" ]; then
+            echo "SMTP secrets aren't set, so no digest was emailed. See contact-sheet/README.md."
+          else
+            python -m contactsheet digest --send --quiet
+          fi
+
+      - name: Save lead database
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: contact-sheet/data/leads.db
+          key: contact-sheet-db-${{ github.run_id }}

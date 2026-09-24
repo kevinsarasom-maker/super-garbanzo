@@ -1,0 +1,11 @@
+Subject: Off Leash Studio x {company}
+
+{greeting}
+
+{hook}
+
+I'm Kevin from Off Leash Studio. We make bespoke dog portraits and have photographed more than 15,000 dogs for private clients in Los Angeles, New York, Toronto and London. Every session ends with a same-day gallery. The World Tour stops in {city}, and I'm looking for a few local pet businesses to team up with. That could be a portrait day at your space, a pop-up, or an offer for your customers.
+
+Open to a quick chat?
+
+{signoff}
