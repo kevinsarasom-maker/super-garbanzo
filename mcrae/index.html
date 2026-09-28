@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#070d0b;--bg2:#0b1310;--card:#0f1a16;--card2:#132019;--line:rgba(255,255,255,.1);--line2:rgba(255,255,255,.18);
+  color-scheme:dark;--bg:#070d0b;--bg2:#0b1310;--card:#0f1a16;--card2:#132019;--line:rgba(255,255,255,.1);--line2:rgba(255,255,255,.18);
   --tx:#f1f5ee;--mut:#9aaba1;--dim:#66766d;--lime:#d4ff5a;--amber:#ffb35c;--blue:#7fb0ff;--rose:#ff8fb8;
   --serif:"Instrument Serif",Georgia,serif;--sans:"Manrope",system-ui,sans-serif;--mono:"DM Mono",ui-monospace,monospace;
 }
@@ -26,7 +26,7 @@ h1,h2,h3{margin:0;font-weight:400}
 
 /* nav */
 header.top{position:fixed;inset:0 0 auto 0;z-index:40;background:linear-gradient(#070d0bf2,#070d0b99 70%,transparent);backdrop-filter:blur(10px)}
-.nav{max-width:1360px;margin:auto;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.nav{max-width:1360px;margin:auto;padding:calc(16px + env(safe-area-inset-top,0px)) 40px 16px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .brand{font-weight:800;letter-spacing:-.02em;text-decoration:none;font-size:15px}
 .brand span{font-weight:400;color:var(--mut)}
 nav.links{display:flex;gap:26px;font-size:13.5px}
@@ -273,7 +273,7 @@ table.fmt{width:100%;border-collapse:collapse;font-size:14px}
 .lbclose{position:fixed;top:16px;right:20px;z-index:2}
 .lbtop{display:flex;justify-content:space-between;align-items:center;max-width:1240px;margin:auto;padding:18px 28px 0}
 
-.rev{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}.rev.in{opacity:1;transform:none}
+.rev{}
 
 @media (max-width:1100px){
  .tiles{grid-template-columns:1fr 1fr}.tile,.tile.big{grid-column:span 1}.tile.wide{grid-column:span 2;flex-direction:column}
@@ -291,7 +291,6 @@ table.fmt{width:100%;border-collapse:collapse;font-size:14px}
  .hero{padding-top:100px}section.s{padding:72px 0}.price{padding:28px}.terms{padding:24px}
  .filters{position:static}.kv{grid-template-columns:100px 1fr}
 }
-@media print{header.top,.reel,#proj .x,.filters,.pill,.tile .open{display:none!important}body{background:#fff;color:#000}}
 @media (prefers-reduced-motion:reduce){.reel .row{animation:none}.rev{opacity:1;transform:none}}
 </style>
 </head>
@@ -419,7 +418,7 @@ table.fmt{width:100%;border-collapse:collapse;font-size:14px}
 
 <footer><div class="wrap"><div class="mono lime">08 · Next steps</div><div class="serif" style="margin:16px 0 22px">Let’s bring it <em class="lime">to life.</em></div>
 <p class="sub" style="margin:0 auto 26px">Approve the scope and quote, confirm the primary McRae contact and arrange the booking deposit. Then we finalize access, interviewees and the production calendar together.</p>
-<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><button class="pill solid" onclick="window.print()">Print / save as PDF</button><a class="pill" href="https://kevinsarasom.com/">kevinsarasom.com</a></div>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a class="pill" href="https://kevinsarasom.com/">kevinsarasom.com</a></div>
 <p class="mut" style="margin-top:30px;font-size:13px">Prepared for McRae Imaging · September 28, 2026 · Kevin Sarasom</p></div></footer>
 
 <!-- project overlay -->

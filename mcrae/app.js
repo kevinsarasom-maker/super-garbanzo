@@ -72,13 +72,13 @@
   function openProject(id, tab, site, noHash) {
     cur = id; curTab = tab || 'overview'; if (site) curSite = site; filt = { size: 'all', move: 'all', group: 'all', q: '' };
     const P = PROJ[id];
-    proj.innerHTML = `<div class="ph-head"><div class="ph-top"><div><div class="mono lime">Project ${['photo', 'loop', 'case', 'social'].indexOf(id) + 1} of 4</div><h2>${P.title}</h2></div><div style="display:flex;gap:10px;align-items:center">${id !== 'social' ? `<button class="pill" id="csv">↓ Shot list CSV</button>` : ''}<button class="x" id="closeP" aria-label="Close">×</button></div></div><div class="tabs" id="tabs">${P.tabs.map(([k, l]) => `<button class="tab ${k === curTab ? 'on' : ''}" data-tab="${k}">${l}</button>`).join('')}</div></div><div class="pbody" id="pb"></div>`;
+    proj.innerHTML = `<div class="ph-head"><div class="ph-top"><div><div class="mono lime">Project ${['photo', 'loop', 'case', 'social'].indexOf(id) + 1} of 4</div><h2>${P.title}</h2></div><div style="display:flex;gap:10px;align-items:center">${id !== 'social' ? `<button class="pill" id="csv">Copy shot list</button>` : ''}<button class="x" id="closeP" aria-label="Close">×</button></div></div><div class="tabs" id="tabs">${P.tabs.map(([k, l]) => `<button class="tab ${k === curTab ? 'on' : ''}" data-tab="${k}">${l}</button>`).join('')}</div></div><div class="pbody" id="pb"></div>`;
     proj.classList.add('on'); document.body.style.overflow = 'hidden'; proj.scrollTop = 0;
     renderTab();
-    if (!noHash) history.replaceState(null, '', `#${id}/${curTab}`);
+    if (!noHash) try { history.replaceState(null, '', `#${id}-${curTab}`); } catch (e) {}
   }
-  function closeProject() { proj.classList.remove('on'); document.body.style.overflow = ''; cur = null; history.replaceState(null, '', location.pathname); }
-  function setTab(t) { curTab = t; $$('#tabs .tab').forEach(b => b.classList.toggle('on', b.dataset.tab === t)); proj.scrollTop = 0; renderTab(); history.replaceState(null, '', `#${cur}/${t}`); }
+  function closeProject() { proj.classList.remove('on'); document.body.style.overflow = ''; cur = null; try { history.replaceState(null, '', location.pathname); } catch (e) {} }
+  function setTab(t) { curTab = t; $$('#tabs .tab').forEach(b => b.classList.toggle('on', b.dataset.tab === t)); proj.scrollTop = 0; renderTab(); try { history.replaceState(null, '', `#${cur}-${t}`); } catch (e) {} }
 
   function renderTab() {
     const pb = $('#pb'); const v = VIEWS[cur][curTab]; pb.innerHTML = v(); hydrate(pb); afterRender(pb);
@@ -263,10 +263,12 @@
   });
   function csv() {
     const s = get(cur), rows = [['ID', 'Section', 'Shot', 'Size', 'Camera move', 'Lens', 'Capture', 'Length', 'Direction', 'Sound / story']].concat(s.map(x => [x.id, x.group, x.title, SZ[x.size], MCF.MOVE[x.move].tag, x.lens, x.fps, x.dur, x.note, x.sound || '']));
-    const b = new Blob(['﻿' + rows.map(r => r.map(c => '"' + String(c == null ? '' : c).replace(/"/g, '""') + '"').join(',')).join('\n')], { type: 'text/csv' });
-    const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = `mcrae-${cur}-shot-list.csv`; a.click();
+    const text = rows.map(r => r.map(c => String(c == null ? '' : c).replace(/\t|\n/g, ' ')).join('\t')).join('\n'), btn = $('#csv');
+    const done = m => { btn.textContent = m; setTimeout(() => { btn.textContent = 'Copy shot list'; }, 2200); };
+    const fallback = () => { const ta = document.createElement('textarea'); ta.value = text; ta.setAttribute('aria-label', 'Shot list, ready to copy'); ta.style.cssText = 'width:100%;height:220px;margin-bottom:18px;background:var(--card);color:var(--tx);border:1px solid var(--line2);border-radius:12px;padding:12px;font:12px var(--mono)'; const pb = $('#pb'); pb.insertBefore(ta, pb.firstChild); ta.focus(); ta.select(); done('Select and copy'); };
+    try { navigator.clipboard.writeText(text).then(() => done('Copied. Paste into a sheet'), fallback); } catch (e) { fallback(); }
   }
-  function route() { const m = location.hash.match(/^#(photo|loop|case|social)(?:\/(\w+))?/); if (m && PROJ[m[1]].tabs.some(t => t[0] === (m[2] || 'overview'))) openProject(m[1], m[2] || 'overview', null, true); }
+  function route() { const m = location.hash.match(/^#(photo|loop|case|social)(?:-(\w+))?$/); if (m && PROJ[m[1]].tabs.some(t => t[0] === (m[2] || 'overview'))) openProject(m[1], m[2] || 'overview', null, true); }
 
   landing(); route();
   window.addEventListener('hashchange', () => { if (!location.hash) return; route(); });
