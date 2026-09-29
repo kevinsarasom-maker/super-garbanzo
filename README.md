@@ -14,3 +14,7 @@ It's a single static file: open `index.html` in a browser or deploy it to any st
 `offleash/` is a full redesign of offleashstudio.com: one static page plus the photos in `offleash/media/`. Open `offleash/index.html` in a browser or upload the folder to any static host.
 
 Interactive pieces: a stretchy wordmark, a light table of prints you can drag and toss, a shutter button that develops new prints, the Head Tilt Machine (squeaky toy plus head tilts), a gallery you filter by backdrop color and heart like the real picking process, a session builder with an engraved dog tag and a spinning coffee table book, the tour as a gig poster with a bark-for-your-city meter, and a dachshund scroll bar that gets longer as you scroll. Type "treat" or "squirrel" on the page for easter eggs. All sounds are synthesized in the browser, and there's a sound toggle in the nav.
+
+# McRae Imaging × Kevin Sarasom proposal
+
+`mcrae/index.html` is a single-file creative proposal site: three website videos (homepage loop, How We Make It, Support), eight-site installation photography, drawn storyboards (inline SVG), production plan, fixed-fee quote and a checklist against the photographer meeting outline. Open it in a browser or upload to any static host.

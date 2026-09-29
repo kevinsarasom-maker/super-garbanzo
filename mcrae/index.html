@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>McRae Imaging × Kevin Sarasom | Creative proposal</title>
+<meta name="description" content="Installation photography and three website videos for McRae Imaging: a homepage loop, the How We Make It film and the Support video.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#f6f3ec; --card:#ffffff; --ink:#15211c; --muted:#5d645f; --line:#dcd6c8;
+  --green:#1e3329; --green2:#2b4a3b; --glow:#e9a23b; --blue:#2f5fa8; --paper:#efe9db;
+  --serif:'Fraunces',Georgia,serif; --sans:'Instrument Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+section{padding:88px 0;border-top:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.eyebrow b{color:var(--glow);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.05;letter-spacing:-.01em}
+h2{font-size:clamp(38px,6vw,64px);margin-bottom:18px}
+h3{font-size:22px;line-height:1.2}
+.lede{font-size:18px;color:var(--muted);max-width:720px}
+.small{font-size:13px;color:var(--muted)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(246,243,236,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:16px}
+nav .brand{font-family:var(--serif);font-weight:700;font-size:16px;white-space:nowrap}
+nav .links{display:flex;gap:18px;font-size:13px;font-weight:500;overflow-x:auto;scrollbar-width:none}
+nav .links a{text-decoration:none;color:var(--muted);white-space:nowrap}
+nav .links a:hover{color:var(--ink)}
+@media(max-width:800px){nav .links{display:none}}
+
+/* hero */
+.hero{background:radial-gradient(900px 500px at 78% 30%,rgba(233,162,59,.28),transparent 60%),var(--green);color:#f6f3ec;padding:96px 0 72px;border-top:0}
+.hero .eyebrow{color:#b9c9bf}
+.hero h1{font-size:clamp(52px,9vw,116px);margin-bottom:24px;max-width:900px}
+.hero h1 em{font-style:italic;color:var(--glow)}
+.hero .lede{color:#cfdbd3;font-size:20px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.16);border-radius:12px;overflow:hidden;margin-top:56px}
+.stats div{background:rgba(20,36,29,.7);padding:22px 22px 24px}
+.stats b{display:block;font-family:var(--serif);font-size:34px;line-height:1.1}
+.stats span{font-size:13px;color:#b9c9bf}
+@media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* three videos scope */
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.vcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px;display:flex;flex-direction:column;gap:12px}
+.vcard .num{font-family:var(--serif);font-size:44px;color:var(--glow);line-height:1}
+.vcard .meta{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.vcard ul{list-style:none;font-size:14px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:auto}
+.vcard li{padding:3px 0 3px 16px;position:relative}
+.vcard li:before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--glow)}
+.allvideo{margin-top:18px;background:var(--paper);border-radius:12px;padding:18px 24px;display:flex;flex-wrap:wrap;gap:8px 28px;font-size:14px}
+.allvideo b{letter-spacing:.2em;font-size:11px;text-transform:uppercase;color:var(--muted);width:100%}
+@media(max-width:900px){.three{grid-template-columns:1fr}}
+
+/* storyboard cards */
+.sb-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.frame{position:relative;aspect-ratio:16/9;background:#222;overflow:hidden}
+.frame svg.scene{display:block;width:100%;height:100%}
+.badge,.time{position:absolute;bottom:10px;background:var(--green);color:#fff;font-size:13px;font-weight:600;padding:5px 10px;border-radius:4px;font-variant-numeric:tabular-nums}
+.badge{left:10px}.time{right:10px}
+.crop9{display:none;position:absolute;top:0;bottom:0;left:60%;width:31.6%;border:2px solid var(--glow);box-shadow:0 0 0 999px rgba(0,0,0,.45);pointer-events:none}
+.crop9:after{content:"9:16";position:absolute;top:6px;left:6px;font-size:11px;font-weight:700;color:var(--glow)}
+body.show-crop .crop9{display:block}
+.card .body{padding:24px 24px 6px}
+.card h3{margin-bottom:8px}
+.card p{color:var(--muted);font-size:15.5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.chip{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:#fbeed6;color:#8a5a12;border-radius:20px;padding:3px 10px}
+details{border-top:1px solid var(--line);margin:18px 24px 0;padding:14px 0 18px}
+summary{cursor:pointer;font-weight:700;font-size:14.5px;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary:before{content:"▸ ";font-size:11px}
+details[open] summary:before{content:"▾ "}
+details dl{margin-top:12px;display:grid;gap:10px}
+details dt{font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
+details dd{font-size:14.5px}
+.foot{margin-top:auto;padding:0 24px 16px;font-size:12px;color:var(--muted);letter-spacing:.04em}
+@media(max-width:800px){.cards{grid-template-columns:1fr}}
+.note{margin-top:22px;font-size:13.5px;color:var(--muted);max-width:760px}
+.tog{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:600;cursor:pointer;background:var(--card);border:1px solid var(--line);border-radius:30px;padding:8px 16px}
+.tog input{accent-color:var(--glow)}
+.loopspec{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+.loopspec div{background:var(--paper);border-radius:10px;padding:14px 16px;font-size:14px}
+.loopspec b{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+@media(max-width:800px){.loopspec{grid-template-columns:repeat(2,1fr)}}
+
+/* conversations */
+.two{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:36px}
+.qbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px}
+.qbox h3{margin-bottom:12px}
+.qbox ul{list-style:none}
+.qbox li{padding:9px 0;border-top:1px solid var(--line);font-size:15px}
+.qbox li:first-child{border-top:0}
+.people{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:22px}
+.person{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.person svg{display:block;width:100%;background:var(--paper)}
+.person div{padding:14px 16px 18px}
+.person b{display:block;font-family:var(--serif);font-size:18px}
+.person span{font-size:13.5px;color:var(--muted)}
+.person i{display:inline-block;margin-top:8px;font-size:11px;font-style:normal;font-weight:700;letter-spacing:.1em;color:#8a5a12;background:#fbeed6;border-radius:20px;padding:2px 9px}
+@media(max-width:900px){.two{grid-template-columns:1fr}.people{grid-template-columns:repeat(2,1fr)}}
+.setup{margin-top:22px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.setup div{background:var(--paper);border-radius:10px;padding:14px 16px;font-size:14px}
+.setup b{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+@media(max-width:900px){.setup{grid-template-columns:repeat(2,1fr)}}
+
+/* photography */
+.sitetabs{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 22px}
+.sitetabs button{font:inherit;font-size:14px;font-weight:600;padding:8px 16px;border-radius:30px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.sitetabs button[aria-pressed=true]{background:var(--green);color:#fff;border-color:var(--green)}
+.siteinfo{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 26px;margin-bottom:22px;display:grid;grid-template-columns:1.4fr 1fr;gap:18px 40px}
+.siteinfo h3{font-size:28px}
+.siteinfo .kv{display:grid;gap:6px;font-size:14px}
+.siteinfo .kv b{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-right:8px}
+@media(max-width:800px){.siteinfo{grid-template-columns:1fr}}
+.shots{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.shot{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.shot .frame{aspect-ratio:16/10}
+.shot .body{padding:12px 14px 16px}
+.shot b{font-size:14px;display:block}
+.shot p{font-size:13px;color:var(--muted);margin-top:3px}
+.shot small{display:block;margin-top:6px;font-size:10.5px;font-weight:700;letter-spacing:.14em;color:#8a5a12;text-transform:uppercase}
+@media(max-width:900px){.shots{grid-template-columns:repeat(2,1fr)}}
+table{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);background:var(--paper)}
+tr:last-child td{border-bottom:0}
+.tablewrap{overflow-x:auto;margin-top:26px}
+.route td:first-child{font-weight:700;white-space:nowrap}
+
+/* capture standard */
+.std{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
+.std div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px}
+.std h3{font-size:19px;margin-bottom:8px}
+.std p{font-size:14px;color:var(--muted)}
+@media(max-width:900px){.std{grid-template-columns:repeat(2,1fr)}}
+
+/* plan */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
+.step{border-top:3px solid var(--glow);padding-top:14px}
+.step small{font-size:11px;letter-spacing:.24em;font-weight:700;color:var(--muted)}
+.step h3{margin:6px 0 8px}
+.step p{font-size:14.5px;color:var(--muted)}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+.days{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:26px}
+.day{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px}
+.day h3{margin-bottom:10px}
+.day li{list-style:none;font-size:14.5px;padding:5px 0;border-top:1px solid var(--line);display:flex;gap:14px}
+.day li:first-of-type{border-top:0}
+.day li b{min-width:52px;font-variant-numeric:tabular-nums;color:var(--blue)}
+@media(max-width:800px){.days{grid-template-columns:1fr}}
+
+/* investment */
+.invest{display:grid;grid-template-columns:1fr 1.1fr;gap:26px;margin-top:34px}
+.price{background:var(--green);color:#f6f3ec;border-radius:14px;padding:34px}
+.price small{letter-spacing:.24em;font-size:11px;font-weight:700;color:#b9c9bf}
+.price .big{font-family:var(--serif);font-size:clamp(56px,8vw,88px);line-height:1;margin:10px 0 4px;color:var(--glow)}
+.price p{color:#cfdbd3;font-size:15px}
+.price hr{border:0;border-top:1px solid rgba(255,255,255,.2);margin:18px 0}
+.price .row{display:flex;justify-content:space-between;font-size:15px;padding:3px 0}
+.breakdown{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 26px}
+.breakdown .row{display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-bottom:1px solid var(--line)}
+.breakdown .row:last-child{border-bottom:0}
+.breakdown .row b{display:block}
+.breakdown .row span{font-size:13.5px;color:var(--muted)}
+.breakdown .row em{font-style:normal;font-family:var(--serif);font-weight:600;font-size:20px;white-space:nowrap}
+@media(max-width:900px){.invest{grid-template-columns:1fr}}
+
+/* requirements */
+.ok{display:inline-block;width:20px;height:20px;border-radius:50%;background:var(--green2);color:#fff;text-align:center;font-size:12px;line-height:20px;margin-right:8px}
+.tbd{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;color:#8a5a12;background:#fbeed6;border-radius:20px;padding:2px 9px;margin-left:6px}
+
+.cta{background:var(--green);color:#f6f3ec;text-align:center;padding:96px 0}
+.cta h2{margin-bottom:14px}
+.cta p{color:#cfdbd3;max-width:620px;margin:0 auto 10px}
+footer{background:var(--green);color:#9db3a6;font-size:13px;padding:0 0 40px;text-align:center}
+</style>
+</head>
+<body>
+
+<!-- shared SVG defs -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="gGlow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#ffd98c" stop-opacity=".95"/><stop offset=".55" stop-color="#ffb84d" stop-opacity=".35"/><stop offset="1" stop-color="#ffb84d" stop-opacity="0"/></radialGradient>
+    <linearGradient id="gDarkL" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#05080a" stop-opacity=".92"/><stop offset=".5" stop-color="#05080a" stop-opacity=".78"/><stop offset=".68" stop-color="#05080a" stop-opacity=".1"/><stop offset="1" stop-color="#05080a" stop-opacity="0"/></linearGradient>
+    <linearGradient id="gFloor" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#cdbba0"/><stop offset="1" stop-color="#eadfc8"/></linearGradient>
+    <linearGradient id="gWarm" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#4a3826"/><stop offset="1" stop-color="#c99a58"/></linearGradient>
+  </defs>
+</svg>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">McRae Imaging × Kevin Sarasom</div>
+    <div class="links">
+      <a href="#scope">Scope</a><a href="#video1">Video 1</a><a href="#video2">Video 2</a><a href="#video3">Video 3</a>
+      <a href="#voices">Voices</a><a href="#photography">Photography</a><a href="#plan">Plan</a><a href="#investment">Investment</a><a href="#brief">Brief check</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Creative treatment &amp; production proposal · <b>Draft · 28 September 2026</b></div>
+    <h1>The people <em>behind</em> the glow.</h1>
+    <p class="lede">Installation photography at eight client sites and three website videos, planned to the placements in McRae’s new site design. One team, one angle system, one fixed fee.</p>
+    <div class="stats">
+      <div><b>8</b><span>client sites, one angle system</span></div>
+      <div><b>3</b><span>website videos: loop, story, support</span></div>
+      <div><b>2–4</b><span>on-camera voices: Bob, leads, a service rep</span></div>
+      <div><b>$15,000 + HST</b><span>fixed fee, every shoot day included</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="scope">
+  <div class="wrap">
+    <div class="eyebrow"><b>01</b> / The scope</div>
+    <h2>One story.<br>Three videos.</h2>
+    <p class="lede">The finished installations make the first impression. Three films then show the craft, the people and the service behind them. Each one is built around where it sits on the new website.</p>
+    <div class="three">
+      <div class="vcard">
+        <div class="num">01</div><div class="meta">Homepage hero · 15–30 s · silent loop</div>
+        <h3>Factory B-roll loop</h3>
+        <p class="small" style="font-size:15px">Full-screen background that replaces the current still. Slow-motion machines, prints coming off the printer, cutting, sewing, structures going up and LED lightboxes switching on.</p>
+        <ul><li>Silent, autoplay, seamless loop</li><li>High frame rate, darker exposure so the white headline reads</li><li>Landscape loop plus a vertical crop for mobile</li></ul>
+      </div>
+      <div class="vcard">
+        <div class="num">02</div><div class="meta">How we make it · 1.5–2 min · interview + B-roll</div>
+        <h3>The fabric process</h3>
+        <p class="small" style="font-size:15px">A team member on camera explains how fabric goes from file to finished piece, intercut with production-floor footage. Plays when a visitor clicks play.</p>
+        <ul><li>Six decades of experience</li><li>Photo-real colour · edge-to-edge printing</li><li>Sharp detail up close · clean audio · subtitles</li></ul>
+      </div>
+      <div class="vcard">
+        <div class="num">03</div><div class="meta">Support · 1–2 min · service rep on camera</div>
+        <h3>Customer service</h3>
+        <p class="small" style="font-size:15px">A customer service rep briefly introduces the service process, shot in McRae’s real service and office area. It replaces the placeholder screenshot on the Support page.</p>
+        <ul><li>One team from start to finish</li><li>Fast response</li><li>Ongoing support after install</li></ul>
+      </div>
+    </div>
+    <div class="allvideo">
+      <b>Requirements for all three videos</b>
+      <span>4K capture</span><span>Web-compressed file + full-resolution master</span><span>High-res poster still for each video</span><span>Landscape 16:9 plus vertical 9:16 where needed</span>
+    </div>
+    <div class="allvideo" style="margin-top:12px">
+      <b>Also included</b>
+      <span>Installation photography at 8 sites (~15 selects each, ~120 total)</span><span>Short video clips at every site for the website and social</span><span>Team and workplace images captured on the factory days</span>
+    </div>
+  </div>
+</section>
+
+<section id="video1">
+  <div class="wrap">
+    <div class="sb-head">
+      <div>
+        <div class="eyebrow"><b>02</b> / Video 1 · Homepage hero</div>
+        <h2>Made together.<br>Seen in a moment.</h2>
+        <p class="lede">A silent, slow-motion factory loop. The action lives on the right of frame and the left side stays dark for McRae’s headline. No audio, captions or interviews needed.</p>
+      </div>
+      <label class="tog"><input type="checkbox" id="cropToggle"> Show 9:16 mobile crop</label>
+    </div>
+    <div class="cards" id="loopCards"></div>
+    <div class="loopspec">
+      <div><b>Length</b>15–30 s seamless loop</div>
+      <div><b>Capture</b>4K, 60–120 fps for slow motion</div>
+      <div><b>Look</b>Darker exposure, cinematic, dark left side</div>
+      <div><b>Delivery</b>16:9 loop + 9:16 mobile crop, poster still</div>
+    </div>
+    <p class="note">Concept drawings. The finished production is live action. Loop beats show the sequence and where the headline sits, not the final look of the factory.</p>
+  </div>
+</section>
+
+<section id="video2">
+  <div class="wrap">
+    <div class="sb-head">
+      <div>
+        <div class="eyebrow"><b>03</b> / Video 2 · How we make it</div>
+        <h2>From first spark<br>to final glow.</h2>
+        <p class="lede">A story of about 1:58, inside the 1.5–2 minute brief. We open on the result, meet the presenter, then follow the fabric from file to finished piece. Every advantage in the brief has a beat.</p>
+      </div>
+    </div>
+    <div class="cards" id="storyCards"></div>
+    <p class="note">These original cartoon scenes communicate framing, emotion and sequence. The finished film is live action. People and spaces are illustrative; final actions and interview wording follow the scout and McRae’s approval. Presenter is to be decided; Bob is the working plan.</p>
+  </div>
+</section>
+
+<section id="video3">
+  <div class="wrap">
+    <div class="sb-head">
+      <div>
+        <div class="eyebrow"><b>04</b> / Video 3 · Support</div>
+        <h2>One team, from the<br>first quote to the last light.</h2>
+        <p class="lede">A service rep introduces McRae’s process in 1:30, filmed at the real customer service and office area so the placeholder screenshot can be replaced with real footage.</p>
+      </div>
+    </div>
+    <div class="cards" id="supportCards"></div>
+    <p class="note">Rep to be decided by McRae. Subtitles included. Client-sensitive artwork and screens are cleared before filming.</p>
+  </div>
+</section>
+
+<section id="voices">
+  <div class="wrap">
+    <div class="eyebrow"><b>05</b> / The conversations</div>
+    <h2>Let the team<br>tell the story.</h2>
+    <p class="lede">Relaxed conversations, not corporate speeches. One interview day covers Video 2 and Video 3. Each subject is also filmed at their own station.</p>
+    <div class="people" id="peopleCards"></div>
+    <div class="two">
+      <div class="qbox">
+        <h3>Presenter · Video 2</h3>
+        <ul>
+          <li>How does a file become a finished fabric piece?</li>
+          <li>What does six decades of experience change in how you print?</li>
+          <li>What does “photo-real colour” mean on the floor?</li>
+          <li>What should a client notice when they look closely?</li>
+        </ul>
+      </div>
+      <div class="qbox">
+        <h3>Service rep · Video 3</h3>
+        <ul>
+          <li>Who will a client talk to, from first quote to final install?</li>
+          <li>How quickly do clients hear back?</li>
+          <li>What happens after the install is done?</li>
+          <li>What is one thing you always double check?</li>
+        </ul>
+      </div>
+    </div>
+    <div class="setup">
+      <div><b>Who</b>2–4 people: Bob, leads McRae picks, and a service rep</div>
+      <div><b>Where</b>A quiet floor corner; the real service desk for Support</div>
+      <div><b>Audio</b>Lav on the speaker, boom as backup, clean enough for subtitles</div>
+      <div><b>Consent</b>Signed release from every employee on camera</div>
+    </div>
+  </div>
+</section>
+
+<section id="photography">
+  <div class="wrap">
+    <div class="eyebrow"><b>06</b> / Installation photography</div>
+    <h2>Eight sites.<br>One consistent collection.</h2>
+    <p class="lede">The same eight compositions at every site, covering wide, medium, material close-up and in-use shots with people. About 15 colour-corrected selects per location, plus short video clips shot at the same time.</p>
+
+    <div class="sitetabs" id="siteTabs"></div>
+    <div class="siteinfo" id="siteInfo"></div>
+    <div class="shots" id="shotGrid"></div>
+    <p class="note">Shared angle references drawn with a generic display. They are not renderings of the stores. Final locations are subject to written permission from each client, especially the auto brands.</p>
+
+    <div class="tablewrap">
+      <table class="route">
+        <thead><tr><th>Photo day</th><th>Window</th><th>Client</th><th>Shot focus</th></tr></thead>
+        <tbody>
+          <tr><td>Day 1</td><td>Before open</td><td>BMW</td><td>Showroom atmosphere + large-format graphics</td></tr>
+          <tr><td>Day 1</td><td>After close</td><td>Volvo</td><td>Showroom atmosphere + large-format graphics</td></tr>
+          <tr><td>Day 2</td><td>Before open</td><td>Lamborghini</td><td>Premium feel, close-up material details</td></tr>
+          <tr><td>Day 2</td><td>After close</td><td>Mazda</td><td>Showroom atmosphere + large-format graphics</td></tr>
+          <tr><td>Day 3</td><td>Before open</td><td>Walmart</td><td>Sense of scale, hanging structures</td></tr>
+          <tr><td>Day 3</td><td>After close</td><td>Best Buy</td><td>In-store displays + lightboxes</td></tr>
+          <tr><td>Day 4</td><td>Before open</td><td>Freedom Mobile</td><td>Full store + lightbox and fabric graphic details</td></tr>
+          <tr><td>Day 4</td><td>After close</td><td>Hisense</td><td>Display area and trade-show structures</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Grouped by site type for now and regrouped by city once addresses are in. Shooting off-peak avoids crowds; staff supply the people for scale. Marketing confirms permission and dates with each client.</p>
+
+    <div class="eyebrow" style="margin-top:64px"><b>06B</b> / The capture standard</div>
+    <div class="std">
+      <div><h3>Perspective</h3><p>Same lens families, same eight angles, same product-to-frame proportions. Front-on frames are square to the graphic with a level camera and corrected verticals. Site one becomes the visual reference.</p></div>
+      <div><h3>Photo baseline</h3><p>Tripod, RAW, manual exposure, ISO 100, f/8 as a starting point. Bracket the lightbox so both the graphic and the room hold detail.</p></div>
+      <div><h3>Colour &amp; light</h3><p>Grey card at every site, custom white balance per lighting setup, polarizer for glare. The graphic never clips to white.</p></div>
+      <div><h3>Motion</h3><p>4K, locked white balance, 30 fps at 1/60 with 60 fps slow-motion details. Test LED flicker before every setup. Horizontal and vertical takes are recorded separately.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="plan">
+  <div class="wrap">
+    <div class="eyebrow"><b>07</b> / Production plan</div>
+    <h2>Clear steps.<br>Room for real life.</h2>
+    <p class="lede">Four photo days and two video days, planned around opening hours, working floors and the people in front of the camera.</p>
+    <div class="steps">
+      <div class="step"><small>WEEK 1</small><h3>Prepare &amp; align</h3><p>Marketing contacts all 8 clients. Angle sheet, storyboards and shot lists signed off. Presenter, rep and team chosen.</p></div>
+      <div class="step"><small>WEEKS 2–3</small><h3>Photo days</h3><p>Two sites a day, grouped by route. Photo selects delivered within 5 business days of each shoot.</p></div>
+      <div class="step"><small>WEEK 3</small><h3>Video days</h3><p>Day 1 interviews, then Day 2 factory B-roll. Footage handed over within 3 business days.</p></div>
+      <div class="step"><small>WEEK 4</small><h3>Post &amp; delivery</h3><p>Mia edits the loop, story film and Support video, with subtitles and exports. Stills and footage handed over.</p></div>
+    </div>
+    <div class="days">
+      <div class="day"><h3>Video day 1 · Interviews</h3><ul>
+        <li><b>08:00</b>Load in, light the interview set</li><li><b>09:00</b>Interview 1 · Bob</li><li><b>10:15</b>Interview 2 · production lead</li><li><b>11:30</b>Interview 3 · lighting lead</li><li><b>12:30</b>Lunch</li><li><b>13:30</b>Interview 4 · service rep at the real desk</li><li><b>14:45</b>Each subject at their station</li><li><b>16:00</b>Wrap, back up cards</li></ul></div>
+      <div class="day"><h3>Video day 2 · Factory B-roll</h3><ul>
+        <li><b>07:00</b>Exterior, lot and reception</li><li><b>08:30</b>Design and colour lab</li><li><b>09:30</b>Print room</li><li><b>11:00</b>Cutting and sewing</li><li><b>13:30</b>Lighting lab</li><li><b>14:30</b>Fabrication and assembly</li><li><b>15:45</b>Packing, shipping and the team</li><li><b>16:45</b>Final pickups, lights out</li></ul></div>
+    </div>
+    <p class="note">Times shift with each site’s hours and with real production activity. Representative jobs are pre-arranged at each station.</p>
+  </div>
+</section>
+
+<section id="investment">
+  <div class="wrap">
+    <div class="eyebrow"><b>08</b> / Your investment · Quote KS-MCR-0928</div>
+    <h2>One fixed fee.<br>Never more.</h2>
+    <p class="lede">A bundled quote for the photography and all three videos, with the split shown for transparency. Retouching and video editing are handled by McRae marketing.</p>
+    <div class="invest">
+      <div class="price">
+        <small>TOTAL PROJECT INVESTMENT · CAD</small>
+        <div class="big">$15,000</div>
+        <p>+ HST · one complete package · the number never goes up</p>
+        <hr>
+        <div class="row"><span>Production fee</span><span>$15,000.00</span></div>
+        <div class="row"><span>HST · 13%</span><span>$1,950.00</span></div>
+        <div class="row"><b>Total including HST</b><b>$16,950.00</b></div>
+        <hr>
+        <div class="row"><span>50% to book the dates</span><span>$8,475.00</span></div>
+        <div class="row"><span>50% on final delivery</span><span>$8,475.00</span></div>
+      </div>
+      <div class="breakdown">
+        <div class="row"><div><b>Site photography</b><span>8 sites, one angle system, about 120 selects, clips at every site</span></div><em>$7,000</em></div>
+        <div class="row"><div><b>Day 1 · Interviews</b><span>2–4 interviews, two cameras, lit and mic’d. Feeds Videos 2 and 3</span></div><em>$2,500</em></div>
+        <div class="row"><div><b>Day 2 · Factory B-roll</b><span>Every department, cinematic, with the team. Feeds the loop and Video 2</span></div><em>$3,500</em></div>
+        <div class="row"><div><b>Voice-over &amp; case study</b><span>Script, direction and recording for How We Make It</span></div><em>$2,000</em></div>
+        <div class="row"><div><b>Extra shoot days</b><span>If it takes longer, that’s on me</span></div><em>$0</em></div>
+        <div class="row"><div><b>Usage rights</b><span>Unlimited, all media, forever</span></div><em>Included</em></div>
+      </div>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Deliverable</th><th>Spec</th><th>Timing</th></tr></thead>
+        <tbody>
+          <tr><td>Shot lists</td><td>One per site and per video, signed off by McRae</td><td>Before each shoot day</td></tr>
+          <tr><td>Photos</td><td>About 15 colour-corrected selects per site, exteriors included; about 120 total. 16:9 and 9:16 for every hero shot</td><td>5 business days after each shoot</td></tr>
+          <tr><td>Video footage</td><td>4K, organized by video and scene; high frame rate for Video 1. Web-compressed and full-resolution masters</td><td>3 business days after video days</td></tr>
+          <tr><td>Poster stills</td><td>High-res stills for each of the three videos</td><td>With the footage</td></tr>
+          <tr><td>Voice-over</td><td>Written script and recorded voice-over for the How We Make It film</td><td>With the footage</td></tr>
+          <tr><td>Team &amp; culture</td><td>Candid photos, team portraits and B-roll of staff at work</td><td>With the footage</td></tr>
+          <tr><td>Usage</td><td>Unlimited: every medium, every channel, forever</td><td>Included</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Equipment, crew and travel are included. Travel beyond the GTA is quoted for approval and billed separately. Quote valid for 30 days from September 28, 2026.</p>
+  </div>
+</section>
+
+<section id="brief">
+  <div class="wrap">
+    <div class="eyebrow"><b>09</b> / Checked against the brief</div>
+    <h2>Everything Mia<br>asked for, in one place.</h2>
+    <p class="lede">Every requirement from the photographer meeting outline (24 September), and where this proposal answers it.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Requirement</th><th>How it’s covered</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ok">✓</span>Three website videos, planned around their placements</td><td>Video 1 homepage hero, Video 2 How We Make It, Video 3 Support. Each has its own storyboard above.</td></tr>
+          <tr><td><span class="ok">✓</span>Video 1: silent, autoplay, looping factory B-roll</td><td>Six-beat slow-motion loop, 15–30 s, dark left side for the headline, 9:16 mobile crop.</td></tr>
+          <tr><td><span class="ok">✓</span>Video 2: team member on camera plus B-roll, 1.5–2 min</td><td>Storyboard runs 1:58 with subtitles and clean lav audio. <span class="tbd">Presenter TBD</span></td></tr>
+          <tr><td><span class="ok">✓</span>Video 2 advantages: six decades, photo-real colour, edge-to-edge printing, sharp detail up close</td><td>Each advantage is tagged on its storyboard beat.</td></tr>
+          <tr><td><span class="ok">✓</span>Video 3: customer service rep, real service/office area, 1–2 min</td><td>Storyboard runs 1:30 at the real desk, replacing the placeholder. <span class="tbd">Rep TBD</span></td></tr>
+          <tr><td><span class="ok">✓</span>Video 3 advantages: one team start to finish, fast response, ongoing support</td><td>One beat for each, plus a Hello introduction.</td></tr>
+          <tr><td><span class="ok">✓</span>All videos in 4K, web-compressed and full-resolution masters, poster stills</td><td>Listed under scope and deliverables.</td></tr>
+          <tr><td><span class="ok">✓</span>Photography shot list: wide, medium, material close-ups, in-use with people</td><td>Eight compositions per site, listed in the photography section.</td></tr>
+          <tr><td><span class="ok">✓</span>Avoid peak hours, after-hours or early-morning shoots</td><td>Every site is scheduled before open or after close.</td></tr>
+          <tr><td><span class="ok">✓</span>Permission and usage rights, especially auto brands</td><td>Marketing confirms written permission first; usage is unlimited and included. Backup: swap in another install.</td></tr>
+          <tr><td><span class="ok">✓</span>Short video clips at the same time for website and social</td><td>Clips at every site, framed to crop to 9:16.</td></tr>
+          <tr><td><span class="ok">✓</span>Group shoots by city or route, four days</td><td>Four photo days, two sites each, regrouped once addresses are in.</td></tr>
+          <tr><td><span class="ok">✓</span>Budget, schedule, deliverable specs</td><td>Bundled quote with a per-project split, indicative schedule and a specs table.</td></tr>
+          <tr><td><span class="ok">✓</span>Post-production handled by Mia</td><td>Mia edits all three videos, subtitles, exports and photo retouching.</td></tr>
+          <tr><td><span class="ok">✓</span>Employee consent to appear on camera</td><td>Signed release from every employee on camera. Fallback: short takes or voice-over over B-roll.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="cta">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#b9c9bf"><b>10</b> / Next steps</div>
+    <h2>Let’s bring it to life.</h2>
+    <p>Approve the plan and quote, confirm the presenter, service rep and primary McRae contact, and arrange the deposit. Then marketing confirms all eight clients and we lock the calendar.</p>
+  </div>
+</div>
+<footer><div class="wrap">Prepared for McRae Imaging · September 28, 2026 · Kevin Sarasom · kevinsarasom.com</div></footer>
+
+<script>
+/* ---------- tiny illustration kit (viewBox 480 x 270) ---------- */
+var _uid = 0;
+function uid(){ return 'u' + (++_uid); }
+
+function art(x, y, w, h){
+  var id = uid();
+  function P(pts, fill){
+    return '<polygon fill="' + fill + '" points="' + pts.map(function(p){ return (x + p[0]*w).toFixed(1) + ',' + (y + p[1]*h).toFixed(1); }).join(' ') + '"/>';
+  }
+  return '<clipPath id="' + id + '"><rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '"/></clipPath><g clip-path="url(#' + id + ')">' +
+    '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" fill="#fbf1dc"/>' +
+    '<circle cx="' + (x + w*.78) + '" cy="' + (y + h*.24) + '" r="' + (h*.1) + '" fill="#f2c56b"/>' +
+    P([[0,.62],[.18,.34],[.34,.58],[.55,.24],[.78,.55],[1,.38],[1,1],[0,1]], '#9db9e0') +
+    P([[0,.78],[.22,.55],[.45,.74],[.66,.5],[1,.72],[1,1],[0,1]], '#4f7fc4') +
+    P([[0,.9],[.3,.72],[.55,.88],[.8,.7],[1,.86],[1,1],[0,1]], '#23478a') +
+    '<polyline fill="none" stroke="#d9a441" stroke-width="' + Math.max(1, w/160) + '" points="' + [[0,.62],[.18,.34],[.34,.58],[.55,.24],[.78,.55],[1,.38]].map(function(p){ return (x + p[0]*w).toFixed(1) + ',' + (y + p[1]*h).toFixed(1); }).join(' ') + '"/>' +
+    '</g>';
+}
+function glowbox(x, y, w, h, on){
+  var g = on === false ? '' : '<ellipse cx="' + (x + w/2) + '" cy="' + (y + h/2) + '" rx="' + (w*.85) + '" ry="' + (h*.95) + '" fill="url(#gGlow)"/>';
+  return g + '<rect x="' + (x-5) + '" y="' + (y-5) + '" width="' + (w+10) + '" height="' + (h+10) + '" rx="3" fill="#dfe3e6" stroke="#aeb5bb"/>' + art(x, y, w, h);
+}
+function person(o){
+  var x = o.x, y = o.y, h = o.h || 170, s = h/170;
+  var skin = o.skin || '#e8b48c', hair = o.hair || '#3a2a20', shirt = o.shirt || '#2f5fa8', pants = o.pants || '#2b3442';
+  var aL = o.armL || [-16,44], aR = o.armR || [16,44];
+  var out = '<g transform="translate(' + x + ',' + y + ') scale(' + (o.flip ? -s : s) + ',' + s + ')">';
+  out += '<rect x="-21" y="-72" width="16" height="72" rx="6" fill="' + pants + '"/><rect x="5" y="-72" width="16" height="72" rx="6" fill="' + pants + '"/>';
+  out += '<ellipse cx="-14" cy="0" rx="13" ry="5" fill="#1f2226"/><ellipse cx="14" cy="0" rx="13" ry="5" fill="#1f2226"/>';
+  out += '<rect x="-25" y="-128" width="50" height="66" rx="14" fill="' + shirt + '"/>';
+  if(o.vest) out += '<rect x="-25" y="-128" width="50" height="66" rx="14" fill="#f0a020" opacity=".92"/><rect x="-25" y="-100" width="50" height="6" fill="#f4f1c8"/>';
+  if(o.apron) out += '<path d="M-19 -122 L19 -122 L21 -62 L-21 -62 Z" fill="' + o.apron + '"/><line x1="-14" y1="-124" x2="-22" y2="-136" stroke="' + o.apron + '" stroke-width="3"/><line x1="14" y1="-124" x2="22" y2="-136" stroke="' + o.apron + '" stroke-width="3"/>';
+  var sl = [-25,-118], sr = [25,-118];
+  out += '<line x1="' + sl[0] + '" y1="' + sl[1] + '" x2="' + (sl[0]+aL[0]) + '" y2="' + (sl[1]+aL[1]) + '" stroke="' + shirt + '" stroke-width="13" stroke-linecap="round"/><circle cx="' + (sl[0]+aL[0]) + '" cy="' + (sl[1]+aL[1]) + '" r="6.5" fill="' + skin + '"/>';
+  out += '<line x1="' + sr[0] + '" y1="' + sr[1] + '" x2="' + (sr[0]+aR[0]) + '" y2="' + (sr[1]+aR[1]) + '" stroke="' + shirt + '" stroke-width="13" stroke-linecap="round"/><circle cx="' + (sr[0]+aR[0]) + '" cy="' + (sr[1]+aR[1]) + '" r="6.5" fill="' + skin + '"/>';
+  out += '<rect x="-6" y="-140" width="12" height="16" fill="' + skin + '"/>';
+  if(o.hairStyle === 'long') out += '<rect x="-22" y="-166" width="44" height="52" rx="18" fill="' + hair + '"/>';
+  out += '<circle cx="0" cy="-150" r="21" fill="' + skin + '"/>';
+  if(o.beard) out += '<path d="M-21 -150 Q-21 -122 0 -122 Q21 -122 21 -150 Q12 -138 0 -138 Q-12 -138 -21 -150Z" fill="' + hair + '"/>';
+  if(o.hairStyle !== 'bald'){
+    out += '<path d="M-22 -152 Q-22 -176 0 -176 Q22 -176 22 -152 Q14 -164 0 -164 Q-14 -164 -22 -152Z" fill="' + hair + '"/>';
+    if(o.hairStyle === 'bun') out += '<circle cx="0" cy="-179" r="9" fill="' + hair + '"/>';
+  }
+  out += '<circle cx="-7" cy="-149" r="2.1" fill="#25201c"/><circle cx="7" cy="-149" r="2.1" fill="#25201c"/><path d="M-7 -140 Q0 -134 7 -140" stroke="#5b2f24" stroke-width="2" fill="none" stroke-linecap="round"/>';
+  if(o.glasses) out += '<circle cx="-8" cy="-149" r="7" fill="none" stroke="#25201c" stroke-width="1.8"/><circle cx="8" cy="-149" r="7" fill="none" stroke="#25201c" stroke-width="1.8"/><line x1="-1" y1="-149" x2="1" y2="-149" stroke="#25201c" stroke-width="1.8"/>';
+  if(o.goggles) out += '<rect x="-16" y="-170" width="32" height="8" rx="4" fill="rgba(190,225,255,.75)" stroke="#5a6b78"/>';
+  if(o.headset) out += '<path d="M-22 -150 Q-22 -180 0 -180 Q22 -180 22 -150" fill="none" stroke="#2a2f36" stroke-width="4"/><rect x="-26" y="-156" width="8" height="14" rx="4" fill="#2a2f36"/><path d="M-22 -142 Q-20 -128 -8 -128" fill="none" stroke="#2a2f36" stroke-width="2.5"/><circle cx="-7" cy="-128" r="3" fill="#2a2f36"/>';
+  out += '</g>';
+  return out;
+}
+function plant(x, y, s){
+  s = s || 1;
+  return '<g transform="translate(' + x + ',' + y + ') scale(' + s + ')"><rect x="-12" y="-26" width="24" height="26" rx="3" fill="#8a6a4a"/><ellipse cx="0" cy="-40" rx="10" ry="24" fill="#3f7a4d"/><ellipse cx="-14" cy="-34" rx="8" ry="20" fill="#4f9060" transform="rotate(-25 -14 -34)"/><ellipse cx="14" cy="-34" rx="8" ry="20" fill="#4f9060" transform="rotate(25 14 -34)"/></g>';
+}
+function bokeh(seed){
+  var out = '', r = seed || 7;
+  for(var i = 0; i < 9; i++){ r = (r * 9301 + 49297) % 233280; var a = r/233280; r = (r * 9301 + 49297) % 233280; var b = r/233280;
+    out += '<circle cx="' + (a*480).toFixed(0) + '" cy="' + (b*120).toFixed(0) + '" r="' + (6 + a*14).toFixed(0) + '" fill="#ffd58a" opacity=".28"/>'; }
+  return out;
+}
+function monitor(x, y, w, h, withArt){
+  return '<rect x="' + (x-5) + '" y="' + (y-5) + '" width="' + (w+10) + '" height="' + (h+10) + '" rx="5" fill="#22282e"/><rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" fill="#e9eef2"/>' +
+    (withArt ? art(x, y, w, h) : '<rect x="' + (x+8) + '" y="' + (y+10) + '" width="' + (w*.5) + '" height="6" rx="3" fill="#b9c3cc"/><rect x="' + (x+8) + '" y="' + (y+24) + '" width="' + (w*.7) + '" height="6" rx="3" fill="#cdd5dc"/><rect x="' + (x+8) + '" y="' + (y+38) + '" width="' + (w*.6) + '" height="6" rx="3" fill="#cdd5dc"/>') +
+    '<rect x="' + (x + w/2 - 5) + '" y="' + (y+h+5) + '" width="10" height="16" fill="#3a434c"/><rect x="' + (x + w/2 - 24) + '" y="' + (y+h+19) + '" width="48" height="5" rx="2" fill="#3a434c"/>';
+}
+function svgWrap(inner){ return '<svg class="scene" viewBox="0 0 480 270" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">' + inner + '</svg>'; }
+
+/* ---------- scenes ---------- */
+var SCENES = {
+  showroom: function(vest){
+    var people = vest
+      ? person({x:410,y:262,h:118,shirt:'#3b4a58',vest:true,hairStyle:'short',hair:'#2a2019',armL:[-10,40],armR:[24,-40]}) + person({x:452,y:262,h:112,shirt:'#3b4a58',vest:true,skin:'#b98560',hair:'#1c1712',armL:[-14,42],armR:[14,44]})
+      : person({x:420,y:262,h:124,shirt:'#33373d',pants:'#232830',hairStyle:'long',hair:'#4a2f22',armL:[-14,44],armR:[14,44]});
+    return svgWrap('<rect width="480" height="270" fill="#efe6d6"/><rect y="190" width="480" height="80" fill="url(#gFloor)"/>' +
+      '<rect x="0" y="0" width="480" height="30" fill="#e5d9c3"/>' + glowbox(70, 42, 340, 138, true) +
+      '<rect x="90" y="196" width="300" height="46" fill="#4f7fc4" opacity=".14"/>' + plant(30, 236, 1.2) + plant(455, 236, 1) + people);
+  },
+  bob: function(){
+    return svgWrap('<rect width="480" height="270" fill="url(#gWarm)"/>' + bokeh(11) +
+      '<rect x="0" y="150" width="480" height="120" fill="#000" opacity=".12"/><rect x="330" y="30" width="120" height="120" rx="3" fill="#000" opacity=".16"/><rect x="345" y="45" width="90" height="60" fill="#e9c88f" opacity=".25"/>' +
+      person({x:230,y:352,h:290,shirt:'#34527f',apron:'#6a4a32',glasses:true,beard:true,hair:'#d9d9d6',skin:'#e2b08a',armL:[-46,20],armR:[46,20]}));
+  },
+  plan: function(){
+    return svgWrap('<rect width="480" height="270" fill="#dfe6ea"/><rect x="0" y="0" width="480" height="60" fill="#cfd9df"/><rect y="215" width="480" height="55" fill="#8e7a64"/>' +
+      monitor(250, 62, 190, 118, true) + person({x:110,y:320,h:255,shirt:'#b0503c',hairStyle:'bun',hair:'#2a1b16',skin:'#d9a27c',armL:[-30,30],armR:[34,-10]}) +
+      person({x:200,y:328,h:262,shirt:'#3c6a5a',glasses:true,hair:'#6a6a6a',armL:[-20,30],armR:[50,-20]}) + '<rect x="0" y="222" width="480" height="8" fill="#6f5d49"/>');
+  },
+  print: function(){
+    return svgWrap('<rect width="480" height="270" fill="#2b3036"/><rect x="24" y="44" width="432" height="96" rx="6" fill="#4b5560"/><rect x="24" y="82" width="432" height="14" fill="#1d2226"/>' +
+      '<rect x="210" y="72" width="44" height="34" rx="4" fill="#f0b429"/><circle cx="232" cy="106" r="3" fill="#fff" opacity=".7"/><circle cx="222" cy="108" r="2" fill="#4f7fc4"/><circle cx="242" cy="108" r="2" fill="#c8402f"/>' +
+      '<path d="M40 140 L440 140 L470 270 L10 270 Z" fill="#fbf1dc"/>' + art(40, 150, 400, 120) + '<rect x="24" y="52" width="10" height="10" fill="#7fe08a"/>' +
+      person({x:440,y:270,h:150,shirt:'#c9d1d8',pants:'#232a33',goggles:true,hair:'#3a2a20',armL:[-34,10],armR:[8,44]}) + '<rect x="380" y="180" width="30" height="20" fill="#4f7fc4" transform="rotate(-12 395 190)"/>');
+  },
+  cut: function(){
+    var scratch = ''; for(var i = 0; i < 14; i++){ scratch += '<line x1="' + (i*37 % 480) + '" y1="' + (20 + (i*53 % 90)) + '" x2="' + ((i*37 % 480) + 40) + '" y2="' + (28 + (i*53 % 90)) + '" stroke="#5a5f66" stroke-width="1"/>'; }
+    return svgWrap('<rect width="480" height="270" fill="#3a3d42"/>' + scratch + art(0, 128, 480, 142) +
+      '<line x1="0" y1="150" x2="268" y2="132" stroke="#151515" stroke-width="3"/><rect x="0" y="146" width="268" height="6" fill="#fbf1dc" opacity=".75" transform="rotate(-3.8 0 146)"/>' +
+      '<polygon points="205,64 335,26 346,52 268,140" fill="#cfd4d9" stroke="#8a9199"/><polygon points="205,64 268,140 250,120" fill="#eef1f4"/><circle cx="318" cy="46" r="7" fill="#9aa2a9" stroke="#6b7278"/><rect x="330" y="2" width="90" height="38" rx="4" fill="#25292e" transform="rotate(-17 375 21)"/>' +
+      '<g><circle cx="410" cy="215" r="52" fill="#6b7178"/><clipPath id="cutInset"><circle cx="410" cy="215" r="50"/></clipPath><g clip-path="url(#cutInset)"><rect x="350" y="215" width="120" height="60" fill="#4a4f55"/>' + person({x:410,y:305,h:150,shirt:'#3c6a5a',hair:'#2a1b16',goggles:true,armL:[-30,20],armR:[30,20]}) + '</g><circle cx="410" cy="215" r="51" fill="none" stroke="#fff" stroke-width="2.5"/></g>');
+  },
+  sew: function(){
+    return svgWrap('<rect width="480" height="270" fill="#d8dde2"/><rect x="0" y="0" width="480" height="30" fill="#c5ccd3"/>' + art(0, 176, 480, 94) +
+      '<path d="M-10 214 Q240 178 490 200" fill="none" stroke="#f4f4ef" stroke-width="38" stroke-linecap="round"/><path d="M-10 214 Q240 178 490 200" fill="none" stroke="#8b8b85" stroke-width="2" stroke-dasharray="7 6"/>' +
+      '<rect x="292" y="8" width="26" height="110" fill="#b8bec4" stroke="#8a9199"/><polygon points="286,118 326,118 330,150 282,150" fill="#8f979e"/><line x1="305" y1="150" x2="305" y2="204" stroke="#555" stroke-width="3"/><path d="M305 8 Q340 60 360 20" fill="none" stroke="#c8402f" stroke-width="2"/>' +
+      '<ellipse cx="210" cy="212" rx="46" ry="18" fill="#e8b48c"/><g stroke="#e8b48c" stroke-width="9" stroke-linecap="round"><line x1="240" y1="205" x2="282" y2="200"/><line x1="240" y1="214" x2="284" y2="210"/></g><ellipse cx="390" cy="218" rx="44" ry="16" fill="#e8b48c"/><g stroke="#e8b48c" stroke-width="9" stroke-linecap="round"><line x1="362" y1="212" x2="332" y2="206"/></g>');
+  },
+  feed: function(){
+    return svgWrap('<rect width="480" height="270" fill="#1d2329"/><rect x="300" y="30" width="180" height="70" rx="6" fill="#4b5560"/><rect x="300" y="88" width="180" height="10" fill="#111519"/>' +
+      '<path d="M300 98 L480 98 L480 270 L200 270 Z" fill="#fbf1dc"/>' + art(230, 130, 250, 140) +
+      '<ellipse cx="270" cy="252" rx="60" ry="12" fill="#000" opacity=".25"/><rect x="316" y="44" width="10" height="10" fill="#7fe08a"/>' +
+      person({x:236,y:270,h:120,shirt:'#c9d1d8',goggles:true,hair:'#3a2a20',armL:[-10,44],armR:[26,-30]}));
+  },
+  led: function(){
+    var leds = ''; for(var i = 0; i < 9; i++){ var cx = 90 + i*24; leds += '<circle cx="' + cx + '" cy="150" r="15" fill="rgba(255,220,120,.33)"/><circle cx="' + cx + '" cy="150" r="5" fill="#fff7c2"/>'; }
+    return svgWrap('<rect width="480" height="270" fill="#1c2530"/><rect y="205" width="480" height="65" fill="#3a2f26"/><rect x="60" y="112" width="264" height="92" rx="4" fill="#1f6b4a"/>' +
+      '<g stroke="#b6e3c8" stroke-width="1.5" fill="none"><path d="M70 130 H150 V180 H250"/><path d="M80 195 H210 V170"/><path d="M300 125 V190"/></g>' + leds +
+      '<rect x="326" y="132" width="26" height="40" rx="3" fill="#cfd4d9"/><line x1="352" y1="150" x2="430" y2="120" stroke="#888" stroke-width="3"/>' +
+      person({x:410,y:290,h:215,shirt:'#e6e9ec',goggles:true,hair:'#2a1b16',skin:'#c99a76',armL:[-46,40],armR:[-40,-10]}));
+  },
+  structure: function(peopleOn){
+    var p = peopleOn === false ? '' : person({x:64,y:285,h:215,shirt:'#3c6a5a',hair:'#2a1b16',goggles:true,armL:[8,44],armR:[52,-72]}) + person({x:418,y:285,h:215,shirt:'#b0503c',hair:'#8a5a2a',flip:true,skin:'#d9a27c',armL:[8,44],armR:[52,-72]});
+    return svgWrap('<rect width="480" height="270" fill="#cfd6da"/><rect y="205" width="480" height="65" fill="#8e7a64"/><rect y="200" width="480" height="8" fill="#6f5d49"/>' +
+      '<rect x="114" y="52" width="252" height="140" fill="none" stroke="#b9c0c6" stroke-width="14"/><rect x="114" y="52" width="252" height="140" fill="none" stroke="#e9edf0" stroke-width="3"/>' +
+      '<g fill="#7d868d"><rect x="104" y="42" width="26" height="26"/><rect x="350" y="42" width="26" height="26"/><rect x="104" y="176" width="26" height="26"/><rect x="350" y="176" width="26" height="26"/></g>' + p);
+  },
+  assemble: function(){
+    return svgWrap('<rect width="480" height="270" fill="#dfe3e6"/><rect y="215" width="480" height="55" fill="#8e7a64"/>' + art(92, 48, 296, 160) +
+      '<rect x="86" y="42" width="308" height="172" fill="none" stroke="#aab1b8" stroke-width="14"/><rect x="86" y="42" width="308" height="172" fill="none" stroke="#f6f7f8" stroke-width="2"/>' +
+      '<ellipse cx="392" cy="128" rx="20" ry="11" fill="#e8b48c"/><line x1="392" y1="128" x2="440" y2="160" stroke="#e8b48c" stroke-width="14" stroke-linecap="round"/>' +
+      person({x:448,y:330,h:250,shirt:'#3b5b85',hair:'#2a1b16',goggles:true,armL:[-70,-118],armR:[-60,-80]}) + '<circle cx="48" cy="40" r="20" fill="#2b7a4b"/><polyline points="38,40 46,48 59,32" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>');
+  },
+  reveal: function(){
+    return svgWrap('<rect width="480" height="270" fill="#232a31"/>' + bokeh(5) + glowbox(105, 26, 270, 138, true) + '<rect y="212" width="480" height="58" fill="#3a2f26"/>' +
+      person({x:150,y:270,h:128,shirt:'#3c6a5a',hair:'#2a1b16',armL:[-14,44],armR:[22,-46]}) + person({x:240,y:274,h:134,shirt:'#b0503c',hairStyle:'bun',hair:'#2a1b16',skin:'#d9a27c',armL:[-20,36],armR:[20,36]}) +
+      person({x:330,y:270,h:128,shirt:'#3b5b85',hair:'#7a6a5a',armL:[-14,44],armR:[14,44]}));
+  },
+  closing: function(){
+    return svgWrap('<rect width="480" height="270" fill="#efe6d6"/><rect y="200" width="480" height="70" fill="url(#gFloor)"/>' + glowbox(150, 20, 180, 96, true) +
+      person({x:70,y:262,h:108,shirt:'#3c6a5a',hair:'#2a1b16',armL:[-12,42],armR:[12,42]}) + person({x:150,y:262,h:112,shirt:'#b0503c',hairStyle:'bun',hair:'#2a1b16',skin:'#d9a27c',armL:[-12,42],armR:[12,42]}) +
+      person({x:240,y:262,h:114,shirt:'#34527f',apron:'#6a4a32',glasses:true,beard:true,hair:'#d9d9d6',armL:[-12,42],armR:[12,42]}) + person({x:330,y:262,h:110,shirt:'#3b5b85',skin:'#b98560',hair:'#1c1712',armL:[-12,42],armR:[12,42]}) +
+      person({x:410,y:262,h:108,shirt:'#7a5a86',hairStyle:'long',hair:'#4a2f22',armL:[-12,42],armR:[12,42]}) +
+      '<rect x="180" y="238" width="120" height="22" rx="4" fill="rgba(255,255,255,.7)" stroke="#8a8a80" stroke-dasharray="4 3"/><text x="240" y="253" text-anchor="middle" font-family="Instrument Sans,sans-serif" font-size="10" font-weight="700" fill="#5d645f">END CARD · LOGO + WEBSITE</text>');
+  },
+  /* support */
+  desk: function(pose){
+    var arm = pose === 'wave' ? {armL:[-16,44], armR:[40,-52]} : pose === 'phone' ? {armL:[-16,44], armR:[-6,-64]} : {armL:[-22,30], armR:[28,30]};
+    return svgWrap('<rect width="480" height="270" fill="#e9edf0"/><rect x="330" y="20" width="120" height="110" fill="#bfe0f5"/><line x1="390" y1="20" x2="390" y2="130" stroke="#e9edf0" stroke-width="4"/><rect y="0" width="480" height="18" fill="#d5dbe0"/>' +
+      '<rect y="212" width="480" height="58" fill="#8e7a64"/>' + person({x:240,y:325,h:262,shirt:'#6a5aa6',headset:true,hair:'#2a1b16',skin:'#d9a27c',hairStyle:'bun',armL:arm.armL,armR:arm.armR}) + '<rect y="206" width="480" height="10" fill="#6f5d49"/>');
+  },
+  proofs: function(){
+    return svgWrap('<rect width="480" height="270" fill="#e9edf0"/><rect y="212" width="480" height="58" fill="#8e7a64"/>' + monitor(40, 46, 190, 118, true) + monitor(250, 46, 190, 118, false) +
+      '<g fill="#cdd5dc"><rect x="262" y="60" width="80" height="6" rx="3"/></g><circle cx="270" cy="96" r="6" fill="#2b7a4b"/><rect x="282" y="92" width="120" height="7" rx="3" fill="#b9c3cc"/><circle cx="270" cy="120" r="6" fill="#2b7a4b"/><rect x="282" y="116" width="100" height="7" rx="3" fill="#b9c3cc"/><circle cx="270" cy="144" r="6" fill="#d9a441"/><rect x="282" y="140" width="130" height="7" rx="3" fill="#b9c3cc"/>' +
+      '<rect y="206" width="480" height="10" fill="#6f5d49"/><rect x="60" y="226" width="60" height="16" fill="#f7f4ec" transform="rotate(-6 90 234)"/><rect x="72" y="228" width="60" height="16" fill="#fff" transform="rotate(4 100 236)"/>');
+  },
+  clock: function(){
+    return svgWrap('<rect width="480" height="270" fill="#e9edf0"/><rect y="212" width="480" height="58" fill="#8e7a64"/><circle cx="80" cy="70" r="40" fill="#fff" stroke="#22282e" stroke-width="5"/><line x1="80" y1="70" x2="80" y2="42" stroke="#22282e" stroke-width="4" stroke-linecap="round"/><line x1="80" y1="70" x2="100" y2="80" stroke="#c8642b" stroke-width="4" stroke-linecap="round"/>' +
+      '<rect x="360" y="46" width="90" height="70" rx="8" fill="#fff" stroke="#b9c3cc"/><polyline points="378,82 396,100 432,62" fill="none" stroke="#2b7a4b" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>' +
+      person({x:240,y:325,h:262,shirt:'#6a5aa6',headset:true,hair:'#2a1b16',skin:'#d9a27c',hairStyle:'bun',armL:[-16,44],armR:[-6,-64]}) + '<rect y="206" width="480" height="10" fill="#6f5d49"/>');
+  }
+};
+
+/* ---------- data ---------- */
+function frameHTML(sceneSvg, num, time, crop){
+  return '<div class="frame">' + sceneSvg + '<span class="badge">' + num + '</span><span class="time">' + time + '</span>' + (crop ? '<div class="crop9"></div>' : '') + '</div>';
+}
+function cardHTML(c, crop){
+  var chips = c.chips ? '<div class="chips">' + c.chips.map(function(t){ return '<span class="chip">' + t + '</span>'; }).join('') + '</div>' : '';
+  var notes = c.camera ? '<details><summary>Camera, sound &amp; production notes</summary><dl><div><dt>Camera</dt><dd>' + c.camera + '</dd></div><div><dt>Story &amp; sound</dt><dd>' + c.story + '</dd></div></dl></details>' : '';
+  return '<article class="card">' + frameHTML(c.scene, c.n, c.t, crop) + '<div class="body"><h3>' + c.title + '</h3><p>' + c.text + '</p>' + chips + '</div>' + notes + '<div class="foot">' + c.foot + '</div></article>';
+}
+
+var LOOP = [
+  {n:'01', t:'00:00–00:04', title:'Colour in motion', text:'A lateral slider move follows the printhead across the fabric. Action stays right of frame, with the left side dark for the headline.', foot:'SLIDER · 120 FPS · SLOW MOTION', camera:'Slider, horizontal and vertical, smooth and slow. Expose darker; frame a bold blue area that can match the closing shot.', story:'Silent. No audio needed.', scene:SCENES.print()},
+  {n:'02', t:'00:04–00:08', title:'Prints coming off the printer', text:'Locked frame as the finished print feeds out, colour saturated against a dark room.', foot:'LOCKED · 120 FPS', camera:'Locked-off wide, slow motion, keep the print edge on the right third.', story:'Silent loop.', scene:SCENES.feed()},
+  {n:'03', t:'00:08–00:12', title:'Fabric being cut', text:'Top-down on the table as the cutter traces the graphic’s contour.', foot:'TOP DOWN · 60 FPS', camera:'Overhead or elevated view from a safe position. Cut on the movement so the sequence feels musical.', story:'Silent loop.', scene:SCENES.cut()},
+  {n:'04', t:'00:12–00:16', title:'Edges being sewn', text:'Macro on the needle and silicone edge with fingers guiding the seam.', foot:'MACRO · 120 FPS', camera:'Macro, high frame rate only after a lighting test. Prioritize a clean, readable hand movement.', story:'Silent loop.', scene:SCENES.sew()},
+  {n:'05', t:'00:16–00:20', title:'Structures being built', text:'A slow orbit around a frame as two coworkers align the corners together.', foot:'ORBIT · 60 FPS', camera:'Controlled gimbal or slider orbit. Show one clear exchange and a shared check of the corner.', story:'Silent loop.', scene:SCENES.structure()},
+  {n:'06', t:'00:20–00:24', title:'Lightboxes switching on', text:'Slow pullback as the finished lightbox glows. The final image reconnects to the opening frame for a seamless loop.', foot:'PULL BACK · 60 FPS · LOOPS TO 01', camera:'Locked exposure, slow pullback, preserve graphic colour. Match colour, speed and direction to beat 01.', story:'No fade to black. The last frame flows into the first.', scene:SCENES.reveal()}
+];
+
+var STORY = [
+  {n:'01', t:'0:00–0:08', title:'The result. Before the process.', text:'A finished lightbox fills the frame. A person passes through the showroom, giving the installation scale. Cut from the glowing surface to the hands that made it.', foot:'INSTALLATION DAY · HERO FILM + HOMEPAGE', camera:'Low, slow push toward the installation; close detail of the illuminated fabric.', story:'Open on room tone and a subtle switch-on. The presenter’s strongest thought about what McRae stands for begins over the image.', scene:SCENES.showroom()},
+  {n:'02', t:'0:08–0:20', title:'Meet the person behind it.', text:'Bob sits in a calm, beautifully lit corner of the facility, then we cut to him walking the floor and talking naturally with the team.', chips:['Six decades of experience'], foot:'INTERVIEW DAY · PRESENTER + TEAM', camera:'Two interview angles: medium portrait and tighter three-quarter. Moving coverage at eye level.', story:'Says: six decades of fabric printing. Use the presenter’s own words, not a memorized script.', scene:SCENES.bob()},
+  {n:'03', t:'0:20–0:32', title:'An idea becomes a plan.', text:'A designer and department lead review artwork together, checking colour and the intended installation. The human exchange matters as much as the screen.', foot:'FACTORY DAY · DESIGN / PREPRESS', camera:'Over-the-shoulder artwork view; close-up of a hand marking a proof; two-person reaction.', story:'Says: how artwork becomes a print. The lead explains how the team turns a client’s idea into a workable result.', scene:SCENES.plan()},
+  {n:'04', t:'0:32–0:45', title:'Colour comes to life.', text:'Begin wide, then move into extreme close-up: colour settling into the fabric weave, the print passing the lens, an operator checking the approved reference.', chips:['Photo-real colour'], foot:'FACTORY DAY · PRINT', camera:'Wide establishing shot, lateral printhead move, macro fabric and a clean operator portrait.', story:'Layer printer rhythm beneath the music. Theme: what quality looks like at this stage.', scene:SCENES.print()},
+  {n:'05', t:'0:45–0:56', title:'Every edge matters.', text:'An extreme close-up follows the cutting edge through the printed fabric. Pull out briefly for the craftsperson and the table, then return to the freshly cut edge.', foot:'FACTORY DAY · CUTTING', camera:'Overhead or elevated view of the table; tight hands and blade detail from a safe position.', story:'Says: cutting and edge finishing. Let the cutting sound punctuate the edit.', scene:SCENES.cut()},
+  {n:'06', t:'0:56–1:08', title:'Craft you can see.', text:'Needle, thread and silicone edge fill the frame. Follow the seam being formed, then reveal the craftsperson guiding it through the machine.', chips:['Edge-to-edge printing'], foot:'FACTORY DAY · SEWING', camera:'Macro needle and seam; medium profile of the craftsperson; hands inspecting the finish.', story:'Natural sewing rhythm. A lead describes what customers may never notice, but the team always checks.', scene:SCENES.sew()},
+  {n:'07', t:'1:08–1:18', title:'Built for the right light.', text:'Start inches from an LED diode and connector. A lighting specialist tests the assembly; a wider portrait connects the detail to the person doing the work.', foot:'FACTORY DAY · LIGHTING', camera:'Bench-wide shot; component detail; controlled lights-on shot with exposure held for the LEDs.', story:'Says: frames and edge-to-edge print. Confirm actual testing steps during the scout.', scene:SCENES.led()},
+  {n:'08', t:'1:18–1:28', title:'The structure takes shape.', text:'Macro views of the corner joint and brushed aluminum establish precision. Two coworkers align the full frame together at the bench.', foot:'FACTORY DAY · FABRICATION', camera:'Wide workshop context, close corner joint, hands measuring and tightening. PPE stays in frame where required.', story:'Tool sounds carry the transition. Theme: how departments depend on one another.', scene:SCENES.structure()},
+  {n:'09', t:'1:28–1:38', title:'Everything comes together.', text:'A worker seats the silicone edge into the frame. The graphic becomes taut; the team checks corners and the finished face.', foot:'FACTORY DAY · ASSEMBLY / QUALITY', camera:'Macro edge insertion; medium tensioning shot; move from a detail to the full assembled piece.', story:'Build anticipation with a quieter moment. A lead describes the final check before a piece leaves.', scene:SCENES.assemble()},
+  {n:'10', t:'1:38–1:48', title:'The reveal.', text:'The finished lightbox switches on. Hold the full result, then move in close on the print for an honest reaction from the people who made it.', chips:['Sharp detail up close'], foot:'FACTORY DAY · HERO MOMENT', camera:'Locked before-and-after framing; slow pullback; a natural team reaction rather than a staged celebration.', story:'Switch click, a beat of room sound, then the music opens up. Says: photo-real colour, sharp detail.', scene:SCENES.reveal()},
+  {n:'11', t:'1:48–1:58', title:'Leave them with the people.', text:'Return to the finished display, then the team around their work. End with McRae’s approved logo and website.', foot:'FACTORY + INSTALLATION DAYS · CLOSING', camera:'Wide team composition; small candid moments; clean final installation frame with space for the end card.', story:'The presenter’s closing thought about the company’s philosophy. Resolve the music and hold the end card for readability.', scene:SCENES.closing()}
+];
+
+var SUPPORT = [
+  {n:'01', t:'0:00–0:15', title:'Hello.', text:'The rep introduces themselves and the support team, seated at the real desk with the working office behind them.', foot:'SERVICE DESK · INTRODUCTION', camera:'Medium portrait, eye level, real office light. Second angle a little tighter.', story:'Says: who the support team is. Warm and unscripted.', scene:SCENES.desk('wave')},
+  {n:'02', t:'0:15–0:40', title:'One team, start to finish.', text:'Proofs and quotes on screen show the journey from first quote to final install, all handled by the same people.', chips:['One team from start to finish'], foot:'SERVICE DESK · B-ROLL', camera:'Over-the-shoulder on screen; close on a proof being approved; cut back to the rep.', story:'Says: first quote to final install. Clean audio for subtitles.', scene:SCENES.proofs()},
+  {n:'03', t:'0:40–1:05', title:'Fast response.', text:'The rep answers a call, then an email. A clock and a checkmark say the rest without needing a number.', chips:['Fast response'], foot:'SERVICE DESK · B-ROLL', camera:'Natural, candid coverage: calls being answered, inbox, a quick reply going out.', story:'Says: how quickly clients hear back. Use real habits, not a rehearsed claim.', scene:SCENES.clock()},
+  {n:'04', t:'1:05–1:30', title:'After the install.', text:'The crew on site as the lights switch on, then back to the rep confirming that support continues after the job is done.', chips:['Ongoing support after install'], foot:'SERVICE DESK + INSTALL FOOTAGE', camera:'Install-day footage from the photo shoots, then a closing portrait of the rep.', story:'Says: ongoing support and refreshes. End on the rep and the McRae end card.', scene:SCENES.showroom(true)}
+];
+
+var PEOPLE = [
+  {name:'Bob Murray', role:'CEO. The story since 1997, and why everything stays in-house.', tag:'Video 2 · presenter (working plan)', svg:svgWrap('<rect width="480" height="270" fill="url(#gWarm)"/>' + person({x:240,y:344,h:280,shirt:'#34527f',apron:'#6a4a32',glasses:true,beard:true,hair:'#d9d9d6',skin:'#e2b08a',armL:[-40,26],armR:[40,26]}))},
+  {name:'Production lead', role:'What “under one roof” means on the floor, day to day.', tag:'Video 2 · interview bites', svg:svgWrap('<rect width="480" height="270" fill="#c9d1d8"/>' + person({x:240,y:344,h:280,shirt:'#3c6a5a',apron:'#8a7a6a',goggles:true,hair:'#2a1b16',armL:[-30,30],armR:[30,30]}))},
+  {name:'Lighting lead', role:'Building the LEDs here, and why the glow looks different.', tag:'Video 2 · interview bites', svg:svgWrap('<rect width="480" height="270" fill="#1c2530"/><ellipse cx="240" cy="130" rx="220" ry="130" fill="url(#gGlow)" opacity=".55"/>' + person({x:240,y:344,h:280,shirt:'#e6e9ec',goggles:true,hair:'#3a2a20',skin:'#c99a76',armL:[-30,30],armR:[30,30]}))},
+  {name:'Service rep', role:'First call to final install. Feeds the Support video.', tag:'Video 3 · on camera · rep TBD', svg:svgWrap('<rect width="480" height="270" fill="#e9edf0"/>' + person({x:240,y:344,h:280,shirt:'#6a5aa6',headset:true,hair:'#2a1b16',hairStyle:'bun',skin:'#d9a27c',armL:[-30,30],armR:[30,30]}))}
+];
+
+var SITES = [
+  {name:'BMW', day:'Day 1 · before open', focus:'Showroom atmosphere + large-format graphics', note:'Keep the car and showroom secondary to the graphic. Use the large installation as the anchor.'},
+  {name:'Volvo', day:'Day 1 · after close', focus:'Showroom atmosphere + large-format graphics', note:'Repeat the same front-on proportion and paired side angles, managing glass and floor reflections.'},
+  {name:'Lamborghini', day:'Day 2 · before open', focus:'Premium feel, close-up material details', note:'Extra material detail: frames, silicone edges and fabric weave in raking light. Permission comes first.'},
+  {name:'Mazda', day:'Day 2 · after close', focus:'Showroom atmosphere + large-format graphics', note:'Match the BMW and Volvo treatment while adapting to the actual display and clear floor space.'},
+  {name:'Walmart', day:'Day 3 · before open', focus:'Sense of scale, hanging structures', note:'Show scale on the hanging structures. Use an accessible parallel viewpoint for overhead work and correct verticals.'},
+  {name:'Best Buy', day:'Day 3 · after close', focus:'In-store displays + lightboxes', note:'Keep adjacent screens from dominating the frame. Match the displayed graphic’s colour and common proportions.'},
+  {name:'Freedom Mobile', day:'Day 4 · before open', focus:'Full store + lightbox and fabric graphic details', note:'Use the display centre as the camera-height reference. Keep the same clean proportions in a smaller footprint.'},
+  {name:'Hisense', day:'Day 4 · after close', focus:'Display area and trade-show structures', note:'Apply the same framing to the confirmed display. Access and installation type are checked in pre-production.'}
+];
+
+var COMPS = [
+  {k:'context', t:'Wide · context', d:'Camera square to the display; enough setting to locate it.', lens:'24–35 mm · level camera', use:'Website · sales'},
+  {k:'hero', t:'Medium · hero', d:'Move closer on the same axis. Centre the graphic, edges parallel.', lens:'35–50 mm · straight verticals', use:'Website · project covers'},
+  {k:'left', t:'Left 30°', d:'A modest left-side angle to reveal depth.', lens:'35–50 mm · repeatable oblique', use:'Website'},
+  {k:'right', t:'Right 30°', d:'Mirror the left angle at a comparable distance and height.', lens:'35–50 mm · paired perspective', use:'Website'},
+  {k:'tight', t:'Front-on · tight', d:'A closer square view isolates the image with a small border.', lens:'50–85 mm · controlled crop', use:'Sales decks'},
+  {k:'fabric', t:'Close-up · fabric', d:'Print detail and fabric surface without stretching perspective.', lens:'90–105 mm macro', use:'Website · sales'},
+  {k:'edge', t:'Close-up · construction', d:'The edge, corner or mounting junction shows the finish.', lens:'90–105 mm macro', use:'Website · sales'},
+  {k:'use', t:'Wide · in use, with people', d:'Return to the hero axis with a person for scale where permitted.', lens:'Hero lens · people for scale', use:'Website · sales'}
+];
+
+function compScene(k){
+  var room = '<rect width="480" height="300" fill="#e7dfcf"/><rect y="200" width="480" height="100" fill="url(#gFloor)"/>';
+  switch(k){
+    case 'context': return svgWrap(room + '<g transform="translate(140,70) scale(.5)">' + glowbox(70, 42, 340, 138, true) + '</g>' + plant(60, 240, 1) + plant(430, 240, 1));
+    case 'hero': return svgWrap(room + glowbox(60, 36, 360, 150, true));
+    case 'left': return svgWrap(room + '<g transform="translate(60,10) skewY(6)">' + glowbox(70, 46, 330, 130, true) + '</g>');
+    case 'right': return svgWrap(room + '<g transform="translate(20,60) skewY(-6)">' + glowbox(70, 46, 330, 130, true) + '</g>');
+    case 'tight': return svgWrap('<rect width="480" height="300" fill="#dfe3e6"/>' + art(30, 22, 420, 238));
+    case 'fabric': {
+      var weave = ''; for(var i = 0; i < 30; i++){ weave += '<line x1="0" y1="' + (i*10) + '" x2="480" y2="' + (i*10) + '" stroke="#1d3f7a" stroke-width="3" opacity=".55"/><line x1="' + (i*16) + '" y1="0" x2="' + (i*16) + '" y2="300" stroke="#8fb0de" stroke-width="3" opacity=".55"/>'; }
+      return svgWrap('<rect width="480" height="300" fill="#3b6db5"/>' + weave + '<path d="M0 210 Q160 100 300 180 T480 120" fill="none" stroke="#d9a441" stroke-width="7"/>');
+    }
+    case 'edge': return svgWrap('<rect width="480" height="300" fill="#cfd4d8"/>' + art(0, 90, 480, 210) + '<path d="M-20 100 Q240 60 500 100" fill="none" stroke="#f4f4ef" stroke-width="46"/><path d="M-20 100 Q240 60 500 100" fill="none" stroke="#8b8b85" stroke-width="2" stroke-dasharray="8 6"/><rect x="0" y="0" width="480" height="60" fill="#aab1b8"/>');
+    case 'use': return svgWrap(room + glowbox(60, 36, 360, 150, true) + person({x:390,y:270,h:130,shirt:'#33373d',pants:'#232830',hairStyle:'long',hair:'#4a2f22'}));
+  }
+}
+
+/* ---------- render ---------- */
+document.getElementById('loopCards').innerHTML = LOOP.map(function(c){ return cardHTML(c, true).replace('<div class="body">', '<div class="body">'); }).join('');
+document.getElementById('storyCards').innerHTML = STORY.map(function(c){ return cardHTML(c, false); }).join('');
+document.getElementById('supportCards').innerHTML = SUPPORT.map(function(c){ return cardHTML(c, false); }).join('');
+
+/* loop frames: dark headline side + dashed headline box */
+(function(){
+  var frames = document.querySelectorAll('#loopCards .frame');
+  frames.forEach(function(f){
+    var svg = f.querySelector('svg');
+    svg.insertAdjacentHTML('beforeend', '<rect width="480" height="270" fill="url(#gDarkL)"/><rect x="26" y="88" width="190" height="60" rx="4" fill="none" stroke="#fff" stroke-opacity=".55" stroke-dasharray="5 4"/><text x="121" y="123" text-anchor="middle" font-family="Instrument Sans,sans-serif" font-size="12" font-weight="700" letter-spacing="2" fill="#fff" fill-opacity=".8">HEADLINE SPACE</text>');
+  });
+})();
+
+document.getElementById('peopleCards').innerHTML = PEOPLE.map(function(p){
+  return '<div class="person">' + p.svg.replace('class="scene"', 'class="scene" style="aspect-ratio:16/9"') + '<div><b>' + p.name + '</b><span>' + p.role + '</span><br><i>' + p.tag + '</i></div></div>';
+}).join('');
+
+document.getElementById('cropToggle').addEventListener('change', function(e){ document.body.classList.toggle('show-crop', e.target.checked); });
+
+/* photography site tabs */
+var tabs = document.getElementById('siteTabs'), info = document.getElementById('siteInfo'), grid = document.getElementById('shotGrid');
+tabs.innerHTML = SITES.map(function(s, i){ return '<button type="button" data-i="' + i + '" aria-pressed="' + (i === 0) + '">' + s.name + '</button>'; }).join('');
+function showSite(i){
+  var s = SITES[i];
+  Array.prototype.forEach.call(tabs.children, function(b, j){ b.setAttribute('aria-pressed', j === i); });
+  info.innerHTML = '<div><div class="eyebrow" style="margin-bottom:6px">Site ' + String(i+1).padStart(2, '0') + ' of 08</div><h3>' + s.name + '</h3><p style="margin-top:8px;color:var(--muted)">' + s.note + '</p></div>' +
+    '<div class="kv"><div><b>Shoot window</b>' + s.day + '</div><div><b>Focus</b>' + s.focus + '</div><div><b>Selects</b>~15 photos + short video clips</div><div><b>Permission</b>Written, via McRae marketing</div></div>';
+  grid.innerHTML = COMPS.map(function(c, n){
+    return '<div class="shot"><div class="frame">' + compScene(c.k) + '<span class="badge" style="left:8px;bottom:8px;padding:3px 8px;font-size:12px">0' + (n+1) + '</span></div><div class="body"><b>' + s.name + ' · ' + c.t + '</b><p>' + c.d + '</p><small>' + c.lens + '</small></div></div>';
+  }).join('');
+}
+tabs.addEventListener('click', function(e){ var b = e.target.closest('button'); if(b) showSite(+b.dataset.i); });
+showSite(0);
+</script>
+</body>
+</html>
